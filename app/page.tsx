@@ -1,5 +1,5 @@
-import { inter } from "./ui/fonts"
+import { publicSans } from "./ui/fonts"
 
 export default function Home() {
-  return <div className={`${inter.className}`}>Home</div>
+  return <div className={`${publicSans.className}`}>Home</div>
 }
