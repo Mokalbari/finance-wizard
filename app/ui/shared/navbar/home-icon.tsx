@@ -1,10 +1,9 @@
 import { SVGProps } from "@/app/lib/definitions"
-import clsx from "clsx"
 
 export default function HomeIcon({ sizes = "24", className }: SVGProps) {
   return (
     <svg
-      className={clsx("fill-grey-300", `${className}`)}
+      className={`${className}`}
       // fill="none"
       height={sizes}
       viewBox="0 0 18 19"
