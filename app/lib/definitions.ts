@@ -48,14 +48,6 @@ export const colorPaletteArray = [
 ]
 
 export type SVGProps = {
-  sizes: string
+  sizes?: string
   className?: string
-  fill: string
-}
-
-export type SVGPropsWH = {
-  width: string
-  height: string
-  className?: string
-  fill: string
 }
