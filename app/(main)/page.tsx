@@ -4,6 +4,7 @@ import OverviewGrid from "./_components/overview-grid"
 import PotsSection from "./_components/pots-section"
 import CardLayout from "./_components/card-layout"
 import TransactionSection from "./_components/transaction-section"
+import BillsSection from "./_components/bills-section"
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       </CardLayout>
       <CardLayout className="mt-8">
         <BudgetSection />
+      </CardLayout>
+      <CardLayout className="mt-8">
+        <BillsSection />
       </CardLayout>
     </div>
   )
