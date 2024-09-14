@@ -1,4 +1,5 @@
 "use client"
+
 // Hooks
 import { useState } from "react"
 import useScreenSize from "@/app/hooks/useScreenSize"
@@ -6,21 +7,19 @@ import { usePathname } from "next/navigation"
 
 // Utils
 import clsx from "clsx"
-
-// Components
+import Link from "next/link"
 
 // Icons - SVG
+import Logo from "./logo"
 import HomeIcon from "./home-icon"
 import TransactionIcon from "./transaction-icon"
 import BudgetIcon from "./budget-icon"
 import PotIcon from "./pots-icon"
 import BillIcon from "./bill-icon"
-import LogoLarge from "../../icons/logo-large.svg"
-import LogoSmall from "../../icons/logo-small.svg"
 import Arrow from "../../icons/icon-minimize-menu.svg"
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const pathname = usePathname()
   const { isLaptop } = useScreenSize()
 
@@ -86,45 +85,47 @@ export default function Navbar() {
     },
   ]
 
-  const logo = isLaptop && (isOpen ? <LogoLarge /> : <LogoSmall />)
-
   return (
     <nav
+      aria-label="main navigation"
       className={clsx(
-        "fixed bottom-0 left-0 w-full bg-grey-900 px-2 pt-2 font-bold text-white max-lg:rounded-tl-lg",
-        "lg:static lg:min-h-svh lg:w-fit lg:rounded-r-lg lg:pl-0",
+        "fixed bottom-0 left-0 w-full bg-grey-900 px-2 pt-2 font-bold text-white max-lg:rounded-t-lg",
+        "lg:static lg:flex lg:min-h-svh lg:w-fit lg:flex-col lg:justify-between lg:rounded-r-lg lg:pl-0 lg:pr-4",
       )}
     >
-      {logo}
-
-      <menu className={clsx("flex justify-around lg:flex-col")}>
-        {links.map(link => (
-          <li
-            key={link.id}
-            className={clsx(
-              "flex flex-col items-center gap-1 bg-grey-900 px-6 py-4",
-              "lg:flex-row lg:gap-6",
-              {
-                "border-b-8 border-b-green bg-white text-grey-900 max-lg:rounded-t-lg lg:rounded-r-lg":
-                  pathname === link.path,
-              },
-              {
-                "lg:pr-16": isOpen,
-              },
-            )}
-          >
-            {link.icon}
-            <span className={clsx("max-sm:hidden", { hidden: !isOpen })}>
-              {link.text}
-            </span>
-          </li>
-        ))}
-      </menu>
+      <div>
+        {isLaptop && <Logo isOpen={isOpen} className="mx-8 mt-10" />}
+        <menu className={clsx("flex justify-around lg:mt-16 lg:flex-col")}>
+          {links.map(link => (
+            <li
+              key={link.id}
+              className={clsx(
+                "flex flex-col items-center gap-1 bg-grey-900 px-6 py-4",
+                "lg:flex-row lg:gap-6",
+                {
+                  "bg-white text-grey-900 max-lg:rounded-t-lg max-lg:border-b-8 max-lg:border-b-green lg:rounded-r-lg lg:border-l-4 lg:border-l-green":
+                    pathname === link.path,
+                },
+                {
+                  "lg:pr-16": isOpen,
+                },
+              )}
+            >
+              {link.icon}
+              <Link href={link.path}>
+                <span className={clsx("max-sm:hidden", { hidden: !isOpen })}>
+                  {link.text}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </menu>
+      </div>
       {isLaptop && (
-        <div onClick={openMenu}>
+        <button onClick={openMenu} className="mb-20 flex gap-6 px-6 py-4">
           <Arrow />
           <span className={clsx({ hidden: !isOpen })}>Minimize Menu</span>
-        </div>
+        </button>
       )}
     </nav>
   )
