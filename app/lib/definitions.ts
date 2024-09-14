@@ -51,3 +51,5 @@ export type SVGProps = {
   sizes?: string
   className?: string
 }
+
+export type Links = "/" | "/transactions" | "/budget" | "/bills" | "/pots"

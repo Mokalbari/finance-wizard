@@ -1,11 +1,8 @@
-import Link from "next/link"
 import CardTitle from "@/app/ui/shared/atoms/card-title"
 import OpenLink from "./open-link"
 import Pots from "@/app/ui/icons/icon-pot.svg"
 
-type Props = { className: string }
-
-export default function PotsSection({ className }: Props) {
+export default function PotsSection() {
   const data = [
     { id: 1, category: "Savings", money: "$159", color: "border-l-green" },
     { id: 2, category: "Gifts", money: "$40", color: "border-l-blue" },
@@ -19,12 +16,10 @@ export default function PotsSection({ className }: Props) {
   ]
 
   return (
-    <section className={`rounded-lg bg-white px-5 py-6 ${className}`}>
+    <>
       <div className="flex justify-between">
         <CardTitle text="Pots" />
-        <Link href={"/pots"}>
-          <OpenLink text="See Details" />
-        </Link>
+        <OpenLink text="See Details" href="/pots" />
       </div>
       <div className="sm:flex sm:gap-5">
         <div className="mt-5 flex items-center gap-4 rounded-lg bg-beige-100 px-5 py-6 sm:basis-1/3">
@@ -47,6 +42,6 @@ export default function PotsSection({ className }: Props) {
           ))}
         </ul>
       </div>
-    </section>
+    </>
   )
 }
