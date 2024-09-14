@@ -1,6 +1,5 @@
-import CardTitle from "@/app/ui/shared/atoms/card-title"
-import OpenLink from "./open-link"
 import Pots from "@/app/ui/icons/icon-pot.svg"
+import CardHeader from "./card-header"
 
 export default function PotsSection() {
   const data = [
@@ -17,10 +16,7 @@ export default function PotsSection() {
 
   return (
     <>
-      <div className="flex justify-between">
-        <CardTitle text="Pots" />
-        <OpenLink text="See Details" href="/pots" />
-      </div>
+      <CardHeader cardTitle="Pots" linkText="See Details" href="/pots" />
       <div className="sm:flex sm:gap-5">
         <div className="mt-5 flex items-center gap-4 rounded-lg bg-beige-100 px-5 py-6 sm:basis-1/3">
           <Pots />

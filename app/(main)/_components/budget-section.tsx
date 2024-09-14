@@ -1,8 +1,7 @@
 // type Props = {}
 import "./styles/styles.css"
-import CardTitle from "@/app/ui/shared/atoms/card-title"
-import OpenLink from "./open-link"
 import PieChart from "./pie-chart"
+import CardHeader from "./card-header"
 
 export default function BudgetSection() {
   const data = [
@@ -24,10 +23,7 @@ export default function BudgetSection() {
 
   return (
     <>
-      <div className="flex justify-between">
-        <CardTitle text="Budgets" />
-        <OpenLink text="See Details" href="/budget" />
-      </div>
+      <CardHeader cardTitle="Budgets" linkText="See Details" href="/budget" />
       <div className="my-12 flex flex-col sm:flex-row sm:items-center sm:justify-around">
         <div className="superposition flex-1">
           <PieChart className="" />

@@ -3,6 +3,7 @@ import BudgetSection from "./_components/budget-section"
 import OverviewGrid from "./_components/overview-grid"
 import PotsSection from "./_components/pots-section"
 import CardLayout from "./_components/card-layout"
+import TransactionSection from "./_components/transaction-section"
 
 export default function Home() {
   return (
@@ -11,6 +12,9 @@ export default function Home() {
       <OverviewGrid className="mt-8" />
       <CardLayout className="mt-8">
         <PotsSection />
+      </CardLayout>
+      <CardLayout className="mt-8">
+        <TransactionSection />
       </CardLayout>
       <CardLayout className="mt-8">
         <BudgetSection />
