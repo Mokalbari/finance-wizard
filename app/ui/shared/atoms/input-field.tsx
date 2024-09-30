@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import IconSearch from "../icons/icon-search.svg"
+import IconSearch from "@/app/ui/icons/icon-search.svg"
 
 type Props = {
   placeholder: string
@@ -8,10 +8,10 @@ type Props = {
 
 export default function InputField({ placeholder, show }: Props) {
   return (
-    <div className="relative">
+    <div className="relative flex">
       <input
         className={clsx(
-          "rounded-lg border-[1px] border-beige-500 px-5 py-3 text-sm placeholder:text-beige-500 active:border-grey-900",
+          "flex-1 rounded-lg border-[1px] border-beige-500 px-5 py-3 text-sm placeholder:text-beige-500 active:border-grey-900",
           { "pl-10": show === "dollar" },
           { "pr-10": show === "loop" },
         )}
