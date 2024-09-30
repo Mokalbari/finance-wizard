@@ -59,7 +59,3 @@ export type DataItem = {
 }
 
 export type DropdownType = "sort" | "filter"
-
-export type Props = {
-  dropdownData: DropdownType
-}

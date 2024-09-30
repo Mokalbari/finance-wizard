@@ -1,9 +1,20 @@
-interface DataEntry {
+interface BasicData {
   id: number
-  data: string
 }
 
-export const sortData: DataEntry[] = [
+export type SortingOptions =
+  | "Latest"
+  | "Oldest"
+  | "A to Z"
+  | "Z to A"
+  | "Highest"
+  | "Lowest"
+
+interface SortDataEntries extends BasicData {
+  data: SortingOptions
+}
+
+export const sortData: SortDataEntries[] = [
   { id: 1, data: "Latest" },
   { id: 2, data: "Oldest" },
   { id: 3, data: "A to Z" },
@@ -12,7 +23,24 @@ export const sortData: DataEntry[] = [
   { id: 6, data: "Lowest" },
 ]
 
-export const filterData: DataEntry[] = [
+export type FilterOptions =
+  | "All Transactions"
+  | "Entertainment"
+  | "Bills"
+  | "Groceries"
+  | "Dining Out"
+  | "Transportation"
+  | "Personal Care"
+  | "Education"
+  | "Lifestyle"
+  | "Shopping"
+  | "General"
+
+interface FilterDataEntries extends BasicData {
+  data: FilterOptions
+}
+
+export const filterData: FilterDataEntries[] = [
   { id: 1, data: "All Transactions" },
   { id: 2, data: "Entertainment" },
   { id: 3, data: "Bills" },
@@ -23,5 +51,5 @@ export const filterData: DataEntry[] = [
   { id: 8, data: "Education" },
   { id: 9, data: "Lifestyle" },
   { id: 10, data: "Shopping" },
-  { id: 1, data: "General" },
+  { id: 11, data: "General" },
 ]

@@ -1,4 +1,5 @@
 "use client"
+
 // Hooks
 import { useState } from "react"
 
@@ -11,8 +12,33 @@ import IconSort from "@/app/ui/icons/icon-sort-mobile.svg"
 import IconFilter from "@/app/ui/icons/icon-filter-mobile.svg"
 import useScreenSize from "@/app/hooks/useScreenSize"
 
+// Utils
+import { getKeyFromObject } from "@/app/lib/functions"
+
+// Definitions
+import type { DataItem, DropdownType } from "@/app/lib/definitions"
+
+// Styles
+import "./styles/styles.css"
+import clsx from "clsx"
+
 type Props = {
-  dropdownData: "sort" | "filter"
+  dropdownData: DropdownType
+}
+
+const dropDownConfig = {
+  sort: {
+    data: sortData,
+    icon: <IconSort />,
+    label: "Sort by",
+    defaultText: "Latest",
+  },
+  filter: {
+    data: filterData,
+    icon: <IconFilter />,
+    label: "Category",
+    defaultText: "All transactions",
+  },
 }
 
 export default function DropDownMenu({ dropdownData }: Props) {
@@ -23,69 +49,47 @@ export default function DropDownMenu({ dropdownData }: Props) {
     setIsOpen(!isOpen)
   }
 
-  if (isMobile)
-    return (
-      <menu className="relative cursor-pointer">
-        <button className="" onClick={handleClick}>
-          {dropdownData === "sort" ? <IconSort /> : <IconFilter />}
-        </button>
-        {isOpen && (
-          <div className="absolute right-0 top-8 min-w-max rounded-lg bg-white px-4 shadow-xl">
-            {dropdownData === "sort"
-              ? sortData.map(listItem => (
-                  <li
-                    className="border-b-[1px] border-b-navy-grey/25 py-4 last-of-type:border-b-transparent"
-                    key={listItem.id}
-                  >
-                    {listItem.data}
-                  </li>
-                ))
-              : filterData.map(listItem => (
-                  <li
-                    className="border-b-[1px] border-b-navy-grey/25 py-4 last-of-type:border-b-transparent"
-                    key={listItem.id}
-                  >
-                    {listItem.data}
-                  </li>
-                ))}
-          </div>
-        )}
-      </menu>
-    )
+  const { data, icon, label, defaultText } = getKeyFromObject(
+    dropDownConfig,
+    dropdownData,
+  )
 
   return (
-    <menu>
-      <div className="flex gap-2">
-        {dropdownData === "sort" ? (
-          <label className="text-grey-500" htmlFor="transaction-options">
-            Sort by
-          </label>
-        ) : (
-          <label className="text-grey-500" htmlFor="transaction-options">
-            Category
-          </label>
-        )}
-
-        <select
-          className="rounded-lg border-[1px] border-grey-900 bg-white px-5 py-3"
-          id="transaction-options"
+    <menu
+      className={clsx("relative cursor-pointer", {
+        "flex items-center gap-4": !isMobile,
+      })}
+    >
+      {isMobile ? (
+        <button onClick={handleClick}>{icon}</button>
+      ) : (
+        <>
+          <span>{label}</span>
+          <button
+            className="flex items-center gap-4 rounded-lg border-[1px] border-grey-900 bg-white px-5 py-3"
+            onClick={handleClick}
+          >
+            {dropdownData === "sort" ? defaultText : defaultText}{" "}
+            <span>
+              <IconCarret />
+            </span>
+          </button>
+        </>
+      )}
+      {isOpen && (
+        <div
+          className={`absolute ${isMobile ? "top-8" : "top-20"} right-0 min-w-max rounded-lg bg-white px-4 shadow-xl`}
         >
-          <span>
-            <IconCarret />
-          </span>
-          {dropdownData === "sort"
-            ? sortData.map(listItem => (
-                <option value={listItem.data} key={listItem.id}>
-                  {listItem.data}
-                </option>
-              ))
-            : filterData.map(listItem => (
-                <option value={listItem.data} key={listItem.id}>
-                  {listItem.data}{" "}
-                </option>
-              ))}
-        </select>
-      </div>
+          {data.map((listItem: DataItem) => (
+            <li
+              className="border-b-[1px] border-b-navy-grey/25 py-4 last-of-type:border-b-0 last-of-type:border-b-transparent"
+              key={listItem.id}
+            >
+              {listItem.data}
+            </li>
+          ))}
+        </div>
+      )}
     </menu>
   )
 }
