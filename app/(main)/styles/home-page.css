@@ -1,22 +1,24 @@
 .cstm-grid {
-  display: grid;
-  grid-template-columns: 55% 45%;
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 1.5rem;
+  @media (width >= 1024px) {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 1.5rem;
 
-  .cstm-grid-pots {
-    grid-area: 1 / 1 / 2 / 2;
-  }
+    .cstm-grid-pots {
+      grid-area: 1 / 1 / 2 / 2;
+    }
 
-  .cstm-grid-budget {
-    grid-area: 1 / 2 / 3 / 3;
-  }
+    .cstm-grid-budget {
+      grid-area: 1 / 2 / 3 / 3;
+    }
 
-  .cstm-grid-transaction {
-    grid-area: 2 / 1 / 5 / 2;
-  }
+    .cstm-grid-transaction {
+      grid-area: 2 / 1 / 5 / 2;
+    }
 
-  .cstm-grid-bills {
-    grid-area: 3 / 2 / 5 / 3;
+    .cstm-grid-bills {
+      grid-area: 3 / 2 / 5 / 3;
+    }
   }
 }
