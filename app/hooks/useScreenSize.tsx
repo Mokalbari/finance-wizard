@@ -12,7 +12,7 @@ export default function useScreenSize() {
     const tabletQuery = window.matchMedia(
       "(min-width: 641px) and (max-width: 1024px)",
     )
-    const laptopQuery = window.matchMedia("(min-width:1025px)")
+    const laptopQuery = window.matchMedia("(min-width: 1025px)")
 
     const updateScreenSize = () => {
       setScreenSize({
