@@ -55,14 +55,36 @@ export default function DropDownMenu({ dropdownData }: Props) {
 
   return (
     <menu>
-      <div>
-        <span>Sort by</span>
-        <button>
-          Latest{" "}
+      <div className="flex gap-2">
+        {dropdownData === "sort" ? (
+          <label className="text-grey-500" htmlFor="transaction-options">
+            Sort by
+          </label>
+        ) : (
+          <label className="text-grey-500" htmlFor="transaction-options">
+            Category
+          </label>
+        )}
+
+        <select
+          className="rounded-lg border-[1px] border-grey-900 bg-white px-5 py-3"
+          id="transaction-options"
+        >
           <span>
             <IconCarret />
           </span>
-        </button>
+          {dropdownData === "sort"
+            ? sortData.map(listItem => (
+                <option value={listItem.data} key={listItem.id}>
+                  {listItem.data}
+                </option>
+              ))
+            : filterData.map(listItem => (
+                <option value={listItem.data} key={listItem.id}>
+                  {listItem.data}{" "}
+                </option>
+              ))}
+        </select>
       </div>
     </menu>
   )

@@ -52,3 +52,14 @@ export type SVGProps = {
 }
 
 export type Links = "/" | "/transactions" | "/budget" | "/bills" | "/pots"
+
+export type DataItem = {
+  id: number
+  data: string
+}
+
+export type DropdownType = "sort" | "filter"
+
+export type Props = {
+  dropdownData: DropdownType
+}
