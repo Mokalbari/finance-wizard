@@ -1,9 +1,14 @@
 // type Props = {}
 
+import { LatestTransactions } from "@/app/lib/definitions"
 import CardHeader from "./card-header"
 import TransactionBadge from "./transaction-badge"
 
-export default function TransactionSection() {
+type Props = {
+  data: LatestTransactions[]
+}
+
+export default function TransactionSection({ data }: Props) {
   return (
     <div>
       <CardHeader
@@ -12,10 +17,21 @@ export default function TransactionSection() {
         href="/transactions"
       />
       <ul className="mt-6">
-        <TransactionBadge textColor="text-green" />
+        {data.map(badge => (
+          <li key={badge.id}>
+            <TransactionBadge
+              imgSrc={badge.avatar}
+              name={badge.name}
+              category={badge.category}
+              amount={badge.amount}
+              date={badge.date}
+            />
+          </li>
+        ))}
+        {/* <TransactionBadge textColor="text-green" />
         <TransactionBadge textColor="text-grey-900" />
         <TransactionBadge textColor="text-green" />
-        <TransactionBadge textColor="text-green" />
+        <TransactionBadge textColor="text-green" /> */}
       </ul>
     </div>
   )

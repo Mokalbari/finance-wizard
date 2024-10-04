@@ -87,3 +87,12 @@ export interface PotsOverviewProcessedData extends PotsOverviewRaw {
 export type ConvertToNumber<T, K extends keyof T> = T & {
   [P in K]: number
 }
+
+export type LatestTransactions = {
+  id: string
+  name: string
+  avatar: string
+  category: string
+  date: Date
+  amount: number
+}
