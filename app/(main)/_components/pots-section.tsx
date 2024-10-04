@@ -5,17 +5,6 @@ type Props = {
   data: PotsOverviewProcessedData[]
 }
 export default function PotsSection({ data }: Props) {
-  // const data = [
-  //   { id: 1, category: "Savings", money: "$159", color: "border-l-green" },
-  //   { id: 2, category: "Gifts", money: "$40", color: "border-l-blue" },
-  //   {
-  //     id: 3,
-  //     category: "Concert Ticket",
-  //     money: "$110",
-  //     color: "border-l-lavender",
-  //   },
-  //   { id: 4, category: "New Laptop", money: "$10", color: "border-l-yellow" },
-  // ]
   const totalSaved = data[0].total_sum
 
   return (
