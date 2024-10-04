@@ -65,3 +65,25 @@ export type UserFinanceData = {
   income: string
   expenses: string
 }
+
+interface PotsOverviewRaw {
+  id: string
+  name: string
+  theme: ColorPaletteHex
+}
+
+export interface PotsOverviewUnprocessedData extends PotsOverviewRaw {
+  target: string
+  total: string
+  total_sum: string
+}
+
+export interface PotsOverviewProcessedData extends PotsOverviewRaw {
+  target: number
+  total: number
+  total_sum: number
+}
+
+export type ConvertToNumber<T, K extends keyof T> = T & {
+  [P in K]: number
+}
