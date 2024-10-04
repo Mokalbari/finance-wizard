@@ -28,10 +28,6 @@ export default function TransactionSection({ data }: Props) {
             />
           </li>
         ))}
-        {/* <TransactionBadge textColor="text-green" />
-        <TransactionBadge textColor="text-grey-900" />
-        <TransactionBadge textColor="text-green" />
-        <TransactionBadge textColor="text-green" /> */}
       </ul>
     </div>
   )

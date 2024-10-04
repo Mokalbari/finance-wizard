@@ -18,23 +18,39 @@ export default async function Home() {
   const potsOverview = await fetchPotsOverview()
   const latestTransactions = await fetchLatestTransactions()
 
+  const sections = [
+    {
+      key: "pots",
+      className: "cstm-grid-pots mt-8",
+      component: <PotsSection data={potsOverview} />,
+    },
+    {
+      key: "transactions",
+      className: "cstm-grid-transaction mt-8",
+      component: <TransactionSection data={latestTransactions} />,
+    },
+    {
+      key: "budget",
+      className: "cstm-grid-budget mt-8",
+      component: <BudgetSection />,
+    },
+    {
+      key: "bills",
+      className: "cstm-grid-bills mt-8",
+      component: <BillsSection />,
+    },
+  ]
+
   return (
     <div className="mb-48 max-lg:mx-auto max-lg:max-w-[90%]">
       <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
       <OverviewGrid data={userBalance} className="mt-8" />
       <div className="cstm-grid">
-        <CardLayout className="cstm-grid-pots mt-8">
-          <PotsSection data={potsOverview} />
-        </CardLayout>
-        <CardLayout className="cstm-grid-transaction mt-8">
-          <TransactionSection data={latestTransactions} />
-        </CardLayout>
-        <CardLayout className="cstm-grid-budget mt-8">
-          <BudgetSection />
-        </CardLayout>
-        <CardLayout className="cstm-grid-bills mt-8">
-          <BillsSection />
-        </CardLayout>
+        {sections.map(({ key, className, component }) => (
+          <CardLayout key={key} className={className}>
+            {component}
+          </CardLayout>
+        ))}
       </div>
     </div>
   )
