@@ -1,4 +1,4 @@
-.cstm-grid {
+/* .cstm-grid {
   @media (width >= 1024px) {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -14,11 +14,36 @@
     }
 
     .cstm-grid-transaction {
-      grid-area: 2 / 1 / 5 / 2;
+      grid-area: 2 / 1 / 4 / 2;
     }
 
     .cstm-grid-bills {
       grid-area: 3 / 2 / 5 / 3;
+    }
+  }
+} */
+
+.cstm-grid {
+  @media (width >= 1024px) {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: repeat(6, 150px);
+    grid-column-gap: 1.5rem;
+
+    .cstm-grid-pots {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+
+    .cstm-grid-transaction {
+      grid-area: 3 / 1 / 7 / 2;
+    }
+
+    .cstm-grid-budget {
+      grid-area: 1 / 2 / 4 / 3;
+    }
+
+    .cstm-grid-bills {
+      grid-area: 4 / 2 / 7 / 3;
     }
   }
 }
