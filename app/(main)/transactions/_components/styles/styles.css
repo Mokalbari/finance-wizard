@@ -1,5 +1,0 @@
-select {
-  -webkit-appearance: none; /* Pour les navigateurs Webkit (Chrome, Safari) */
-  -moz-appearance: none; /* Pour les navigateurs Firefox */
-  appearance: none; /* Pour les autres navigateurs */
-}
