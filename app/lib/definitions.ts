@@ -91,3 +91,16 @@ export type BudgetOverview = {
   theme: ColorPaletteHex
   total_spent: number
 }
+
+export type RecurringBillsOverview = {
+  amount: number
+  date: Date
+}
+
+export type BillsObjectKey = "paid" | "upcomming" | "dueSoon"
+
+export type SortingBillsObject = {
+  id: number
+  name: "Paid Bills" | "Total Upcomming" | "Due Soon"
+  content: number[]
+}

@@ -11,6 +11,7 @@ import {
   fetchBudgetOverview,
   fetchLatestTransactions,
   fetchPotsOverview,
+  fetchRecurringBills,
   fetchUsersFinance,
 } from "./actions"
 
@@ -19,6 +20,7 @@ export default async function Home() {
   const potsOverview = await fetchPotsOverview()
   const latestTransactions = await fetchLatestTransactions()
   const budgetOverview = await fetchBudgetOverview()
+  const recurringBills = await fetchRecurringBills()
 
   const sections = [
     {
@@ -45,6 +47,7 @@ export default async function Home() {
 
   return (
     <div className="mb-48 max-lg:mx-auto max-lg:max-w-[90%]">
+      {console.log(recurringBills)}
       <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
       <OverviewGrid data={userBalance} className="mt-8" />
       <div className="cstm-grid">
