@@ -8,6 +8,7 @@ import BillsSection from "./_components/bills-section"
 
 import "./styles/home-page.css"
 import {
+  fetchBudgetOverview,
   fetchLatestTransactions,
   fetchPotsOverview,
   fetchUsersFinance,
@@ -17,6 +18,7 @@ export default async function Home() {
   const userBalance = await fetchUsersFinance()
   const potsOverview = await fetchPotsOverview()
   const latestTransactions = await fetchLatestTransactions()
+  const budgetOverview = await fetchBudgetOverview()
 
   const sections = [
     {
@@ -32,7 +34,7 @@ export default async function Home() {
     {
       key: "budget",
       className: "cstm-grid-budget mt-8",
-      component: <BudgetSection />,
+      component: <BudgetSection data={budgetOverview} />,
     },
     {
       key: "bills",

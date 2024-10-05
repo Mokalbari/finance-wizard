@@ -96,3 +96,11 @@ export type LatestTransactions = {
   date: Date
   amount: number
 }
+
+export type BudgetOverview = {
+  id: string
+  category: string
+  maximum: number
+  theme: ColorPaletteHex
+  total_spent: number
+}

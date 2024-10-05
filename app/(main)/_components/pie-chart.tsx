@@ -2,18 +2,27 @@
 
 import { Doughnut } from "react-chartjs-2"
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js"
+import { BudgetOverview } from "@/app/lib/definitions"
 
 Chart.register(ArcElement, Tooltip, Legend)
 
-type Props = { className: string }
+type Props = {
+  className: string
+  data: BudgetOverview[]
+}
 
-export default function PieChart({ className }: Props) {
+export default function PieChart({ className, data }: Props) {
   // Les données pour le Donut Chart
-  const data = {
+  const donutChartData = {
     datasets: [
       {
         label: "Expenses",
-        data: [50, 750, 75, 100],
+        data: [
+          data[0].maximum,
+          data[1].maximum,
+          data[2].maximum,
+          data[3].maximum,
+        ],
         backgroundColor: ["#277C78", "#82C9D7", "#F2CDAC", "#626070"],
         borderColor: ["#277C78", "#82C9D7", "#F2CDAC", "#626070"],
         borderWidth: 1,
@@ -28,7 +37,7 @@ export default function PieChart({ className }: Props) {
   return (
     <Doughnut
       className={`mx-auto aspect-square max-h-[240px] max-w-[240px] ${className || ""}`}
-      data={data}
+      data={donutChartData}
       options={options}
     />
   )

@@ -2,45 +2,38 @@
 import "./styles/styles.css"
 import PieChart from "./pie-chart"
 import CardHeader from "./card-header"
+import { BudgetOverview } from "@/app/lib/definitions"
+import { reduceSumFromArray } from "@/app/lib/functions"
 
-export default function BudgetSection() {
-  const data = [
-    {
-      id: 1,
-      category: "Entertainment",
-      money: "$159",
-      color: "border-l-green",
-    },
-    { id: 2, category: "Bills", money: "$750", color: "border-l-blue" },
-    {
-      id: 3,
-      category: "Dining Out",
-      money: "$75",
-      color: "border-l-yellow",
-    },
-    { id: 4, category: "Personal Care", money: "$100", color: "border-l-navy" },
-  ]
+type Props = {
+  data: BudgetOverview[]
+}
 
+export default function BudgetSection({ data }: Props) {
   return (
     <>
       <CardHeader cardTitle="Budgets" linkText="See Details" href="/budget" />
       <div className="my-12 flex flex-col sm:flex-row sm:items-center sm:justify-around">
         <div className="superposition flex-1">
-          <PieChart className="" />
+          <PieChart className="" data={data} />
           <div className="z-10 flex flex-col items-center">
-            <span className="text-xl font-bold">$338</span>
-            <span className="text-xs text-grey-500">of $975 limit</span>
+            <span className="text-xl font-bold">
+              ${Math.abs(reduceSumFromArray(data, "total_spent"))}
+            </span>
+            <span className="text-xs text-grey-500">
+              of ${reduceSumFromArray(data, "maximum")} limit
+            </span>
           </div>
         </div>
         <ul className="mt-5 grid gap-4 max-sm:grid-cols-2 sm:grid-flow-row">
           {data.map(item => (
             <li
               key={item.id}
-              className={`flex flex-col ${item.color} rounded-sm border-l-4 px-4`}
+              className={`flex flex-col border-l-[${item.theme}] rounded-sm border-l-4 px-4`}
             >
               {" "}
               <span className="text-xs text-grey-500">{item.category}</span>
-              <span className="text-sm font-bold">{item.money}</span>
+              <span className="text-sm font-bold">{item.maximum}</span>
             </li>
           ))}
         </ul>
