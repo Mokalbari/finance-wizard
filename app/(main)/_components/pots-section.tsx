@@ -1,8 +1,8 @@
 import Pots from "@/app/ui/icons/icon-pot.svg"
 import CardHeader from "./card-header"
-import { PotsOverviewProcessedData } from "@/app/lib/definitions"
+import { PotsOverview } from "@/app/lib/definitions"
 type Props = {
-  data: PotsOverviewProcessedData[]
+  data: PotsOverview[]
 }
 export default function PotsSection({ data }: Props) {
   const totalSaved = data[0].total_sum
