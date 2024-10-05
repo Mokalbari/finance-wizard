@@ -43,9 +43,9 @@ export const sortBills = (array: RecurringBillsOverview[], date: Date) => {
       name: "Paid Bills",
       content: [],
     },
-    upcomming: {
+    upcoming: {
       id: 2,
-      name: "Total Upcomming",
+      name: "Total Upcoming",
       content: [],
     },
     dueSoon: {
@@ -55,20 +55,21 @@ export const sortBills = (array: RecurringBillsOverview[], date: Date) => {
     },
   }
 
-  for (let i = 0; i < array.length; i++) {
-    const billDate = new Date(array[i].date)
-    const billAmount = array[i].amount
+  for (const { date, amount } of array) {
+    const billDate = new Date(date)
 
     if (billDate < currentDate) {
-      output["paid"].content.push(billAmount)
+      output["paid"].content.push(amount)
     } else {
       const differenceInTime = billDate.getTime() - currentDate.getTime()
-      const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24)
+      const differenceInDays = Math.floor(
+        differenceInTime / (1000 * 60 * 60 * 24),
+      )
 
-      output["upcomming"].content.push(billAmount)
+      output["upcoming"].content.push(amount)
 
       if (differenceInDays <= 3) {
-        output["dueSoon"].content.push(billAmount)
+        output["dueSoon"].content.push(amount)
       }
     }
   }

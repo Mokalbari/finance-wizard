@@ -58,9 +58,9 @@ export const fetchBudgetOverview = async () => {
     SELECT 
       b.id, 
       b.category, 
-      CAST(b.maximum as INTEGER) AS maximum, 
+      CAST(b.maximum as DECIMAL) AS maximum, 
       b.theme, 
-    COALESCE(CAST(SUM(t.amount) AS INTEGER), 0) AS total_spent
+    COALESCE(CAST(SUM(t.amount) AS DECIMAL), 0) AS total_spent
     FROM 
       budgets b
     LEFT JOIN 
@@ -84,7 +84,7 @@ export const fetchBudgetOverview = async () => {
 export const fetchRecurringBills = async () => {
   try {
     const { rows } =
-      await sql`SELECT CAST(amount as INTEGER), CAST(date as VARCHAR(100)) from transactions where recurring = true`
+      await sql<RecurringBillsOverview>`SELECT CAST(amount as DECIMAL), date from transactions where recurring = true`
     return rows
   } catch (error) {
     console.error("Database error:", error)
