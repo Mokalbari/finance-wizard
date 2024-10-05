@@ -61,9 +61,9 @@ export type DataItem = {
 export type DropdownType = "sort" | "filter"
 
 export type UserFinanceData = {
-  current: string
-  income: string
-  expenses: string
+  current: number
+  income: number
+  expenses: number
 }
 
 export type PotsOverview = {

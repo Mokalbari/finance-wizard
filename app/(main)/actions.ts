@@ -9,9 +9,9 @@ import {
 export const fetchUsersFinance = async () => {
   try {
     const { rows } =
-      await sql<UserFinanceData>`SELECT current, income, expenses FROM users`
+      await sql<UserFinanceData>`SELECT CAST(current as INTEGER), CAST(income as INTEGER), CAST(expenses as INTEGER) FROM users`
 
-    const arr: number[] = Object.values(rows[0]).map(Number)
+    const arr: number[] = Object.values(rows[0])
     return arr
   } catch (error) {
     console.error("Database Error:", error)
