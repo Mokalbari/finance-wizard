@@ -99,8 +99,10 @@ export type RecurringBillsOverview = {
 
 export type BillsObjectKey = "paid" | "upcoming" | "dueSoon"
 
+export type BillsSortingOptions = "Paid Bills" | "Total Upcoming" | "Due Soon"
+
 export type SortingBillsObject = {
   id: number
-  name: "Paid Bills" | "Total Upcoming" | "Due Soon"
+  name: BillsSortingOptions
   content: number[]
 }

@@ -18,7 +18,7 @@ export default function BudgetSection({ data }: Props) {
           <PieChart className="" data={data} />
           <div className="z-10 flex flex-col items-center">
             <span className="text-xl font-bold">
-              ${Math.abs(reduceSumFromArray(data, "total_spent"))}
+              ${Math.abs(Math.round(reduceSumFromArray(data, "total_spent")))}
             </span>
             <span className="text-xs text-grey-500">
               of ${reduceSumFromArray(data, "maximum")} limit

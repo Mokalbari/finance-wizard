@@ -41,13 +41,12 @@ export default async function Home() {
     {
       key: "bills",
       className: "cstm-grid-bills mt-8",
-      component: <BillsSection />,
+      component: <BillsSection data={recurringBills} />,
     },
   ]
 
   return (
     <div className="mb-48 max-lg:mx-auto max-lg:max-w-[90%]">
-      {console.log(recurringBills)}
       <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
       <OverviewGrid data={userBalance} className="mt-8" />
       <div className="cstm-grid">

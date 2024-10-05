@@ -1,13 +1,24 @@
+import { BillsSortingOptions, ColorPaletteHex } from "@/app/lib/definitions"
 import "./styles/styles.css"
 
-export default function BillBadge() {
+type Props = {
+  borderColor: ColorPaletteHex
+  sortingOption: BillsSortingOptions
+  amount: string
+}
+
+export default function BillBadge({
+  sortingOption,
+  amount,
+  borderColor,
+}: Props) {
   return (
     <div
       className={`flex justify-between rounded-lg bg-beige-100 px-4 py-5`}
-      style={{ borderLeft: "0.25rem red outset" }}
+      style={{ borderLeft: `0.25rem ${borderColor} outset` }}
     >
-      <span>Paid Bills</span>
-      <span>$190.00</span>
+      <span className="text-grey-500">{sortingOption}</span>
+      <span className="font-bold">${amount}</span>
     </div>
   )
 }

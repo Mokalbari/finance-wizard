@@ -58,9 +58,9 @@ export const fetchBudgetOverview = async () => {
     SELECT 
       b.id, 
       b.category, 
-      CAST(b.maximum as DECIMAL) AS maximum, 
+      CAST(b.maximum as DOUBLE PRECISION) AS maximum, 
       b.theme, 
-    COALESCE(CAST(SUM(t.amount) AS DECIMAL), 0) AS total_spent
+    COALESCE(CAST(SUM(t.amount) AS DOUBLE PRECISION), 0) AS total_spent
     FROM 
       budgets b
     LEFT JOIN 
@@ -72,7 +72,7 @@ export const fetchBudgetOverview = async () => {
     WHERE 
       b.category IN ('Entertainment', 'Bills', 'Dining Out', 'Personal Care')
     GROUP BY 
-      b.id, b.category, b.maximum, b.theme;
+      b.id, b.category, b.maximum, b.theme
     `
     return rows
   } catch (error) {
@@ -84,7 +84,7 @@ export const fetchBudgetOverview = async () => {
 export const fetchRecurringBills = async () => {
   try {
     const { rows } =
-      await sql<RecurringBillsOverview>`SELECT CAST(amount as DECIMAL), date from transactions where recurring = true`
+      await sql<RecurringBillsOverview>`SELECT CAST(amount as DOUBLE PRECISION), date from transactions where recurring = true`
     return rows
   } catch (error) {
     console.error("Database error:", error)

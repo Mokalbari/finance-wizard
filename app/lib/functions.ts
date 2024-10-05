@@ -35,6 +35,12 @@ export const reduceSumFromArray = <T, K extends keyof T>(
   }, 0)
 }
 
+export const reduceSum = (array: number[]): number => {
+  return array.reduce((acc: number, value: number): number => {
+    return (acc += value)
+  }, 0)
+}
+
 export const sortBills = (array: RecurringBillsOverview[], date: Date) => {
   const currentDate = new Date(date)
   const output: Record<BillsObjectKey, SortingBillsObject> = {
