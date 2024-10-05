@@ -2,11 +2,9 @@ import { sql } from "@vercel/postgres"
 import {
   BudgetOverview,
   LatestTransactions,
-  PotsOverviewProcessedData,
-  PotsOverviewUnprocessedData,
+  PotsOverview,
   UserFinanceData,
 } from "../lib/definitions"
-import { processData } from "../lib/functions"
 
 export const fetchUsersFinance = async () => {
   try {
@@ -23,18 +21,19 @@ export const fetchUsersFinance = async () => {
 
 export const fetchPotsOverview = async () => {
   try {
-    const { rows } = await sql<PotsOverviewUnprocessedData>`
-      SELECT id, name, target, total, theme, 
-       (SELECT SUM(total) FROM pots) AS total_sum
-      FROM pots
-      LIMIT 4
+    const { rows } = await sql<PotsOverview>`
+      SELECT 
+    id, 
+      name, 
+      CAST(target AS INTEGER) AS target, 
+      CAST(total AS INTEGER) AS total, 
+      theme, 
+      CAST((SELECT SUM(total) FROM pots) AS INTEGER) AS total_sum
+    FROM 
+        pots
+    LIMIT 4;
       `
-    const data: PotsOverviewProcessedData[] = processData(rows, [
-      "target",
-      "total",
-      "total_sum",
-    ])
-    return data
+    return rows
   } catch (error) {
     console.error("Database error:", error)
     throw new Error("Failed to fetch pots data")
@@ -44,9 +43,8 @@ export const fetchPotsOverview = async () => {
 export const fetchLatestTransactions = async () => {
   try {
     const { rows } =
-      await sql<LatestTransactions>`SELECT id, name, avatar, category, date, amount FROM transactions LIMIT 5`
-    const data = processData(rows, ["amount"])
-    return data
+      await sql<LatestTransactions>`SELECT id, name, avatar, category, date, CAST(amount as INTEGER) FROM transactions LIMIT 5`
+    return rows
   } catch (error) {
     console.error("Database Error:", error)
     throw new Error("Failed to fetch latest transactions.")
