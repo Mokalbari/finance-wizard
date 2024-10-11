@@ -90,7 +90,7 @@ export default function Navbar() {
       aria-label="main navigation"
       className={clsx(
         "fixed bottom-0 left-0 w-full bg-grey-900 px-2 pt-2 font-bold text-white max-lg:rounded-t-lg",
-        "lg:static lg:flex lg:min-h-svh lg:w-fit lg:flex-col lg:justify-between lg:rounded-r-lg lg:pl-0 lg:pr-4",
+        "lg:static lg:flex lg:w-fit lg:flex-col lg:justify-between lg:rounded-r-lg lg:pl-0 lg:pr-4",
       )}
     >
       <div>
@@ -113,7 +113,11 @@ export default function Navbar() {
             >
               {link.icon}
               <Link href={link.path}>
-                <span className={clsx("max-sm:hidden", { hidden: !isOpen })}>
+                <span
+                  className={clsx("max-sm:hidden", {
+                    hidden: !isOpen,
+                  })}
+                >
                   {link.text}
                 </span>
               </Link>

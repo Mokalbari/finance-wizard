@@ -10,7 +10,7 @@ export default async function Page() {
   const transactions = await fetchTransactions()
 
   return (
-    <main className="max-lg:mx-10">
+    <main className="mb-32 max-lg:mx-10 lg:mb-12">
       <PageTitle htmlTag="h1" text="Transactions" className="mt-8" />
       <div className="my-8 rounded-lg bg-white p-8">
         <TableHead data={categories} />

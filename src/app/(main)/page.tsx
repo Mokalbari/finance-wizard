@@ -53,14 +53,14 @@ export default async function Home() {
   ]
 
   return (
-    <div className="mb-48 max-lg:mx-auto max-lg:max-w-[90%]">
+    <div className="mb-16 max-lg:mx-auto max-lg:max-w-[90%]">
       <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
       <OverviewGrid data={userBalance} className="mt-8" />
       <div
         className="lg:grid lg:gap-6"
         style={{
           gridTemplateColumns: "1.1fr 0.9fr",
-          gridTemplateRows: "repeat(6, 9.375rem)",
+          gridTemplateRows: "repeat(5, 130px) 100px",
         }}
       >
         {sections.map(({ key, className, component }) => (
