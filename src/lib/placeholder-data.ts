@@ -1,3 +1,5 @@
+import type { SortBy } from "./definitions"
+
 export const transactions = [
   {
     avatar: "/avatars/emma-richardson.jpg",
@@ -406,4 +408,13 @@ export const budgets = [
   { category: "Bills", maximum: 750.0, theme: "#82C9D7" },
   { category: "Dining Out", maximum: 75.0, theme: "#F2CDAC" },
   { category: "Personal Care", maximum: 100.0, theme: "#626070" },
+]
+
+export const sortByArray: SortBy[] = [
+  "Latest",
+  "Oldest",
+  "A to Z",
+  "Z to A",
+  "Highest",
+  "Lowest",
 ]

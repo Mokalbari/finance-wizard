@@ -82,3 +82,18 @@ export const sortBills = (array: RecurringBillsOverview[], date: Date) => {
 
   return output
 }
+
+export const getUniqueID = (): string => {
+  const timestamp = Date.now().toString(36)
+  const random = Math.random().toString(36).substring(2)
+  return `${timestamp}-${random}`
+}
+
+export const createNewSetFromObjKey = <T, K extends keyof T>(
+  arr: T[],
+  key: K,
+): T[K][] => {
+  const values = arr.map(item => item[key])
+  const newSet = new Set(values)
+  return [...newSet]
+}

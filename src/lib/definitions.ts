@@ -106,3 +106,15 @@ export type SortingBillsObject = {
   name: BillsSortingOptions
   content: number[]
 }
+
+export type Categories = {
+  category: string
+}
+
+export type SortBy =
+  | "Latest"
+  | "Oldest"
+  | "A to Z"
+  | "Z to A"
+  | "Highest"
+  | "Lowest"
