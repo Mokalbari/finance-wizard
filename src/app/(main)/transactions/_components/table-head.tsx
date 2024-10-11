@@ -15,7 +15,7 @@ export default function TableHead({ data }: Props) {
         placeholder="Search transaction"
         className="rounded-lg border border-grey-900 px-5 py-3"
       />
-      <div className="ml-auto flex gap-4">
+      <div className="ml-auto flex gap-6">
         <DropdownMenu title="Sort by" data={sortByArray} />
         <DropdownMenu
           title="Category"

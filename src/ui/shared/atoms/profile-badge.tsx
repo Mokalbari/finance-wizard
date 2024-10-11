@@ -1,18 +1,16 @@
+"use client"
+
 import Image from "next/image"
+import useScreenSize from "@/src/hooks/useScreenSize"
 
 type Props = {
   imgSrc: string
   name: string
   category: string
-  showCategory?: boolean
 }
 
-export default function ProfileBadge({
-  imgSrc,
-  name,
-  category,
-  showCategory = false,
-}: Props) {
+export default function ProfileBadge({ imgSrc, name, category }: Props) {
+  const { isMobile } = useScreenSize()
   return (
     <div className="flex items-center gap-4 text-sm">
       <div className="max-w-8 sm:max-w-10">
@@ -26,7 +24,7 @@ export default function ProfileBadge({
       </div>
       <div className="flex flex-col">
         <span className="font-bold">{name}</span>
-        {showCategory && <span className="text-grey-500">{category}</span>}
+        {isMobile && <span className="text-grey-500">{category}</span>}
       </div>
     </div>
   )

@@ -35,7 +35,6 @@ export default function Table({ data }: Props) {
                   imgSrc={item.avatar}
                   name={item.name}
                   category={item.category}
-                  showCategory={false}
                 />
               </td>
               <td className="py-6 text-grey-500 max-sm:hidden">
@@ -45,11 +44,7 @@ export default function Table({ data }: Props) {
                 {formatDate(item.date)}
               </td>
               <td className={`py-6 text-right ${getBadgeColor(item.amount)}`}>
-                <AmountBadge
-                  amount={item.amount}
-                  date={item.date}
-                  showDate={false}
-                />
+                <AmountBadge amount={item.amount} date={item.date} />
               </td>
             </tr>
           )
