@@ -9,7 +9,7 @@ type Props = {
 export default function Table({ data }: Props) {
   return (
     <table className="mt-6 w-full">
-      <thead className="">
+      <thead className="text-xs">
         <tr className="border-b border-b-grey-300/50">
           <th className="py-5 text-left font-normal text-grey-500">
             Recipient / Sender
@@ -37,10 +37,10 @@ export default function Table({ data }: Props) {
                   category={item.category}
                 />
               </td>
-              <td className="py-6 text-grey-500 max-sm:hidden">
+              <td className="py-6 text-xs text-grey-500 max-sm:hidden">
                 {item.category}
               </td>
-              <td className="py-6 text-grey-500 max-sm:hidden">
+              <td className="py-6 text-xs text-grey-500 max-sm:hidden">
                 {formatDate(item.date)}
               </td>
               <td className={`py-6 text-right ${getBadgeColor(item.amount)}`}>

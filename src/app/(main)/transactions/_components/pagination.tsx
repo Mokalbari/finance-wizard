@@ -4,7 +4,7 @@ import CaretRight from "@/src/ui/icons/icon-caret-right.svg"
 
 export default function Pagination() {
   return (
-    <div className="mt-6 flex justify-between">
+    <div className="mt-6 flex justify-between text-sm">
       <button className="flex items-center gap-4 rounded-lg border border-grey-900 bg-white px-5 py-3">
         <span>
           <CaretLeft />
