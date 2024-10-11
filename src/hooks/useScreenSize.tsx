@@ -1,5 +1,16 @@
 import { useEffect, useState } from "react"
 
+/**
+ * useScreenSize
+ *
+ * Gère la détection des tailles d'écran et met à jour l'état en conséquence.
+ *
+ * @returns {Object}
+ * @property {boolean} isMobile - Indique si l'écran est de taille mobile.
+ * @property {boolean} isTablet - Indique si l'écran est de taille tablette.
+ * @property {boolean} isLaptop - Indique si l'écran est de taille laptop.
+ */
+
 export default function useScreenSize() {
   const [screenSize, setScreenSize] = useState({
     isMobile: false,
