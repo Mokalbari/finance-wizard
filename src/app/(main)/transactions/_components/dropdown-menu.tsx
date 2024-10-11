@@ -27,7 +27,10 @@ export default function DropdownMenu({ title, data }: Props) {
   useClickAway(dropdownRef, closeDropdown, isOpen)
 
   return (
-    <div className="relative flex items-center gap-2" ref={dropdownRef}>
+    <div
+      className="relative ml-6 flex items-center gap-2 text-sm"
+      ref={dropdownRef}
+    >
       {!isMobile ? (
         <DesktopDropdown title={title} data={data} />
       ) : (

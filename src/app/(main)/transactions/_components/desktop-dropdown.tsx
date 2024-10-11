@@ -8,7 +8,7 @@ type Props = {
 export default function DesktopDropdown({ title, data }: Props) {
   return (
     <>
-      <label className="text-grey-900" htmlFor="filter">
+      <label className="min-w-fit text-grey-500" htmlFor="filter">
         {title}
       </label>
       <select
