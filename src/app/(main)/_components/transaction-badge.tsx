@@ -19,7 +19,7 @@ export default function TransactionBadge({
   return (
     <div className="flex justify-between border-b-[1px] border-b-grey-100 py-5 last:border-b-0">
       <ProfileBadge imgSrc={imgSrc} name={name} category={category} />
-      <AmountBadge amount={amount} date={date} showDate={true} />
+      <AmountBadge amount={amount} date={date} />
     </div>
   )
 }
