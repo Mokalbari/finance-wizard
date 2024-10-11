@@ -11,11 +11,20 @@ export default async function Page() {
   return (
     <main>
       <PageTitle htmlTag="h1" text="Transactions" className="" />
-      <DropdownMenu title="Sort by" data={sortByArray} />
-      <DropdownMenu
-        title="Category"
-        data={createNewSetFromObjKey(categories, "category")}
-      />
+      <div className="flex">
+        <input
+          type="text"
+          placeholder="Search transaction"
+          className="rounded-lg border border-grey-900 px-5 py-3"
+        />
+        <div className="ml-auto flex gap-4">
+          <DropdownMenu title="Sort by" data={sortByArray} />
+          <DropdownMenu
+            title="Category"
+            data={createNewSetFromObjKey(categories, "category")}
+          />
+        </div>
+      </div>
     </main>
   )
 }
