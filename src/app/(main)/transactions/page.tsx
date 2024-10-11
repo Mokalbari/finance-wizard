@@ -25,6 +25,19 @@ export default async function Page() {
           />
         </div>
       </div>
+
+      <table className="w-full outline">
+        <thead>
+          <tr>
+            <th>Recipient / Sender</th>
+            <th>Category</th>
+            <th>Transaction Date</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
     </main>
   )
 }
