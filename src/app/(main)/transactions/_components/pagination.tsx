@@ -1,18 +1,30 @@
+"use client"
+
+import Link from "next/link"
 import CaretLeft from "@/src/ui/icons/icon-caret-left.svg"
 import CaretRight from "@/src/ui/icons/icon-caret-right.svg"
-import { fetchTotalPages } from "../actions"
+import { usePathname, useSearchParams } from "next/navigation"
 import { generatePagination, getUniqueID } from "@/src/lib/functions"
 import clsx from "clsx"
+import useScreenSize from "@/src/hooks/useScreenSize"
 
-// type Props = {
-//   query:
-// }
+type Props = {
+  totalPages: number
+}
 
-export default async function Pagination() {
-  const totalPages = await fetchTotalPages("All transactions")
-  const currentPage = 2
-  const mobileButtonArray = generatePagination(currentPage, totalPages, true)
-  const buttonArray = generatePagination(currentPage, totalPages, false)
+export default function Pagination({ totalPages }: Props) {
+  const { isMobile } = useScreenSize()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const currentPage = Number(searchParams.get("page")) || 1
+
+  const allPages = generatePagination(currentPage, totalPages, isMobile)
+
+  const createPageURL = (pageNumber: number | string) => {
+    const params = new URLSearchParams(searchParams)
+    params.set("page", pageNumber.toString())
+    return `${pathname}?${params.toString()}`
+  }
 
   return (
     <div className="mt-6 flex justify-between text-sm">
@@ -22,32 +34,20 @@ export default async function Pagination() {
         </span>
         <span className="max-sm:hidden">Prev</span>
       </button>
-      <div className="flex gap-2 sm:hidden">
-        {mobileButtonArray.map(button => (
-          <button
-            className={clsx(
-              "h-10 w-10 rounded-lg border border-grey-900",
-              { "bg-black text-white": button === currentPage },
-              { "bg-white text-black": button !== currentPage },
-            )}
-            key={getUniqueID()}
-          >
-            {button}
-          </button>
-        ))}
-      </div>
-      <div className="flex gap-2 max-sm:hidden">
-        {buttonArray.map(button => (
-          <button
-            className={clsx(
-              "h-10 w-10 rounded-lg border border-grey-900",
-              { "bg-black text-white": button === currentPage },
-              { "bg-white text-black": button !== currentPage },
-            )}
-            key={getUniqueID()}
-          >
-            {button}
-          </button>
+
+      <div className="flex gap-2">
+        {allPages.map(page => (
+          <Link key={getUniqueID()} href={createPageURL(page)}>
+            <button
+              className={clsx(
+                "h-10 w-10 rounded-lg border border-grey-900",
+                { "bg-black text-white": page === currentPage },
+                { "bg-white text-black": page !== currentPage },
+              )}
+            >
+              {page}
+            </button>
+          </Link>
         ))}
       </div>
       <button className="flex items-center gap-4 rounded-lg border border-grey-900 bg-white px-5 py-3">

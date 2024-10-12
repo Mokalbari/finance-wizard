@@ -3,8 +3,12 @@ import AmountBadge from "@/src/ui/shared/atoms/amount-badge"
 import { formatDate, getBadgeColor, getUniqueID } from "@/src/lib/functions"
 import { fetchTransactions } from "../actions"
 
-export default async function Table() {
-  const transactions = await fetchTransactions()
+type Props = {
+  category: string | null
+}
+
+export default async function Table({ category }: Props) {
+  const transactions = await fetchTransactions(category)
 
   return (
     <table className="mt-6 w-full">

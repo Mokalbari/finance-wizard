@@ -1,3 +1,4 @@
+import { useSearchParams, usePathname, useRouter } from "next/navigation"
 import { getUniqueID } from "@/src/lib/functions"
 
 type Props = {
@@ -6,14 +7,32 @@ type Props = {
 }
 
 export default function DesktopDropdown({ title, data }: Props) {
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const { replace } = useRouter()
+
+  const currentCategory = searchParams.get("category") || "All transactions"
+
+  const handleSearch = (term: string) => {
+    const params = new URLSearchParams(searchParams)
+    if (term) {
+      params.set("category", term)
+    } else {
+      params.delete("category")
+    }
+    replace(`${pathname}?${params.toString()}`)
+  }
+
   return (
     <>
       <label className="min-w-fit text-grey-500" htmlFor="filter">
         {title}
       </label>
       <select
+        onChange={event => handleSearch(event.target.value)}
         className="rounded-lg border border-grey-500 bg-white px-5 py-3"
         id="filter"
+        value={currentCategory}
       >
         {data.map(item => (
           <option key={getUniqueID()} value={item}>

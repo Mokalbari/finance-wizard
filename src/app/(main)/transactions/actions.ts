@@ -3,10 +3,12 @@ import { sql } from "@vercel/postgres"
 
 const ITEMS_PER_PAGE = 10
 
-export const fetchTransactions = async () => {
+export const fetchTransactions = async (category: string | null) => {
   try {
     const { rows } =
-      await sql<LatestTransactions>`SELECT id, name, avatar, category, date, amount FROM transactions LIMIT 10`
+      category !== "All transactions"
+        ? await sql<LatestTransactions>`SELECT id, name, avatar, category, date, amount FROM transactions WHERE category ILIKE ${`%${category}%`}`
+        : await sql<LatestTransactions>`SELECT id, name, avatar, category, date, amount FROM transactions LIMIT 10`
     return rows
   } catch (error) {
     console.error("Database error:", error)
