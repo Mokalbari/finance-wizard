@@ -1,14 +1,11 @@
 import DropdownMenu from "./dropdown-menu"
 import { sortByArray } from "@/src/lib/placeholder-data"
 import { createNewSetFromObjKey } from "@/src/lib/functions"
-import { Categories } from "@/src/lib/definitions"
+import { fetchCategories } from "../actions"
 
-type Props = {
-  data: Categories[]
-}
-
-export default function TableHead({ data }: Props) {
-  const defaultArray = createNewSetFromObjKey(data, "category")
+export default async function TableHead() {
+  const categories = await fetchCategories()
+  const defaultArray = createNewSetFromObjKey(categories, "category")
   const modifiedArray = ["All transactions", ...defaultArray]
 
   return (

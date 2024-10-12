@@ -1,12 +1,11 @@
-import { LatestTransactions } from "@/src/lib/definitions"
 import ProfileBadge from "@/src/ui/shared/atoms/profile-badge"
 import AmountBadge from "@/src/ui/shared/atoms/amount-badge"
 import { formatDate, getBadgeColor, getUniqueID } from "@/src/lib/functions"
-type Props = {
-  data: LatestTransactions[]
-}
+import { fetchTransactions } from "../actions"
 
-export default function Table({ data }: Props) {
+export default async function Table() {
+  const transactions = await fetchTransactions()
+
   return (
     <table className="mt-6 w-full">
       <thead className="text-xs">
@@ -24,7 +23,7 @@ export default function Table({ data }: Props) {
         </tr>
       </thead>
       <tbody>
-        {data.map(item => {
+        {transactions.map(item => {
           return (
             <tr
               className="border-b last-of-type:border-b-0"
