@@ -1,6 +1,7 @@
 import {
   BillsObjectKey,
   RecurringBillsOverview,
+  SortBy,
   SortingBillsObject,
 } from "./definitions"
 
@@ -149,4 +150,37 @@ export const generatePagination = (
     "...",
     totalPages,
   ]
+}
+
+export const formatSortOrderForSQL = (sort: SortBy): "ASC" | "DESC" => {
+  const DESC: SortBy[] = ["Latest", "Z to A", "Highest"]
+
+  if (DESC.includes(sort)) {
+    return "DESC"
+  }
+  return "ASC"
+}
+
+export const formatSortOptionForSQL = (sort: SortBy) => {
+  let output: string
+  switch (sort) {
+    case "Latest":
+    case "Oldest":
+      output = "date"
+      break
+
+    case "A to Z":
+    case "Z to A":
+      output = "name"
+      break
+
+    case "Highest":
+    case "Lowest":
+      output = "amount"
+      break
+
+    default:
+      output = "date"
+  }
+  return output
 }

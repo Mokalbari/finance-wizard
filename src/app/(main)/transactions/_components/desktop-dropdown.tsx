@@ -12,13 +12,24 @@ export default function DesktopDropdown({ title, data }: Props) {
   const { replace } = useRouter()
 
   const currentCategory = searchParams.get("category") || "All transactions"
+  const currentSortingOption = searchParams.get("sort") || "Latest"
 
-  const handleSearch = (term: string) => {
+  const handleSearchCategory = (term: string) => {
     const params = new URLSearchParams(searchParams)
     if (term) {
       params.set("category", term)
     } else {
       params.delete("category")
+    }
+    replace(`${pathname}?${params.toString()}`)
+  }
+
+  const handleSearchSort = (term: string) => {
+    const params = new URLSearchParams(searchParams)
+    if (term) {
+      params.set("sort", term)
+    } else {
+      params.delete("sort")
     }
     replace(`${pathname}?${params.toString()}`)
   }
@@ -29,10 +40,14 @@ export default function DesktopDropdown({ title, data }: Props) {
         {title}
       </label>
       <select
-        onChange={event => handleSearch(event.target.value)}
+        onChange={event =>
+          title === "Sort by"
+            ? handleSearchSort(event.target.value)
+            : handleSearchCategory(event.target.value)
+        }
         className="rounded-lg border border-grey-500 bg-white px-5 py-3"
         id="filter"
-        value={currentCategory}
+        value={title === "Sort by" ? currentSortingOption : currentCategory}
       >
         {data.map(item => (
           <option key={getUniqueID()} value={item}>

@@ -4,11 +4,12 @@ import { formatDate, getBadgeColor, getUniqueID } from "@/src/lib/functions"
 import { fetchTransactions } from "../actions"
 
 type Props = {
-  category: string | null
+  category: string
+  currentPage: number
 }
 
-export default async function Table({ category }: Props) {
-  const transactions = await fetchTransactions(category)
+export default async function Table({ category, currentPage }: Props) {
+  const transactions = await fetchTransactions(category, currentPage)
 
   return (
     <table className="mt-6 w-full">

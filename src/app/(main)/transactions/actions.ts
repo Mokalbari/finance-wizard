@@ -1,18 +1,44 @@
 import { Categories, LatestTransactions } from "@/src/lib/definitions"
+import {} from "@/src/lib/functions"
 import { sql } from "@vercel/postgres"
 
 const ITEMS_PER_PAGE = 10
 
-export const fetchTransactions = async (category: string | null) => {
-  try {
-    const { rows } =
-      category !== "All transactions"
-        ? await sql<LatestTransactions>`SELECT id, name, avatar, category, date, amount FROM transactions WHERE category ILIKE ${`%${category}%`}`
-        : await sql<LatestTransactions>`SELECT id, name, avatar, category, date, amount FROM transactions LIMIT 10`
-    return rows
-  } catch (error) {
-    console.error("Database error:", error)
-    throw new Error("Failed to fetch transactions")
+export const fetchTransactions = async (
+  category: string = "All transactions",
+  currentPage: number = 1,
+) => {
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE
+
+  if (category !== "All transactions") {
+    // Utilisation correcte de tagged template literal
+    const result = await sql<LatestTransactions>`
+        SELECT
+          id,
+          name,
+          avatar,
+          category,
+          date,
+          amount
+        FROM transactions
+        WHERE category = ${category}
+        LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+      `
+    return result.rows
+  } else {
+    // Requête sans WHERE si la catégorie n'est pas définie
+    const result = await sql<LatestTransactions>`
+        SELECT
+          id,
+          name,
+          avatar,
+          category,
+          date,
+          amount
+        FROM transactions
+        LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+      `
+    return result.rows
   }
 }
 
