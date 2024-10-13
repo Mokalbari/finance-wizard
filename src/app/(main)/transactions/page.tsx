@@ -16,11 +16,12 @@ export default async function Page({
     sort?: SortBy
   }
 }) {
-  //const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
   const currentCategory = searchParams?.category ?? "All transactions"
   const currentQuery = searchParams?.query || ""
   const totalPages = await fetchTotalPages(currentCategory)
+
+  // to-do: implémenter le filtre "sort by"
 
   return (
     <main className="mb-32 max-lg:mx-10 max-sm:mx-4 lg:mb-12">
