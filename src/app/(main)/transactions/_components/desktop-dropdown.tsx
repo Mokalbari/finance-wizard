@@ -24,27 +24,13 @@ export default function DesktopDropdown({ title, data }: Props) {
     replace(`${pathname}?${params.toString()}`)
   }
 
-  const handleSearchSort = (term: string) => {
-    const params = new URLSearchParams(searchParams)
-    if (term) {
-      params.set("sort", term)
-    } else {
-      params.delete("sort")
-    }
-    replace(`${pathname}?${params.toString()}`)
-  }
-
   return (
     <>
       <label className="min-w-fit text-grey-500" htmlFor="filter">
         {title}
       </label>
       <select
-        onChange={event =>
-          title === "Sort by"
-            ? handleSearchSort(event.target.value)
-            : handleSearchCategory(event.target.value)
-        }
+        onChange={event => handleSearchCategory(event.target.value)}
         className="rounded-lg border border-grey-500 bg-white px-5 py-3"
         id="filter"
         value={title === "Sort by" ? currentSortingOption : currentCategory}

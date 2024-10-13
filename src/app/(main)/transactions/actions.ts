@@ -6,7 +6,7 @@ const ITEMS_PER_PAGE = 10
 
 export const fetchTransactions = async (
   category: string = "All transactions",
-  query: string = "Emma",
+  query: string,
   currentPage: number = 1,
 ) => {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE
