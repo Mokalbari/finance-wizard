@@ -5,11 +5,12 @@ import { fetchTransactions } from "../actions"
 
 type Props = {
   category: string
+  query: string
   currentPage: number
 }
 
-export default async function Table({ category, currentPage }: Props) {
-  const transactions = await fetchTransactions(category, currentPage)
+export default async function Table({ category, currentPage, query }: Props) {
+  const transactions = await fetchTransactions(category, query, currentPage)
 
   return (
     <table className="mt-6 w-full">

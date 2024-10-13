@@ -19,6 +19,7 @@ export default async function Page({
   //const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
   const currentCategory = searchParams?.category ?? "All transactions"
+  const currentQuery = searchParams?.query || ""
   const totalPages = await fetchTotalPages(currentCategory)
 
   return (
@@ -26,7 +27,11 @@ export default async function Page({
       <PageTitle htmlTag="h1" text="Transactions" className="mt-8" />
       <div className="my-8 rounded-lg bg-white px-5 py-6 sm:p-8">
         <TableHead />
-        <Table currentPage={currentPage} category={currentCategory} />
+        <Table
+          currentPage={currentPage}
+          category={currentCategory}
+          query={currentQuery}
+        />
         <Pagination totalPages={totalPages} />
       </div>
     </main>

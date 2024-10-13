@@ -6,12 +6,12 @@ const ITEMS_PER_PAGE = 10
 
 export const fetchTransactions = async (
   category: string = "All transactions",
+  query: string = "Emma",
   currentPage: number = 1,
 ) => {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE
 
   if (category !== "All transactions") {
-    // Utilisation correcte de tagged template literal
     const result = await sql<LatestTransactions>`
         SELECT
           id,
@@ -21,12 +21,13 @@ export const fetchTransactions = async (
           date,
           amount
         FROM transactions
-        WHERE category = ${category}
+        WHERE
+          category ILIKE ${`%${category}%`} AND
+          name ILIKE ${`%${query}%`}
         LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
       `
     return result.rows
   } else {
-    // Requête sans WHERE si la catégorie n'est pas définie
     const result = await sql<LatestTransactions>`
         SELECT
           id,
@@ -36,6 +37,8 @@ export const fetchTransactions = async (
           date,
           amount
         FROM transactions
+        WHERE
+          name ILIKE ${`%${query}%`}
         LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
       `
     return result.rows
