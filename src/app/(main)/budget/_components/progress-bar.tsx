@@ -26,7 +26,9 @@ export default function ProgressBar({ totalSpent, maximum, theme }: Props) {
           className="flex w-1/2 flex-col rounded-sm px-4"
         >
           <div className="text-grey-500">Spent</div>
-          <div className="font-bold">{formatNumberToString(totalSpent)}</div>
+          <div className="font-bold">
+            {formatNumberToString(Math.abs(totalSpent))}
+          </div>
         </div>
         <div className="border-l-grey flex w-1/2 flex-col rounded-sm border-l-4 px-4">
           <div className="text-grey-500 sm:hidden">Free</div>

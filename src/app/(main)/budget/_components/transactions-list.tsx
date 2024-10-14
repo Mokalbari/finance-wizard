@@ -24,14 +24,16 @@ export default function TransactionsList({ transactions }: Props) {
             className="border-b border-b-grey-500/50 py-3 last-of-type:border-b-transparent"
           >
             <div className="flex items-center justify-between">
-              <Image
-                src={transaction.avatar}
-                alt={transaction.name}
-                className="rounded-full max-sm:hidden"
-                width={32}
-                height={32}
-              />
-              <div className="font-bold">{transaction.name}</div>
+              <div className="flex items-center gap-4">
+                <Image
+                  src={transaction.avatar}
+                  alt={transaction.name}
+                  className="rounded-full max-sm:hidden"
+                  width={32}
+                  height={32}
+                />
+                <div className="font-bold">{transaction.name}</div>
+              </div>
               <div className="flex flex-col text-right">
                 <div className="font-bold">
                   {formatNumberToString(transaction.amount)}
