@@ -1,5 +1,3 @@
-// type Props = {}
-import "./styles/styles.css"
 import PieChart from "@/src/ui/shared/atoms/pie-chart"
 import CardHeader from "./card-header"
 import { BudgetOverview } from "@/src/lib/definitions"

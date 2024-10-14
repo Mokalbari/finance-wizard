@@ -1,9 +1,0 @@
-/* .superposition {
-  display: grid;
-  place-items: center;
-
-  & > * {
-    grid-column: 1;
-    grid-row: 1;
-  }
-} */
