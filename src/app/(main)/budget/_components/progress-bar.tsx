@@ -1,4 +1,4 @@
-import { formatNumberToString } from "@/src/lib/functions"
+import { formatNumberToString, getPercentage } from "@/src/lib/functions"
 import { ColorPaletteHex } from "@/src/lib/definitions"
 
 type Props = {
@@ -12,7 +12,13 @@ export default function ProgressBar({ totalSpent, maximum, theme }: Props) {
     <>
       <span className="text-grey-500">Maximum of ${maximum}</span>
       <div className="mt-4 h-8 w-full rounded-sm bg-beige-100 p-1">
-        <div className="h-[90%] w-1/2 rounded-md bg-green" />
+        <div
+          style={{
+            backgroundColor: `${theme}`,
+            width: `${getPercentage(Math.abs(totalSpent), maximum)}%`,
+          }}
+          className="h-[90%] rounded-md"
+        />
       </div>
       <div className="mt-4 flex justify-between">
         <div

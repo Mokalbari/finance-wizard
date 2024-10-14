@@ -184,3 +184,18 @@ export const formatSortOptionForSQL = (sort: SortBy) => {
   }
   return output
 }
+
+export const getPercentage = (
+  currentValue: number,
+  totalValue: number,
+): number => {
+  if (totalValue === 0) {
+    return 0
+  }
+
+  if (currentValue > totalValue) {
+    return 100
+  }
+
+  return (currentValue / totalValue) * 100
+}
