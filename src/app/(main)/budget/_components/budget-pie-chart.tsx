@@ -13,8 +13,8 @@ type Props = {
 
 export default function BudgetPieChart({ data }: Props) {
   return (
-    <section className="mx-4 mt-8 rounded-lg bg-white px-5 pb-4 pt-11">
-      <div className="grid place-items-center">
+    <section className="mt-8 rounded-lg bg-white px-5 pb-4 pt-11 sm:flex sm:items-center sm:justify-evenly sm:gap-8">
+      <div className="grid place-items-center sm:w-2/5">
         <PieChart className="col-start-1 row-start-1" data={data} />
         <div className="z-10 col-start-1 row-start-1 flex flex-col items-center">
           <span className="text-xl font-bold">
@@ -25,7 +25,7 @@ export default function BudgetPieChart({ data }: Props) {
           </span>
         </div>
       </div>
-      <ul className="mt-11">
+      <ul className="mt-11 sm:flex-1">
         <CardTitle text="Spending Summary" />
         {data.map(item => (
           <li

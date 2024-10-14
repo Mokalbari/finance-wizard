@@ -9,8 +9,8 @@ export default async function Page() {
   const budgetCategory = await fetchBudgetCard()
 
   return (
-    <div>
-      <header className="mx-4 mt-6 flex items-center justify-between">
+    <main className="mx-4 sm:mx-10">
+      <header className="mt-6 flex items-center justify-between sm:mt-8">
         <PageTitle htmlTag="h1" text="Budgets" className="" />
         <AddButton showBefore text="Add New Budget" />
       </header>
@@ -18,6 +18,6 @@ export default async function Page() {
       {budgetCategory.map(budgetCategory => (
         <BudgetCard key={getUniqueID()} data={budgetCategory} />
       ))}
-    </div>
+    </main>
   )
 }

@@ -14,7 +14,7 @@ export default async function BudgetCard({ data }: Props) {
   )
 
   return (
-    <article className="mx-4 mt-6 rounded-lg bg-white px-5 py-6">
+    <article className="mt-6 rounded-lg bg-white px-5 py-6">
       <BudgetCardHeader theme={data.theme} category={data.category} />
       <section className="mt-5">
         <ProgressBar
