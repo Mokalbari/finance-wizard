@@ -12,7 +12,7 @@ export default async function Page() {
     <main className="mx-4 sm:mx-10">
       <header className="mt-6 flex items-center justify-between sm:mt-8">
         <PageTitle htmlTag="h1" text="Budgets" className="" />
-        <AddButton showBefore text="Add New Budget" />
+        <AddButton isBlack showBefore text="Add New Budget" />
       </header>
       <div className="lg:mt-6 lg:flex lg:items-start lg:justify-between lg:gap-6">
         <BudgetPieChart data={budgetCategory} />
