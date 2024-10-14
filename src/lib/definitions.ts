@@ -118,3 +118,20 @@ export type SortBy =
   | "Z to A"
   | "Highest"
   | "Lowest"
+
+export type BudgetCardType = {
+  id: string
+  category: string
+  maximum: number
+  theme: ColorPaletteHex
+  total_spent: number
+}
+
+export type BudgetCardLatestTransactions = {
+  id: string
+  name: string
+  avatar: string
+  category: string
+  date: Date
+  amount: number
+}
