@@ -3,6 +3,7 @@ import {
   getUniqueID,
   reduceSumFromArray,
 } from "@/src/lib/functions"
+import clsx from "clsx"
 import { BudgetCardType } from "@/src/lib/definitions"
 import PieChart from "@/src/ui/shared/atoms/pie-chart"
 import CardTitle from "@/src/ui/shared/atoms/card-title"
@@ -13,8 +14,14 @@ type Props = {
 
 export default function BudgetPieChart({ data }: Props) {
   return (
-    <section className="mt-8 rounded-lg bg-white px-5 pb-4 pt-11 sm:flex sm:items-center sm:justify-evenly sm:gap-8">
-      <div className="grid place-items-center sm:w-2/5">
+    <section
+      className={clsx(
+        "mt-8 rounded-lg bg-white px-5 pb-4 pt-11",
+        "sm:flex sm:items-center sm:justify-evenly sm:gap-8",
+        "lg:mt-0 lg:w-2/5 lg:flex-col lg:items-stretch lg:justify-between",
+      )}
+    >
+      <div className="grid place-items-center sm:w-2/5 lg:self-center">
         <PieChart className="col-start-1 row-start-1" data={data} />
         <div className="z-10 col-start-1 row-start-1 flex flex-col items-center">
           <span className="text-xl font-bold">
@@ -25,7 +32,7 @@ export default function BudgetPieChart({ data }: Props) {
           </span>
         </div>
       </div>
-      <ul className="mt-11 sm:flex-1">
+      <ul className="mt-11 sm:flex-1 lg:mt-0">
         <CardTitle text="Spending Summary" />
         {data.map(item => (
           <li

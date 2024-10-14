@@ -14,10 +14,14 @@ export default async function Page() {
         <PageTitle htmlTag="h1" text="Budgets" className="" />
         <AddButton showBefore text="Add New Budget" />
       </header>
-      <BudgetPieChart data={budgetCategory} />
-      {budgetCategory.map(budgetCategory => (
-        <BudgetCard key={getUniqueID()} data={budgetCategory} />
-      ))}
+      <div className="lg:mt-6 lg:flex lg:items-start lg:justify-between lg:gap-6">
+        <BudgetPieChart data={budgetCategory} />
+        <div className="lg:w-3/5">
+          {budgetCategory.map(budgetCategory => (
+            <BudgetCard key={getUniqueID()} data={budgetCategory} />
+          ))}
+        </div>
+      </div>
     </main>
   )
 }
