@@ -29,7 +29,8 @@ export default function BudgetSection({ data }: Props) {
           {data.map(item => (
             <li
               key={item.id}
-              className={`flex flex-col border-l-[${item.theme}] rounded-sm border-l-4 px-4`}
+              style={{ borderLeft: `4px solid ${item.theme}` }}
+              className={`flex flex-col rounded-sm px-4`}
             >
               {" "}
               <span className="text-xs text-grey-500">{item.category}</span>

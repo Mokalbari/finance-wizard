@@ -1,5 +1,3 @@
-// type Props = {}
-
 import Ellipsis from "@/src/ui/icons/icon-ellipsis.svg"
 import CaretRight from "@/src/ui/icons/icon-caret-right.svg"
 import CardTitle from "@/src/ui/shared/atoms/card-title"
@@ -33,7 +31,10 @@ export default async function BudgetCard({ data }: Props) {
           <div className="h-[90%] w-1/2 rounded-md bg-green" />
         </div>
         <div className="mt-4 flex justify-between">
-          <div className="flex w-1/2 flex-col rounded-sm border-l-4 border-l-green px-4">
+          <div
+            style={{ borderLeft: `4px solid ${data.theme}` }}
+            className="flex w-1/2 flex-col rounded-sm px-4"
+          >
             <div className="text-grey-500">Spent</div>
             <div className="font-bold">
               {formatNumberToString(data.total_spent)}
