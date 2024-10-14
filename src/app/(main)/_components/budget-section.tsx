@@ -1,6 +1,6 @@
 // type Props = {}
 import "./styles/styles.css"
-import PieChart from "./pie-chart"
+import PieChart from "@/src/ui/shared/atoms/pie-chart"
 import CardHeader from "./card-header"
 import { BudgetOverview } from "@/src/lib/definitions"
 import { reduceSumFromArray } from "@/src/lib/functions"
@@ -14,9 +14,9 @@ export default function BudgetSection({ data }: Props) {
     <>
       <CardHeader cardTitle="Budgets" linkText="See Details" href="/budget" />
       <div className="my-12 flex flex-col sm:flex-row sm:items-center sm:justify-around">
-        <div className="superposition flex-1">
-          <PieChart className="" data={data} />
-          <div className="z-10 flex flex-col items-center">
+        <div className="grid flex-1 place-items-center">
+          <PieChart className="col-start-1 row-start-1" data={data} />
+          <div className="z-10 col-start-1 row-start-1 flex flex-col items-center">
             <span className="text-xl font-bold">
               ${Math.abs(Math.round(reduceSumFromArray(data, "total_spent")))}
             </span>

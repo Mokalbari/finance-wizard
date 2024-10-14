@@ -29,7 +29,6 @@ export default function PieChart({ className, data }: Props) {
       },
     ],
   }
-
   const options = {
     cutout: "70%",
   }
