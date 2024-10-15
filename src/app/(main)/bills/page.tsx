@@ -3,6 +3,7 @@
 import PageTitle from "@/src/ui/shared/atoms/page-title"
 import TotalBillsCard from "./_components/total-bills-card"
 import SummaryCard from "./_components/summary-card"
+import TableHead from "./_components/table-head"
 
 export default function Page() {
   return (
@@ -15,7 +16,11 @@ export default function Page() {
           <TotalBillsCard />
           <SummaryCard />
         </aside>
-        <main></main>
+        <main>
+          <div className="mt-6 rounded-lg bg-white">
+            <TableHead />
+          </div>
+        </main>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import DropdownMenu from "./dropdown-menu"
+import DropdownMenu from "@/src/ui/shared/table/dropdown-menu"
 import { sortByArray } from "@/src/lib/placeholder-data"
 import { createNewSetFromObjKey } from "@/src/lib/functions"
 import { fetchCategories } from "../actions"
