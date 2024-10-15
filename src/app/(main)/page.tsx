@@ -55,9 +55,11 @@ export default async function Home() {
 
   return (
     <div className="mb-16 max-lg:mx-auto max-lg:max-w-[90%]">
-      <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
-      <OverviewGrid data={userBalance} className="mt-8" />
-      <div
+      <header>
+        <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
+        <OverviewGrid data={userBalance} className="mt-8" />
+      </header>
+      <main
         className="lg:grid lg:gap-6"
         style={{
           gridTemplateColumns: "1.1fr 0.9fr",
@@ -69,7 +71,7 @@ export default async function Home() {
             {component}
           </CardLayout>
         ))}
-      </div>
+      </main>
     </div>
   )
 }
