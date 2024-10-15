@@ -10,9 +10,10 @@ import {
   fetchBudgetOverview,
   fetchLatestTransactions,
   fetchPotsOverview,
-  fetchRecurringBills,
   fetchUsersFinance,
 } from "./actions"
+
+import { fetchRecurringBills } from "@/src/lib/actions"
 
 export default async function Home() {
   const [
