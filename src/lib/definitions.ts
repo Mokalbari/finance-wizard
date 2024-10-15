@@ -143,3 +143,13 @@ export type PotsCardType = {
   total: number
   theme: ColorPaletteHex
 }
+
+export type RecurringBills = {
+  id: string
+  name: string
+  avatar: string
+  category: string
+  date: Date
+  amount: number
+  recurring: boolean
+}

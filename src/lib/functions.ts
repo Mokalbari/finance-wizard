@@ -1,7 +1,6 @@
 import {
   BillsObjectKey,
   RecurringBillsOverview,
-  SortBy,
   SortingBillsObject,
 } from "./definitions"
 
@@ -14,6 +13,29 @@ export const getKeyFromObject = <T, K extends keyof T>(
 
 export const getBadgeColor = (amount: number): string =>
   amount >= 0 ? "text-green" : "text-grey-900"
+
+export const getDifferenceInDays = (
+  currentDate: Date,
+  targetDate: Date,
+): number => {
+  const MS_PER_DAY = 1000 * 60 * 60 * 24
+  const differenceInTime = targetDate.getTime() - currentDate.getTime()
+  return Math.floor(differenceInTime / MS_PER_DAY)
+}
+
+export const isDueSoon = (targetDate: Date): boolean => {
+  const fixedDate = new Date("2024-07-28")
+  const difference = getDifferenceInDays(fixedDate, targetDate)
+
+  return difference < 3 && difference >= 0
+}
+
+export const isPaid = (targetDate: Date): boolean => {
+  const fixedDate = new Date("2024-07-28")
+  const difference = getDifferenceInDays(fixedDate, targetDate)
+
+  return difference < 0
+}
 
 export const formatNumberToString = (amount: number): string => {
   return amount >= 0 ? `$${amount}` : `-$${Math.abs(amount)}`
@@ -150,39 +172,6 @@ export const generatePagination = (
     "...",
     totalPages,
   ]
-}
-
-export const formatSortOrderForSQL = (sort: SortBy): "ASC" | "DESC" => {
-  const DESC: SortBy[] = ["Latest", "Z to A", "Highest"]
-
-  if (DESC.includes(sort)) {
-    return "DESC"
-  }
-  return "ASC"
-}
-
-export const formatSortOptionForSQL = (sort: SortBy) => {
-  let output: string
-  switch (sort) {
-    case "Latest":
-    case "Oldest":
-      output = "date"
-      break
-
-    case "A to Z":
-    case "Z to A":
-      output = "name"
-      break
-
-    case "Highest":
-    case "Lowest":
-      output = "amount"
-      break
-
-    default:
-      output = "date"
-  }
-  return output
 }
 
 export const getPercentage = (
