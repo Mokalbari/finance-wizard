@@ -6,7 +6,15 @@ import SummaryCard from "./_components/summary-card"
 import TableHead from "./_components/table-head"
 import Table from "./_components/table"
 
-export default function Page() {
+export default function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string
+  }
+}) {
+  const currentQuery = searchParams?.query || ""
+
   return (
     <div className="px-4 sm:max-lg:px-10">
       <header className="my-8">
@@ -20,7 +28,7 @@ export default function Page() {
         <main className="lg:w-2/3">
           <div className="mt-6 rounded-lg bg-white px-5 py-6 sm:p-8 lg:mt-0">
             <TableHead />
-            <Table />
+            <Table query={currentQuery} />
           </div>
         </main>
       </div>

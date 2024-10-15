@@ -5,8 +5,12 @@ import { formatNumberToString, isDueSoon, isPaid } from "@/src/lib/functions"
 import CheckIcon from "@/src/ui/icons/icon-bill-paid.svg"
 import DueIcon from "@/src/ui/icons/icon-bill-due.svg"
 
-export default async function Table() {
-  const recurringBills = await fetchRecurringBills()
+type Props = {
+  query: string
+}
+
+export default async function Table({ query }: Props) {
+  const recurringBills = await fetchRecurringBills(query)
 
   const getIcon = (targetDate: Date) => {
     if (isPaid(targetDate)) {
