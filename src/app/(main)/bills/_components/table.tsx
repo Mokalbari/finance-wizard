@@ -1,8 +1,21 @@
 import Image from "next/image"
 import { fetchRecurringBills } from "../actions"
+import clsx from "clsx"
+import { formatNumberToString, isDueSoon, isPaid } from "@/src/lib/functions"
+import CheckIcon from "@/src/ui/icons/icon-bill-paid.svg"
+import DueIcon from "@/src/ui/icons/icon-bill-due.svg"
 
 export default async function Table() {
   const recurringBills = await fetchRecurringBills()
+
+  const getIcon = (targetDate: Date) => {
+    if (isPaid(targetDate)) {
+      return <CheckIcon />
+    } else if (isDueSoon(targetDate)) {
+      return <DueIcon />
+    }
+    return null
+  }
 
   return (
     <table className="mt-6 w-full">
@@ -32,17 +45,39 @@ export default async function Table() {
                   />
                   <span className="text-sm font-bold">{bill.name}</span>
                 </div>
-                <div className="mt-2 text-xs sm:hidden">
-                  Monthly-{bill.date.getDate()}
+                <div
+                  className={clsx(
+                    "mt-2 flex items-center gap-2 text-xs sm:hidden",
+                    {
+                      "text-green": isPaid(bill.date),
+                      "text-grey-500": !isPaid(bill.date),
+                    },
+                  )}
+                >
+                  <span>Monthly-{bill.date.getDate()}</span>
+                  <span>{getIcon(bill.date)}</span>
                 </div>
               </td>
 
-              <td className="py-6 text-xs text-grey-500 max-sm:hidden">
-                Monthly-{bill.date.getDate()}
+              <td
+                className={clsx(
+                  "flex items-center gap-2 py-6 text-xs max-sm:hidden",
+                  {
+                    "text-green": isPaid(bill.date),
+                    "text-grey-500": !isPaid(bill.date),
+                  },
+                )}
+              >
+                <span>Monthly-{bill.date.getDate()}</span>
+                <span>{getIcon(bill.date)}</span>
               </td>
 
               <td className="py-6 text-right text-xs text-grey-500">
-                <div className="">{bill.amount}</div>
+                <div
+                  className={`${isDueSoon(bill.date) ? "text-red" : "text-black"} font-bold`}
+                >
+                  {formatNumberToString(Math.abs(bill.amount))}
+                </div>
               </td>
             </tr>
           )

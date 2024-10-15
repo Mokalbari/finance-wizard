@@ -14,6 +14,7 @@ export const fetchRecurringBills = async () => {
             recurring
         FROM transactions
         WHERE recurring = true
+        ORDER BY date ASC
         `
     return rows
   } catch (error) {

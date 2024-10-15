@@ -8,17 +8,17 @@ import Table from "./_components/table"
 
 export default function Page() {
   return (
-    <div>
-      <header>
+    <div className="px-4 sm:max-lg:px-10">
+      <header className="my-8">
         <PageTitle htmlTag="h1" text="Recurring Bills" className="" />
       </header>
-      <div>
-        <aside className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+      <div className="lg:mt-8 lg:flex lg:items-start lg:gap-6">
+        <aside className="grid gap-3 sm:grid-cols-2 lg:w-1/3 lg:grid-cols-1">
           <TotalBillsCard />
           <SummaryCard />
         </aside>
-        <main>
-          <div className="mt-6 rounded-lg bg-white">
+        <main className="lg:w-2/3">
+          <div className="mt-6 rounded-lg bg-white px-5 py-6 sm:p-8 lg:mt-0">
             <TableHead />
             <Table />
           </div>

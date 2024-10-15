@@ -4,7 +4,7 @@ import Search from "@/src/ui/shared/atoms/search"
 
 export default async function TableHead() {
   return (
-    <div className="flex w-full px-5 py-6">
+    <div className="flex w-full">
       <Search
         placeholder="Search bills"
         show="loop"
