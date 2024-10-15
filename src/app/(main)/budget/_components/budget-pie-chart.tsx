@@ -1,8 +1,4 @@
-import {
-  formatNumberToString,
-  getUniqueID,
-  reduceSumFromArray,
-} from "@/src/lib/functions"
+import { formatNumberToString, reduceSumFromArray } from "@/src/lib/functions"
 import clsx from "clsx"
 import { BudgetCardType } from "@/src/lib/definitions"
 import PieChart from "@/src/ui/shared/atoms/pie-chart"
@@ -37,7 +33,7 @@ export default function BudgetPieChart({ data }: Props) {
         {data.map(item => (
           <li
             className="border-b border-b-grey-100 py-4 first-of-type:pt-6 last-of-type:border-b-transparent"
-            key={getUniqueID()}
+            key={item.id}
           >
             <div className="flex items-center justify-between">
               <div>

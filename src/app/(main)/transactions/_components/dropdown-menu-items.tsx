@@ -1,6 +1,5 @@
 import clsx from "clsx"
 import { useSearchParams, usePathname, useRouter } from "next/navigation"
-import { getUniqueID } from "@/src/lib/functions"
 import type { SortBy } from "@/src/lib/definitions"
 
 type Props = {
@@ -34,7 +33,7 @@ export default function DropdownMenuItems({ data }: Props) {
                 "font-bold": currentCategory === item,
               },
             )}
-            key={getUniqueID()}
+            key={item}
             onClick={() => handleSearchCategory(item)}
           >
             {item}

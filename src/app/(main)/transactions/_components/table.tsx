@@ -1,6 +1,6 @@
 import ProfileBadge from "@/src/ui/shared/atoms/profile-badge"
 import AmountBadge from "@/src/ui/shared/atoms/amount-badge"
-import { formatDate, getBadgeColor, getUniqueID } from "@/src/lib/functions"
+import { formatDate, getBadgeColor } from "@/src/lib/functions"
 import { fetchTransactions } from "../actions"
 
 type Props = {
@@ -31,10 +31,7 @@ export default async function Table({ category, currentPage, query }: Props) {
       <tbody>
         {transactions.map(item => {
           return (
-            <tr
-              className="border-b last-of-type:border-b-0"
-              key={getUniqueID()}
-            >
+            <tr className="border-b last-of-type:border-b-0" key={item.id}>
               <td className="py-6">
                 <ProfileBadge
                   imgSrc={item.avatar}

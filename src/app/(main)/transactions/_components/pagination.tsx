@@ -4,7 +4,7 @@ import Link from "next/link"
 import CaretLeft from "@/src/ui/icons/icon-caret-left.svg"
 import CaretRight from "@/src/ui/icons/icon-caret-right.svg"
 import { usePathname, useSearchParams } from "next/navigation"
-import { generatePagination, getUniqueID } from "@/src/lib/functions"
+import { generatePagination } from "@/src/lib/functions"
 import clsx from "clsx"
 import useScreenSize from "@/src/hooks/useScreenSize"
 
@@ -37,7 +37,7 @@ export default function Pagination({ totalPages }: Props) {
 
       <div className="flex gap-2">
         {allPages.map(page => (
-          <Link key={getUniqueID()} href={createPageURL(page)}>
+          <Link key={page} href={createPageURL(page)}>
             <button
               className={clsx(
                 "h-10 w-10 rounded-lg border border-grey-900",

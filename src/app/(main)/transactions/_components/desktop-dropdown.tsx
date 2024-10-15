@@ -1,5 +1,4 @@
 import { useSearchParams, usePathname, useRouter } from "next/navigation"
-import { getUniqueID } from "@/src/lib/functions"
 
 type Props = {
   title: "Sort by" | "Category"
@@ -36,7 +35,7 @@ export default function DesktopDropdown({ title, data }: Props) {
         value={title === "Sort by" ? currentSortingOption : currentCategory}
       >
         {data.map(item => (
-          <option key={getUniqueID()} value={item}>
+          <option key={item} value={item}>
             {item}
           </option>
         ))}
