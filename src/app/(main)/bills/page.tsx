@@ -10,8 +10,13 @@ export default function Page() {
       <header>
         <PageTitle htmlTag="h1" text="Recurring Bills" className="" />
       </header>
-      <TotalBillsCard />
-      <SummaryCard />
+      <div>
+        <aside className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          <TotalBillsCard />
+          <SummaryCard />
+        </aside>
+        <main></main>
+      </div>
     </div>
   )
 }
