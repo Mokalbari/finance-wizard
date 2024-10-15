@@ -135,3 +135,11 @@ export type BudgetCardLatestTransactions = {
   date: Date
   amount: number
 }
+
+export type PotsCardType = {
+  id: string
+  name: string
+  target: number
+  total: number
+  theme: ColorPaletteHex
+}
