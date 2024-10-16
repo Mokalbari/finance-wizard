@@ -1,5 +1,6 @@
 import BudgetCard from "./_components/budget-card"
 import PageTitle from "@/src/ui/shared/atoms/page-title"
+import BudgetCardProvider from "@/src/context/budget-context"
 import { fetchBudgetCard } from "./actions"
 import BudgetPieChart from "./_components/budget-pie-chart"
 import AddBudgetModal from "./_components/add-budget-modal"
@@ -17,7 +18,9 @@ export default async function Page() {
         <BudgetPieChart data={budgetCategory} />
         <div className="lg:w-3/5">
           {budgetCategory.map(budgetCategory => (
-            <BudgetCard key={budgetCategory.id} data={budgetCategory} />
+            <BudgetCardProvider key={budgetCategory.id} data={budgetCategory}>
+              <BudgetCard data={budgetCategory} />
+            </BudgetCardProvider>
           ))}
         </div>
       </div>
