@@ -2,7 +2,7 @@
 
 import Modal from "@/src/ui/shared/modal/modal"
 import { useRef } from "react"
-import DeleteForm from "@/src/ui/shared/modal/delete-form"
+import EditBalanceForm from "@/src/ui/shared/modal/edit-balance-form"
 
 export default function Page() {
   const modalRef = useRef<HTMLDialogElement>(null)
@@ -19,7 +19,7 @@ export default function Page() {
         modalDesc="Are you sure you want to delete this budget? This action cannot be reversed, and all the data inside it will be removed forever."
         ref={modalRef}
       >
-        <DeleteForm />
+        <EditBalanceForm isAdding />
       </Modal>
     </div>
   )
