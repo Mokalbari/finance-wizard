@@ -24,7 +24,7 @@ export default function EllipsisButton({ text }: Props) {
       <button className="before:absolute before:-inset-1" onClick={handleClick}>
         <Ellipsis />
       </button>
-      <CardOptionList text={text} isOpen={isOpen} />
+      <CardOptionList text={text} isOpen={isOpen} category="Budget" />
     </div>
   )
 }
