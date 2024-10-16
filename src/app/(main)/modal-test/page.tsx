@@ -11,10 +11,15 @@ export default function Page() {
     modalRef.current?.showModal()
   }
 
+  const closeModal = () => {
+    modalRef.current?.close()
+  }
+
   return (
     <div>
       <button onClick={openModal}>When I open the kimono</button>
       <Modal
+        onClick={closeModal}
         modalTitle="Delete Savings?"
         modalDesc="Are you sure you want to delete this budget? This action cannot be reversed, and all the data inside it will be removed forever."
         ref={modalRef}
