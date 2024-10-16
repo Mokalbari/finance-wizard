@@ -14,7 +14,7 @@ export default function BudgetCardHeader({ category, theme }: Props) {
     <header className="flex items-center gap-4">
       <ColorDot color={theme} />
       <CardTitle text={category} />
-      <EllipsisButton />
+      <EllipsisButton text="Budget" />
     </header>
   )
 }
