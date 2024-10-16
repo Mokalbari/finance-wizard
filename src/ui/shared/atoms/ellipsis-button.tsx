@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-// import { useClickAway } from "@/src/hooks/useClickAway"
+import { useClickAway } from "@/src/hooks/useClickAway"
 import Ellipsis from "@/src/ui/icons/icon-ellipsis.svg"
 import CardOptionList from "./card-option-list"
 
@@ -17,7 +17,7 @@ export default function EllipsisButton({ text }: Props) {
     setIsOpen(!isOpen)
   }
 
-  // useClickAway(container, handleClick, isOpen)
+  useClickAway(container, handleClick, isOpen)
 
   return (
     <div ref={container} className="relative ml-auto cursor-pointer">
