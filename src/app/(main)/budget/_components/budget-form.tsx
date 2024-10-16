@@ -1,6 +1,6 @@
 import CaretDown from "@/src/ui/icons/icon-caret-down.svg"
-import ColorDot from "../atoms/color-dot"
-import AddButton from "../atoms/add-button"
+import ColorDot from "@/src/ui/shared/atoms/color-dot"
+import AddButton from "@/src/ui/shared/atoms/add-button"
 // type Props = {}
 
 export default function BudgetForm() {

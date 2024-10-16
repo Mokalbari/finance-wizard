@@ -6,6 +6,7 @@ type Props = {
   text: string
   type?: "button" | "submit"
   className?: string
+  onClick?: () => void
 }
 
 export default function AddButton({
@@ -14,9 +15,11 @@ export default function AddButton({
   isBlack,
   type = "button",
   className,
+  onClick,
 }: Props) {
   return (
     <button
+      onClick={onClick}
       type={type}
       className={clsx(`rounded-lg p-4 text-sm font-bold ${className}`, {
         "before:content-['+_']": showBefore === true,

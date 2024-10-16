@@ -4,12 +4,12 @@ import { forwardRef, ReactNode } from "react"
 type Props = {
   modalTitle: string
   modalDesc: string
-  onClick: () => void
+  close: () => void
   children: ReactNode
 }
 
 const Modal = forwardRef<HTMLDialogElement, Props>(
-  ({ modalTitle, modalDesc, children, onClick }, ref) => {
+  ({ modalTitle, modalDesc, children, close }, ref) => {
     return (
       <dialog
         className="max-w-[85%] rounded-lg px-5 py-6 text-grey-500 sm:max-w-[55ch]"
@@ -20,7 +20,7 @@ const Modal = forwardRef<HTMLDialogElement, Props>(
             <h2 className="text-lg font-bold text-black sm:text-xl">
               {modalTitle}
             </h2>
-            <button aria-label="Close modal" onClick={onClick}>
+            <button aria-label="Close modal" onClick={close}>
               <CloseIcon />
             </button>
           </div>

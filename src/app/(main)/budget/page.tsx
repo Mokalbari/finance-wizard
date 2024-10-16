@@ -1,8 +1,8 @@
-import PageTitle from "@/src/ui/shared/atoms/page-title"
 import BudgetCard from "./_components/budget-card"
+import PageTitle from "@/src/ui/shared/atoms/page-title"
 import { fetchBudgetCard } from "./actions"
-import AddButton from "@/src/ui/shared/atoms/add-button"
 import BudgetPieChart from "./_components/budget-pie-chart"
+import AddBudgetModal from "./_components/add-budget-modal"
 
 export default async function Page() {
   const budgetCategory = await fetchBudgetCard()
@@ -11,7 +11,7 @@ export default async function Page() {
     <main className="mx-4 sm:mx-10">
       <header className="mt-6 flex items-center justify-between sm:mt-8">
         <PageTitle htmlTag="h1" text="Budgets" className="" />
-        <AddButton isBlack showBefore text="Add New Budget" />
+        <AddBudgetModal />
       </header>
       <div className="lg:mt-6 lg:flex lg:items-start lg:justify-between lg:gap-6">
         <BudgetPieChart data={budgetCategory} />
