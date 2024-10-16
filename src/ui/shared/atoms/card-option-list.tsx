@@ -53,7 +53,7 @@ export default function CardOptionList({ isOpen, category }: Props) {
         modalTitle={`Delete '${data.category}'`}
         modalDesc={`Are you sure you want to delete ${data.category}? This action cannot be reversed, and all the data inside it will be removed forever`}
       >
-        <DeleteForm />
+        <DeleteForm close={closeDeleteModal} />
       </Modal>
     </div>
   )
