@@ -1,7 +1,8 @@
 import ColorDot from "@/src/ui/shared/atoms/color-dot"
 import CardTitle from "@/src/ui/shared/atoms/card-title"
-import Ellipsis from "@/src/ui/icons/icon-ellipsis.svg"
+
 import { ColorPaletteHex } from "@/src/lib/definitions"
+import EllipsisButton from "@/src/ui/shared/atoms/ellipsis-button"
 
 type Props = {
   theme: ColorPaletteHex
@@ -13,9 +14,7 @@ export default function BudgetCardHeader({ category, theme }: Props) {
     <header className="flex items-center gap-4">
       <ColorDot color={theme} />
       <CardTitle text={category} />
-      <div className="ml-auto">
-        <Ellipsis />
-      </div>
+      <EllipsisButton />
     </header>
   )
 }
