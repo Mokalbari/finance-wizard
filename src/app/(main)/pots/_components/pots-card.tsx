@@ -1,9 +1,8 @@
+import PotsProgressBar from "./pots-progress-bar"
 import { PotsCardType } from "@/src/lib/definitions"
 import { getPercentage } from "@/src/lib/functions"
-import Ellipsis from "@/src/ui/icons/icon-ellipsis.svg"
 import AddButton from "@/src/ui/shared/atoms/add-button"
-import CardTitle from "@/src/ui/shared/atoms/card-title"
-import ColorDot from "@/src/ui/shared/atoms/color-dot"
+import PotsCardHeader from "./pots-card-header"
 
 type Props = {
   data: PotsCardType
@@ -12,26 +11,16 @@ type Props = {
 export default async function PotsCard({ data }: Props) {
   return (
     <article className="rounded-lg bg-white px-5 pb-10 pt-6">
-      <header className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <ColorDot color={data.theme} />
-          <CardTitle text={data.name} />
-        </div>
-        <Ellipsis />
-      </header>
+      <PotsCardHeader theme={data.theme} name={data.name} />
       <div className="flex items-center justify-between">
         <div className="text-sm text-grey-500">Total Saved</div>
         <div className="text-xl font-bold">${data.total.toFixed(2)}</div>
       </div>
-      <div className="mt-4 h-2 w-full rounded-lg bg-beige-100">
-        <div
-          className="h-full rounded-lg"
-          style={{
-            backgroundColor: `${data.theme}`,
-            width: `${getPercentage(data.total, data.target)}%`,
-          }}
-        />
-      </div>
+      <PotsProgressBar
+        theme={data.theme}
+        total={data.total}
+        target={data.target}
+      />
       <div className="mt-3 flex items-center justify-between">
         <div className="text-xs font-bold text-grey-500">
           {getPercentage(data.total, data.target).toFixed(1)}%
