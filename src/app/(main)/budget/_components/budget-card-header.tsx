@@ -3,6 +3,7 @@ import CardTitle from "@/src/ui/shared/atoms/card-title"
 
 import { ColorPaletteHex } from "@/src/lib/definitions"
 import EllipsisButton from "@/src/ui/shared/atoms/ellipsis-button"
+import BudgetEllipsisList from "./budget-ellipsis-list"
 
 type Props = {
   theme: ColorPaletteHex
@@ -14,7 +15,9 @@ export default function BudgetCardHeader({ category, theme }: Props) {
     <header className="flex items-center gap-4">
       <ColorDot color={theme} />
       <CardTitle text={category} />
-      <EllipsisButton text="Budget" />
+      <EllipsisButton>
+        <BudgetEllipsisList />
+      </EllipsisButton>
     </header>
   )
 }

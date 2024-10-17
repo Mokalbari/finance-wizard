@@ -1,5 +1,5 @@
 // type Props = {}
-
+import PotCardContextProvider from "@/src/context/pots-context"
 import PageTitle from "@/src/ui/shared/atoms/page-title"
 import PotsCard from "./_components/pots-card"
 import AddButton from "@/src/ui/shared/atoms/add-button"
@@ -18,7 +18,9 @@ export default async function Page() {
         <ul className="grid grid-cols-[repeat(auto-fit,minmax(500px,1fr))] gap-6">
           {potsCardData.map(cardInfo => (
             <li key={cardInfo.id} className="">
-              <PotsCard data={cardInfo} />
+              <PotCardContextProvider data={cardInfo}>
+                <PotsCard data={cardInfo} />
+              </PotCardContextProvider>
             </li>
           ))}
         </ul>

@@ -1,15 +1,14 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, ReactNode } from "react"
 import { useClickAway } from "@/src/hooks/useClickAway"
 import Ellipsis from "@/src/ui/icons/icon-ellipsis.svg"
-import CardOptionList from "./card-option-list"
 
 type Props = {
-  text: string
+  children: ReactNode
 }
 
-export default function EllipsisButton({ text }: Props) {
+export default function EllipsisButton({ children }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const container = useRef<HTMLDivElement>(null)
 
@@ -17,14 +16,14 @@ export default function EllipsisButton({ text }: Props) {
     setIsOpen(!isOpen)
   }
 
-  useClickAway(container, handleClick, isOpen)
+  useClickAway(container, () => setIsOpen(false), isOpen)
 
   return (
     <div ref={container} className="relative ml-auto cursor-pointer">
       <button className="before:absolute before:-inset-1" onClick={handleClick}>
         <Ellipsis />
       </button>
-      <CardOptionList text={text} isOpen={isOpen} category="Budget" />
+      {isOpen && <div className="absolute right-0 top-6 w-max">{children}</div>}
     </div>
   )
 }
