@@ -1,8 +1,9 @@
 import PotsProgressBar from "./pots-progress-bar"
 import { PotsCardType } from "@/src/lib/definitions"
 import { getPercentage } from "@/src/lib/functions"
-import AddButton from "@/src/ui/shared/atoms/add-button"
+
 import PotsCardHeader from "./pots-card-header"
+import PotsBalanceButton from "./pots-balance-button"
 
 type Props = {
   data: PotsCardType
@@ -27,10 +28,7 @@ export default async function PotsCard({ data }: Props) {
         </div>
         <div className="text-xs text-grey-500">Target of ${data.target}</div>
       </div>
-      <div className="mt-10 flex justify-evenly">
-        <AddButton isBlack={false} showBefore text="Add Money" />
-        <AddButton isBlack={false} showBefore={false} text="Withdraw" />
-      </div>
+      <PotsBalanceButton />
     </article>
   )
 }

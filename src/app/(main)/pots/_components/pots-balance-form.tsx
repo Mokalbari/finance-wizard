@@ -1,11 +1,11 @@
 import clsx from "clsx"
-import AddButton from "../atoms/add-button"
+import AddButton from "@/src/ui/shared/atoms/add-button"
 
 type Props = {
   isAdding: boolean
 }
 
-export default function EditBalanceForm({ isAdding }: Props) {
+export default function PotsBalanceForm({ isAdding }: Props) {
   return (
     <form>
       <div className="flex items-center justify-between">
