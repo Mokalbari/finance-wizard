@@ -1,3 +1,5 @@
+"use server"
+
 import { z } from "zod"
 import { PotsCardType } from "@/src/lib/definitions"
 import { sql } from "@vercel/postgres"

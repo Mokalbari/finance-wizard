@@ -25,7 +25,7 @@ export default function AddPotModal() {
         modalTitle="Add New Pot"
         modalDesc="Create a pot to set savings targets. These can help keep you on track as you save for special purchases."
       >
-        <PotForm />
+        <PotForm close={closeModal} />
       </Modal>
     </>
   )

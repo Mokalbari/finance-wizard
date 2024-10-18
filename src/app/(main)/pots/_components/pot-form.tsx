@@ -6,16 +6,19 @@ import { ColorPalette } from "@/src/lib/definitions"
 import ColorDot from "@/src/ui/shared/atoms/color-dot"
 import AddButton from "@/src/ui/shared/atoms/add-button"
 import Dropdown from "@/src/ui/shared/atoms/dropdown"
+import { createNewPot } from "../actions"
 
-// type Props = {}
+type Props = {
+  close: () => void
+}
 
-export default function PotForm() {
+export default function PotForm({ close }: Props) {
   const [currentColor, setCurrentColor] = useState<ColorPalette>(
     colorPalette[0],
   )
 
   return (
-    <form className="flex flex-col">
+    <form action={createNewPot} className="flex flex-col">
       <div>
         <div className="text-xs font-bold">Pot Name</div>
         <input
@@ -60,7 +63,14 @@ export default function PotForm() {
         </div>
       </div>
       <input type="hidden" name="theme" value={currentColor.colorHex} />
-      <AddButton isBlack text="Add Pot" showBefore={false} className="mt-5" />
+      <AddButton
+        type="submit"
+        isBlack
+        text="Add Pot"
+        showBefore={false}
+        onClick={close}
+        className="mt-5"
+      />
     </form>
   )
 }
