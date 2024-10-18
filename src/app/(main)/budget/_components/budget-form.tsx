@@ -80,7 +80,7 @@ export default function BudgetForm({ close, method, id }: Props) {
       {/* Bouton d'ajout */}
       <AddButton
         isBlack
-        text="Add Budget"
+        text={method === "POST" ? "Add Budget" : "Update Budget"}
         showBefore={false}
         className="mt-5"
         type="submit"
