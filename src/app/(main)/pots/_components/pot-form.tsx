@@ -1,16 +1,28 @@
-import CaretDown from "@/src/ui/icons/icon-caret-down.svg"
+"use client"
+
+import { useState } from "react"
+import { colorPalette } from "@/src/lib/placeholder-data"
+import { ColorPalette } from "@/src/lib/definitions"
 import ColorDot from "@/src/ui/shared/atoms/color-dot"
 import AddButton from "@/src/ui/shared/atoms/add-button"
+import Dropdown from "@/src/ui/shared/atoms/dropdown"
+
 // type Props = {}
 
 export default function PotForm() {
+  const [currentColor, setCurrentColor] = useState<ColorPalette>(
+    colorPalette[0],
+  )
+
   return (
     <form className="flex flex-col">
       <div>
         <div className="text-xs font-bold">Pot Name</div>
         <input
+          name="potName"
           className="flex w-full items-center justify-between rounded-lg border border-grey-500 px-5 py-3"
           placeholder="e.g. Rainy Days"
+          type="text"
         />
 
         <div className="mt-4">
@@ -18,6 +30,7 @@ export default function PotForm() {
             Target
           </label>
           <input
+            name="targetAmount"
             className="w-full rounded-lg border border-grey-500 px-5 py-3"
             placeholder="$    e.g. 2000"
             type="text"
@@ -25,18 +38,28 @@ export default function PotForm() {
         </div>
 
         <div className="mt-4">
-          <div className="text-xs font-bold">Theme</div>
-          <div className="flex items-center justify-between rounded-lg border border-grey-500 px-5 py-3">
-            <div className="flex items-center gap-2">
-              <ColorDot color="#277C78" />
-              <span className="text-black">Green</span>
-            </div>
-            <button>
-              <CaretDown />
-            </button>
-          </div>
+          <Dropdown
+            label="Color Tag"
+            options={colorPalette}
+            selectedOption={currentColor}
+            onSelect={setCurrentColor}
+            renderOption={color => (
+              <div className="flex items-center gap-2">
+                <ColorDot color={color.colorHex} />
+                <span className="text-black">{color.colorName}</span>
+              </div>
+            )}
+            renderSelected={color => (
+              <div className="flex items-center gap-2">
+                <ColorDot color={color.colorHex} />
+                <span className="text-black">{color.colorName}</span>
+              </div>
+            )}
+            getOptionKey={color => color.colorHex}
+          />
         </div>
       </div>
+      <input type="hidden" name="theme" value={currentColor.colorHex} />
       <AddButton isBlack text="Add Pot" showBefore={false} className="mt-5" />
     </form>
   )

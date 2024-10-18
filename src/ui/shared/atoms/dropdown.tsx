@@ -36,7 +36,7 @@ export default function Dropdown<T>({
       <div className="text-xs font-bold">{label}</div>
       <div className="flex items-center justify-between rounded-lg border border-grey-500 px-5 py-3">
         {renderSelected(selectedOption)}
-        <button type="button" onClick={toggleDropdown}>
+        <button className="px-4 py-2" type="button" onClick={toggleDropdown}>
           <CaretDown />
         </button>
       </div>
