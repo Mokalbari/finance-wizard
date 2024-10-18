@@ -82,3 +82,10 @@ export const createNewBudget = async (formData: FormData) => {
   revalidatePath("/budget")
   redirect("/budget")
 }
+
+// DELETE
+export const deleteBudget = async (id: string) => {
+  await sql`
+  DELETE FROM budgets WHERE id = ${id}`
+  revalidatePath("/budget")
+}

@@ -33,7 +33,7 @@ export default function BudgetEllipsisList() {
         modalTitle={`Edit '${data.category}'`}
         modalDesc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet."
       >
-        <BudgetForm />
+        <BudgetForm method="PUT" close={closeEditModal} />
       </Modal>
       <Modal
         ref={deleteModalRef}
@@ -41,7 +41,7 @@ export default function BudgetEllipsisList() {
         modalTitle={`Delete '${data.category}'`}
         modalDesc={`Are you sure you want to delete ${data.category}? This action cannot be reversed, and all the data inside it will be removed forever`}
       >
-        <DeleteForm close={closeDeleteModal} />
+        <DeleteForm id={data.id} close={closeDeleteModal} />
       </Modal>
     </div>
   )

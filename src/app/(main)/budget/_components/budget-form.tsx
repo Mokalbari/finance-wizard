@@ -8,17 +8,22 @@ import Dropdown from "@/src/ui/shared/atoms/dropdown"
 import { createNewBudget } from "../actions"
 
 type Props = {
+  method: "POST" | "PUT" | "DELETE"
   close: () => void
 }
 
-export default function BudgetForm({ close }: Props) {
+export default function BudgetForm({ close, method }: Props) {
   const [currentCategory, setCurrentCategory] = useState("Entertainment")
   const [currentColor, setCurrentColor] = useState<ColorPalette>(
     colorPalette[0],
   )
+  const getAction = {
+    POST: createNewBudget,
+    // PUT: editBudget,
+  }
 
   return (
-    <form method="POST" action={createNewBudget} className="flex flex-col">
+    <form method={method} action={getAction[method]} className="flex flex-col">
       {/* Sélecteur de catégorie */}
       <Dropdown
         label="Budget Category"
