@@ -5,15 +5,20 @@ import AddButton from "@/src/ui/shared/atoms/add-button"
 import { categories, colorPalette } from "@/src/lib/placeholder-data"
 import { ColorPalette } from "@/src/lib/definitions"
 import Dropdown from "@/src/ui/shared/atoms/dropdown"
+import { createNewBudget } from "../actions"
 
-export default function BudgetForm() {
+type Props = {
+  close: () => void
+}
+
+export default function BudgetForm({ close }: Props) {
   const [currentCategory, setCurrentCategory] = useState("Entertainment")
   const [currentColor, setCurrentColor] = useState<ColorPalette>(
     colorPalette[0],
   )
 
   return (
-    <form className="flex flex-col">
+    <form method="POST" action={createNewBudget} className="flex flex-col">
       {/* Sélecteur de catégorie */}
       <Dropdown
         label="Budget Category"
@@ -34,6 +39,7 @@ export default function BudgetForm() {
           className="w-full rounded-lg border border-grey-500 px-5 py-3"
           placeholder="$    e.g. 2000"
           type="text"
+          name="maximum"
         />
       </div>
 
@@ -59,6 +65,8 @@ export default function BudgetForm() {
           getOptionKey={color => color.colorHex}
         />
       </div>
+      <input type="hidden" name="category" value={currentCategory} />
+      <input type="hidden" name="theme" value={currentColor.colorHex} />
 
       {/* Bouton d'ajout */}
       <AddButton
@@ -66,6 +74,8 @@ export default function BudgetForm() {
         text="Add Budget"
         showBefore={false}
         className="mt-5"
+        type="submit"
+        onClick={close}
       />
     </form>
   )

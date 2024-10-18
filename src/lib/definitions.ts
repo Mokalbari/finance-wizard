@@ -162,3 +162,11 @@ export type RecurringBills = {
   amount: number
   recurring: boolean
 }
+
+export type Budget = {
+  id: string
+  category: string
+  maximum: string
+  theme: string
+  user_id: string
+}

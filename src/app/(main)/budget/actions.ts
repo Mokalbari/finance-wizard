@@ -1,8 +1,15 @@
+"use server"
+
+import { z } from "zod"
 import {
   BudgetCardLatestTransactions,
   BudgetCardType,
 } from "@/src/lib/definitions"
 import { sql } from "@vercel/postgres"
+import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
+
+// GET
 
 export const fetchBudgetCard = async () => {
   const fixedDate = new Date("2024-07-28")
@@ -45,4 +52,33 @@ export const fetchLatestTransactionsOnBudgetCard = async (category: string) => {
     console.error("DB error:", error)
     throw new Error("Error while fetching latest 3 transactions")
   }
+}
+
+// POST
+
+const FormSchema = z.object({
+  id: z.string(),
+  category: z.string(),
+  maximum: z.string(),
+  theme: z.string(),
+  user_id: z.string(),
+})
+
+const CreateBudget = FormSchema.omit({ id: true, user_id: true })
+
+export const createNewBudget = async (formData: FormData) => {
+  const { category, maximum, theme } = CreateBudget.parse({
+    category: formData.get("category"),
+    maximum: formData.get("maximum"),
+    theme: formData.get("theme"),
+  })
+  const userId = "488e725f-1ba8-4ea1-a467-c8dc0880db2b"
+
+  await sql`
+  INSERT INTO budgets (category, maximum, theme, user_id)
+  VALUES (${category}, ${maximum}, ${theme}, ${userId})
+  `
+
+  revalidatePath("/budget")
+  redirect("/budget")
 }
