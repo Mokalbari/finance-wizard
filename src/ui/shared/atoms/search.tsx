@@ -1,94 +1,56 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useSearchParams, usePathname, useRouter } from "next/navigation"
+import { useDebouncedCallback } from "use-debounce"
 import clsx from "clsx"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import { getPercentage } from "@/src/lib/functions"
-import { usePotCardContext } from "@/src/context/pots-context"
+import IconSearch from "@/src/ui/icons/icon-search.svg"
 
 type Props = {
-  isAdding: boolean
+  placeholder: string
+  show: "dollar" | "loop" | null
+  className?: string
 }
 
-export default function PotsBalanceForm({ isAdding }: Props) {
-  const { data } = usePotCardContext()
-  const [amount, setAmount] = useState("")
-  const [currentPercentage, setCurrentPercentage] = useState(0)
-  const [currentTotal, setCurrentTotal] = useState(data.total)
+export default function Search({ placeholder, show, className }: Props) {
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const { replace } = useRouter()
 
-  const handleChange = (typedAmount: string) => {
-    if (!/^\d+$/.test(typedAmount)) return
-    setAmount(typedAmount)
-  }
-
-  useEffect(() => {
-    const typedAmount = +amount
-    if (!typedAmount) return
-
-    let updatedTotal = data.total
-
-    if (isAdding) {
-      updatedTotal += typedAmount
+  const handleSearch = useDebouncedCallback((term: string) => {
+    const params = new URLSearchParams(searchParams)
+    if (term) {
+      params.set("query", term)
     } else {
-      updatedTotal -= typedAmount
+      params.delete("query")
     }
-
-    setCurrentTotal(updatedTotal)
-    const percentage = getPercentage(updatedTotal, data.target)
-    setCurrentPercentage(percentage)
-  }, [amount, data.total, data.target, isAdding])
+    replace(`${pathname}?${params.toString()}`)
+  }, 300)
 
   return (
-    <form>
-      <div className="flex items-center justify-between">
-        <div className="text-sm">New Amount</div>
-        <div className="text-xl font-bold text-black">
-          ${currentTotal.toFixed(2)}
-        </div>
-      </div>
-
-      <div className="mt-4 flex h-2 w-full rounded-lg bg-beige-100">
-        <div className="h-2 w-[10%] rounded-l-lg border-r-2 border-r-white bg-black" />
-        <div
-          style={{ width: `${currentPercentage}%` }}
-          className={clsx(`h-2 rounded-r-lg`, {
-            "bg-green": isAdding,
-            "bg-red": !isAdding,
-          })}
-        />
-      </div>
-
-      <div className="mt-3 flex items-center justify-between text-xs">
-        <div
-          className={clsx("font-bold", {
-            "text-green": isAdding,
-            "text-red": !isAdding,
-          })}
-        >
-          {currentPercentage.toFixed(2)}%
-        </div>
-        <div>Target of ${data.target}</div>
-      </div>
-
-      <div className="mt-5 flex flex-col">
-        <label className="text-xs font-bold" htmlFor="Amount to Withdraw">
-          Amount to {isAdding ? "Add" : "Withdraw"}
-        </label>
-        <input
-          value={amount}
-          onChange={event => handleChange(event.target.value)}
-          className="mt-1 rounded-lg border border-grey-500 px-5 py-3"
-          type="text"
-          placeholder="$ 20"
-        />
-        <AddButton
-          className="mt-5"
-          type="submit"
-          isBlack
-          showBefore={false}
-          text={isAdding ? "Confirm Addition" : "Confirm Withdrawal"}
-        />
-      </div>
-    </form>
+    <div className="relative flex">
+      <input
+        onChange={event => {
+          handleSearch(event.target.value)
+        }}
+        defaultValue={searchParams.get("query")?.toString()}
+        className={clsx(
+          "flex-1 rounded-lg border-[1px] border-beige-500 px-5 py-3 text-sm placeholder:text-beige-500 active:border-grey-900",
+          `${className}`,
+          { "pl-10": show === "dollar" },
+          { "pr-10": show === "loop" },
+        )}
+        placeholder={placeholder}
+      />
+      {show === "dollar" && (
+        <span className="absolute left-0 top-1 ml-4 translate-y-2/4 text-sm text-beige-500">
+          $
+        </span>
+      )}
+      {show === "loop" && (
+        <span className="absolute right-0 top-[10%] mr-4 translate-y-3/4">
+          <IconSearch />{" "}
+        </span>
+      )}
+    </div>
   )
 }
