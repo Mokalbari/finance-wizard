@@ -55,3 +55,29 @@ export const createNewPot = async (formData: FormData) => {
   revalidatePath("/pots")
   redirect("/pots")
 }
+
+// PUT
+const UpdatePot = FormSchema.omit({
+  id: true,
+  user_id: true,
+  total: true,
+})
+
+export const updatePot = async (id: string, formData: FormData) => {
+  const { name, target, theme } = UpdatePot.parse({
+    name: formData.get("potName"),
+    target: formData.get("targetAmount"),
+    theme: formData.get("theme"),
+  })
+
+  await sql`
+  UPDATE pots
+  SET
+    name = ${name},
+    target = ${target},
+    theme = ${theme}
+  WHERE id = ${id}
+  `
+  revalidatePath("/pots")
+  redirect("/pots")
+}

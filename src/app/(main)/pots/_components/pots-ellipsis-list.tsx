@@ -31,9 +31,9 @@ export default function PotsEllipsisList() {
         ref={editModalRef}
         close={closeEditModal}
         modalTitle={`Edit '${data.name}'`}
-        modalDesc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet."
+        modalDesc="If your saving targets change, feel free to update your pots."
       >
-        <PotForm />
+        <PotForm id={data.id} method="PUT" close={closeEditModal} />
       </Modal>
       <Modal
         ref={deleteModalRef}
@@ -41,7 +41,7 @@ export default function PotsEllipsisList() {
         modalTitle={`Delete '${data.name}'`}
         modalDesc={`Are you sure you want to delete ${data.name}? This action cannot be reversed, and all the data inside it will be removed forever`}
       >
-        <DeleteForm close={closeDeleteModal} />
+        <DeleteForm id={data.id} close={closeDeleteModal} />
       </Modal>
     </div>
   )
