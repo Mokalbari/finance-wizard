@@ -1,27 +1,3 @@
-export type ColorPalette =
-  | "bg-beige-500"
-  | "bg-beige-100"
-  | "bg-grey-900"
-  | "bg-grey-500"
-  | "bg-grey-300"
-  | "bg-grey-100"
-  | "bg-green"
-  | "bg-yellow"
-  | "bg-cyan"
-  | "bg-navy"
-  | "bg-red"
-  | "bg-purple"
-  | "bg-lavender"
-  | "bg-turquoise"
-  | "bg-brown"
-  | "bg-magenta"
-  | "bg-blue"
-  | "bg-navy-grey"
-  | "bg-army-green"
-  | "bg-gold"
-  | "bg-orange"
-  | "bg-white"
-
 export type ColorPaletteHex =
   | "#98908B" // beige-500
   | "#F8F4F0" // beige-100
@@ -45,6 +21,39 @@ export type ColorPaletteHex =
   | "#CAB361" // gold
   | "#BE6C49" // orange
   | "#FFFFFF" // white
+
+export type ColorName =
+  | "Intense Beige"
+  | "Soft Beige"
+  | "Deep Grey"
+  | "Neutral Grey"
+  | "Light Grey"
+  | "Soft Grey"
+  | "Emerald Green"
+  | "Warm Yellow"
+  | "Sky Cyan"
+  | "Navy Blue"
+  | "Crimson Red"
+  | "Royal Purple"
+  | "Lavender Mist"
+  | "Ocean Turquoise"
+  | "Earthy Brown"
+  | "Magenta Rose"
+  | "Ocean Blue"
+  | "Steel Navy-Grey"
+  | "Army Green"
+  | "Golden Glow"
+  | "Burnt Orange"
+  | "Pure White"
+
+export type ColorPalette = {
+  colorName: ColorName
+  colorHex: ColorPaletteHex
+}
+
+export type ColorPaletteObj = {
+  id: number
+} & ColorPalette
 
 export type SVGProps = {
   sizes?: string
