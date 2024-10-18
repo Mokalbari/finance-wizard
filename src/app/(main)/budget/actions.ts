@@ -74,11 +74,11 @@ export const createNewBudget = async (formData: FormData) => {
     maximum: formData.get("maximum"),
     theme: formData.get("theme"),
   })
-  const userId = "488e725f-1ba8-4ea1-a467-c8dc0880db2b"
+  const USER_ID = "488e725f-1ba8-4ea1-a467-c8dc0880db2b"
 
   await sql`
   INSERT INTO budgets (category, maximum, theme, user_id)
-  VALUES (${category}, ${maximum}, ${theme}, ${userId})
+  VALUES (${category}, ${maximum}, ${theme}, ${USER_ID})
   `
 
   revalidatePath("/budget")

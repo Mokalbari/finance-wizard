@@ -1,5 +1,10 @@
+import { z } from "zod"
 import { PotsCardType } from "@/src/lib/definitions"
 import { sql } from "@vercel/postgres"
+import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
+
+// GET
 
 export const fetchPotsCard = async () => {
   try {
@@ -17,4 +22,34 @@ export const fetchPotsCard = async () => {
     console.error("DB Error: ", error)
     throw new Error("Failed to fetch pots card from DB")
   }
+}
+
+// POST
+const FormSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  target: z.string(),
+  total: z.string(),
+  theme: z.string(),
+  user_id: z.string(),
+})
+
+const CreatePot = FormSchema.omit({ id: true, user_id: true, total: true })
+
+export const createNewPot = async (formData: FormData) => {
+  const { name, target, theme } = CreatePot.parse({
+    name: formData.get("potName"),
+    target: formData.get("targetAmount"),
+    theme: formData.get("theme"),
+  })
+
+  const USER_ID = "488e725f-1ba8-4ea1-a467-c8dc0880db2b"
+  const STARTING_VALUE = 0
+
+  await sql`INSERT INTO pots (name, target, total, theme, user_id)
+  VALUES (${name}, ${target}, ${STARTING_VALUE}, ${theme}, ${USER_ID})
+  `
+
+  revalidatePath("/pots")
+  redirect("/pots")
 }
