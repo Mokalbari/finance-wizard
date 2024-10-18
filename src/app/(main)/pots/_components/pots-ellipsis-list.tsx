@@ -41,7 +41,7 @@ export default function PotsEllipsisList() {
         modalTitle={`Delete '${data.name}'`}
         modalDesc={`Are you sure you want to delete ${data.name}? This action cannot be reversed, and all the data inside it will be removed forever`}
       >
-        <DeleteForm id={data.id} close={closeDeleteModal} />
+        <DeleteForm table="pots" id={data.id} close={closeDeleteModal} />
       </Modal>
     </div>
   )

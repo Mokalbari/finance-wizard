@@ -81,3 +81,10 @@ export const updatePot = async (id: string, formData: FormData) => {
   revalidatePath("/pots")
   redirect("/pots")
 }
+
+// DELETE
+export const deletePot = async (id: string) => {
+  await sql`
+  DELETE FROM pots WHERE id = ${id}`
+  revalidatePath("/pots")
+}

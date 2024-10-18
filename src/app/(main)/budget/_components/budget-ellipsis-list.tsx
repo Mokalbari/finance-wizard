@@ -41,7 +41,7 @@ export default function BudgetEllipsisList() {
         modalTitle={`Delete '${data.category}'`}
         modalDesc={`Are you sure you want to delete ${data.category}? This action cannot be reversed, and all the data inside it will be removed forever`}
       >
-        <DeleteForm id={data.id} close={closeDeleteModal} />
+        <DeleteForm table="budgets" id={data.id} close={closeDeleteModal} />
       </Modal>
     </div>
   )
