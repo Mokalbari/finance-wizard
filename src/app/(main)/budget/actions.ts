@@ -83,7 +83,30 @@ export const createNewBudget = async (formData: FormData) => {
   redirect("/budget")
 }
 
+// PUT
+const UpdateBudget = FormSchema.omit({ id: true, user_id: true })
+
+export const updateBudget = async (id: string, formData: FormData) => {
+  const { category, maximum, theme } = UpdateBudget.parse({
+    category: formData.get("category"),
+    maximum: formData.get("maximum"),
+    theme: formData.get("theme"),
+  })
+
+  await sql`
+  UPDATE budgets
+  SET
+    category = ${category},
+    maximum = ${maximum},
+    theme = ${theme}
+  WHERE id = ${id}
+    `
+  revalidatePath("/budget")
+  redirect("/budget")
+}
+
 // DELETE
+
 export const deleteBudget = async (id: string) => {
   await sql`
   DELETE FROM budgets WHERE id = ${id}`

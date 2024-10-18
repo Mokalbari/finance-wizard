@@ -5,21 +5,25 @@ import AddButton from "@/src/ui/shared/atoms/add-button"
 import { categories, colorPalette } from "@/src/lib/placeholder-data"
 import { ColorPalette } from "@/src/lib/definitions"
 import Dropdown from "@/src/ui/shared/atoms/dropdown"
-import { createNewBudget } from "../actions"
+import { createNewBudget, updateBudget } from "../actions"
 
 type Props = {
-  method: "POST" | "PUT" | "DELETE"
+  method: "POST" | "PUT"
   close: () => void
+  id: string
 }
 
-export default function BudgetForm({ close, method }: Props) {
+export default function BudgetForm({ close, method, id }: Props) {
   const [currentCategory, setCurrentCategory] = useState("Entertainment")
   const [currentColor, setCurrentColor] = useState<ColorPalette>(
     colorPalette[0],
   )
+
+  const updateBudgetWithId = updateBudget.bind(null, id)
+
   const getAction = {
     POST: createNewBudget,
-    // PUT: editBudget,
+    PUT: updateBudgetWithId,
   }
 
   return (

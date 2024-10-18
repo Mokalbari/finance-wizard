@@ -33,7 +33,7 @@ export default function BudgetEllipsisList() {
         modalTitle={`Edit '${data.category}'`}
         modalDesc="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet."
       >
-        <BudgetForm method="PUT" close={closeEditModal} />
+        <BudgetForm id={data.id} method="PUT" close={closeEditModal} />
       </Modal>
       <Modal
         ref={deleteModalRef}

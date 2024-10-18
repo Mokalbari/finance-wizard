@@ -26,7 +26,7 @@ export default function AddBudgetModal() {
         modalTitle="Add New Budget"
         modalDesc="Choose a category to set a spending budget. These categories can help you monitor spending."
       >
-        <BudgetForm close={closeModal} />
+        <BudgetForm id="" method="POST" close={closeModal} />
       </Modal>
     </>
   )
