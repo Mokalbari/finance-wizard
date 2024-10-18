@@ -11,7 +11,7 @@ import { redirect } from "next/navigation"
 
 // GET
 
-export const fetchBudgetCard = async () => {
+export const fetchBudgetCard = async (): Promise<BudgetCardType[]> => {
   const fixedDate = new Date("2024-07-28")
 
   try {
@@ -34,7 +34,9 @@ export const fetchBudgetCard = async () => {
   }
 }
 
-export const fetchLatestTransactionsOnBudgetCard = async (category: string) => {
+export const fetchLatestTransactionsOnBudgetCard = async (
+  category: string,
+): Promise<BudgetCardLatestTransactions[]> => {
   try {
     const { rows } = await sql<BudgetCardLatestTransactions>`
         SELECT
