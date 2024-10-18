@@ -74,7 +74,7 @@ async function seedPots() {
     pots.map(
       pot => client.sql`
       INSERT INTO pots (name, target, total, theme, user_id)
-      VALUES (${pot.name}, ${pot.target}, ${pot.total}, ${pot.theme}, (SELECT id FROM users LIMIT 1))
+      VALUES (${pot.colorName}, ${pot.target}, ${pot.total}, ${pot.theme}, (SELECT id FROM users LIMIT 1))
       ON CONFLICT (id) DO NOTHING;
     `,
     ),
@@ -102,7 +102,7 @@ async function seedTransactions() {
     transactions.map(
       transaction => client.sql`
       INSERT INTO transactions (name, avatar, category, date, amount, recurring, user_id)
-      VALUES (${transaction.name}, ${transaction.avatar}, ${transaction.category}, ${transaction.date}, ${transaction.amount}, ${transaction.recurring}, (SELECT id FROM users LIMIT 1))
+      VALUES (${transaction.colorName}, ${transaction.avatar}, ${transaction.category}, ${transaction.date}, ${transaction.amount}, ${transaction.recurring}, (SELECT id FROM users LIMIT 1))
       ON CONFLICT (id) DO NOTHING;
     `,
     ),

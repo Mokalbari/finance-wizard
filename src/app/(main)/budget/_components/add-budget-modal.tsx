@@ -23,8 +23,8 @@ export default function AddBudgetModal() {
       <Modal
         ref={modalRef}
         close={closeModal}
-        modalTitle="coucou"
-        modalDesc="coucou ma modale bancale"
+        modalTitle="Add New Budget"
+        modalDesc="Choose a category to set a spending budget. These categories can help you monitor spending."
       >
         <BudgetForm />
       </Modal>
