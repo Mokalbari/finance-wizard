@@ -1,9 +1,9 @@
-import BudgetCard from "./_components/budget-card"
-import PageTitle from "@/src/ui/shared/atoms/page-title"
 import BudgetCardProvider from "@/src/context/budget-context"
-import { fetchBudgetCard } from "./actions"
-import BudgetPieChart from "./_components/budget-pie-chart"
+import PageTitle from "@/src/ui/shared/atoms/page-title"
 import AddBudgetModal from "./_components/add-budget-modal"
+import BudgetCard from "./_components/budget-card"
+import BudgetPieChart from "./_components/budget-pie-chart"
+import { fetchBudgetCard } from "./actions"
 
 export default async function Page() {
   const budgetCategory = await fetchBudgetCard()

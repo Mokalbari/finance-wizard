@@ -1,10 +1,10 @@
 "use server"
 
-import { z } from "zod"
 import { PotsCardType } from "@/src/lib/definitions"
 import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+import { z } from "zod"
 
 // GET
 
@@ -80,6 +80,27 @@ export const updatePot = async (id: string, formData: FormData) => {
   `
   revalidatePath("/pots")
   redirect("/pots")
+}
+
+const UpdatePotBalance = FormSchema.omit({
+  id: true,
+  name: true,
+  target: true,
+  theme: true,
+  user_id: true,
+})
+
+export const updatePotBalance = async (id: string, formData: FormData) => {
+  const { total } = UpdatePotBalance.parse({
+    total: formData.get("total"),
+  })
+
+  await sql`
+  UPDATE pots
+  SET total = ${total}
+  WHERE id = ${id}
+  `
+  revalidatePath("/pots")
 }
 
 // DELETE

@@ -1,8 +1,8 @@
 // type Props = {}
 import PotCardContextProvider from "@/src/context/pots-context"
+import AddPotModal from "./_components/add-pot-modal"
 import PotsCard from "./_components/pots-card"
 import { fetchPotsCard } from "./actions"
-import AddPotModal from "./_components/add-pot-modal"
 
 export default async function Page() {
   const potsCardData = await fetchPotsCard()

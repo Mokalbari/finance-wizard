@@ -1,16 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import clsx from "clsx"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import { getPercentage } from "@/src/lib/functions"
 import { usePotCardContext } from "@/src/context/pots-context"
+import { getPercentage } from "@/src/lib/functions"
+import AddButton from "@/src/ui/shared/atoms/add-button"
+import clsx from "clsx"
+import { useEffect, useState } from "react"
+import { updatePotBalance } from "../actions"
 
 type Props = {
   isAdding: boolean
+  close: () => void
 }
 
-export default function PotsBalanceForm({ isAdding }: Props) {
+export default function PotsBalanceForm({ isAdding, close }: Props) {
   const { data } = usePotCardContext()
   const [amount, setAmount] = useState("")
   const [currentPercentage, setCurrentPercentage] = useState(0)
@@ -38,8 +40,10 @@ export default function PotsBalanceForm({ isAdding }: Props) {
     setCurrentPercentage(percentage)
   }, [amount, data.total, data.target, isAdding])
 
+  const updatePotBalanceWithId = updatePotBalance.bind(null, data.id)
+
   return (
-    <form>
+    <form action={updatePotBalanceWithId}>
       <div className="flex items-center justify-between">
         <div className="text-sm">New Amount</div>
         <div className="text-xl font-bold text-black">
@@ -81,7 +85,9 @@ export default function PotsBalanceForm({ isAdding }: Props) {
           type="text"
           placeholder="$ 20"
         />
+        <input type="hidden" name="total" value={currentTotal.toString()} />
         <AddButton
+          onClick={close}
           className="mt-5"
           type="submit"
           isBlack

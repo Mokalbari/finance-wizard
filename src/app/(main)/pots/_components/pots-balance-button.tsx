@@ -1,11 +1,11 @@
 "use client"
 
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import Modal from "@/src/ui/shared/modal/modal"
-import PotsBalanceForm from "./pots-balance-form"
-import { useRef } from "react"
 import { usePotCardContext } from "@/src/context/pots-context"
 import { useModal } from "@/src/hooks/useModal"
+import AddButton from "@/src/ui/shared/atoms/add-button"
+import Modal from "@/src/ui/shared/modal/modal"
+import { useRef } from "react"
+import PotsBalanceForm from "./pots-balance-form"
 
 export default function PotsBalanceButton() {
   const { data } = usePotCardContext()
@@ -41,7 +41,7 @@ export default function PotsBalanceButton() {
         modalDesc="Add money to your pot to keep it separate from your main balance. As soon as you add this money, it will be deducted from your current balance."
         close={closeAddMoneyModal}
       >
-        <PotsBalanceForm isAdding />
+        <PotsBalanceForm isAdding close={closeAddMoneyModal} />
       </Modal>
       <Modal
         ref={withdrawModal}
@@ -49,7 +49,7 @@ export default function PotsBalanceButton() {
         modalDesc="Add money to your pot to keep it separate from your main balance. As soon as you add this money, it will be deducted from your current balance."
         close={closeWithdrawModal}
       >
-        <PotsBalanceForm isAdding={false} />
+        <PotsBalanceForm isAdding={false} close={closeWithdrawModal} />
       </Modal>
     </>
   )

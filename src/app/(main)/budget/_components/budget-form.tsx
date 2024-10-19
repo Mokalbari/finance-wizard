@@ -1,10 +1,10 @@
 "use client"
-import { useState } from "react"
-import ColorDot from "@/src/ui/shared/atoms/color-dot"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import { categories, colorPalette } from "@/src/lib/placeholder-data"
 import { ColorPalette } from "@/src/lib/definitions"
+import { categories, colorPalette } from "@/src/lib/placeholder-data"
+import AddButton from "@/src/ui/shared/atoms/add-button"
+import ColorDot from "@/src/ui/shared/atoms/color-dot"
 import Dropdown from "@/src/ui/shared/atoms/dropdown"
+import { useState } from "react"
 import { createNewBudget, updateBudget } from "../actions"
 
 type Props = {
@@ -27,7 +27,7 @@ export default function BudgetForm({ close, method, id }: Props) {
   }
 
   return (
-    <form method={method} action={getAction[method]} className="flex flex-col">
+    <form action={getAction[method]} className="flex flex-col">
       {/* Sélecteur de catégorie */}
       <Dropdown
         label="Budget Category"
