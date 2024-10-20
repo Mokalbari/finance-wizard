@@ -11,7 +11,7 @@ export default async function Page() {
   return (
     <main className="mx-4 sm:mx-10">
       <header className="mt-6 flex items-center justify-between sm:mt-8">
-        <PageTitle htmlTag="h1" text="Budgets" className="" />
+        <PageTitle text="Budgets" className="" />
         <AddBudgetModal />
       </header>
       <div className="lg:mt-6 lg:flex lg:items-start lg:justify-between lg:gap-6">

@@ -1,11 +1,11 @@
 "use client"
 
-import PageTitle from "@/src/ui/shared/atoms/page-title"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import Modal from "@/src/ui/shared/modal/modal"
-import PotForm from "./pot-form"
-import { useRef } from "react"
 import { useModal } from "@/src/hooks/useModal"
+import AddButton from "@/src/ui/shared/atoms/add-button"
+import PageTitle from "@/src/ui/shared/atoms/page-title"
+import Modal from "@/src/ui/shared/modal/modal"
+import { useRef } from "react"
+import PotForm from "./pot-form"
 
 export default function AddPotModal() {
   const modalRef = useRef<HTMLDialogElement>(null)
@@ -14,7 +14,7 @@ export default function AddPotModal() {
   return (
     <>
       <header className="flex items-center justify-between">
-        <PageTitle htmlTag="h1" text="Pots" className="" />
+        <PageTitle text="Pots" className="" />
         <AddButton isBlack showBefore text="Add New Pot" onClick={openModal} />
       </header>
       <Modal

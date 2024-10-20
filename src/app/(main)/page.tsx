@@ -56,7 +56,7 @@ export default async function Home() {
   return (
     <div className="mb-16 max-lg:mx-auto max-lg:max-w-[90%]">
       <header>
-        <PageTitle htmlTag="h1" text="Overview" className="mt-6 sm:mt-10" />
+        <PageTitle text="Overview" className="mt-6 sm:mt-10" />
         <OverviewGrid data={userBalance} className="mt-8" />
       </header>
       <main
