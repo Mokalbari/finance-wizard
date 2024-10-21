@@ -3,12 +3,13 @@ import Image from "next/image"
 
 import AuthentificationForm from "@/src/ui/shared/authentification/authentification-form"
 import FinanceHeader from "@/src/ui/shared/authentification/finance-header"
+import Logo from "@/src/ui/shared/navbar/logo"
 import LoginFormField from "./_components/login-form-field"
 
 export default function Page() {
   return (
     <div className="flex min-h-screen items-center justify-center max-lg:flex-col lg:mx-5 lg:gap-4">
-      <div className="max-lg:hidden">
+      <div className="relative max-lg:hidden">
         <Image
           style={{ borderRadius: "0.75rem" }}
           src="/illustration-authentication.svg"
@@ -16,6 +17,18 @@ export default function Page() {
           height={920}
           alt="a person running and reaching towards a flying money bill, symbolizing movement. The character is dressed casually, with a baseball cap and sneakers, and has an energetic posture."
         />
+        <div className="absolute bottom-8 left-8 text-white">
+          <p className="text-xl font-bold leading-10">
+            Keep track of your money <br />
+            and save for you future
+          </p>
+          <p className="mt-6 text-sm text-white/85">
+            Personal finance app puts you in control of your spending. Track{" "}
+            <br />
+            transactions, set budgets, and add to savings pots easily.
+          </p>
+        </div>
+        <Logo isOpen className="absolute left-8 top-8" />
       </div>
       <div className="absolute left-0 top-0 w-full lg:hidden">
         <FinanceHeader />
