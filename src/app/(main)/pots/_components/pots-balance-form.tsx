@@ -5,14 +5,15 @@ import { getPercentage } from "@/src/lib/functions"
 import AddButton from "@/src/ui/shared/atoms/add-button"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
-import { updatePotBalance } from "../actions"
+import { addMoneyToPot, removeMoneyFromPot } from "../actions"
 
 type Props = {
   isAdding: boolean
   close: () => void
+  action: "Add" | "Remove"
 }
 
-export default function PotsBalanceForm({ isAdding, close }: Props) {
+export default function PotsBalanceForm({ isAdding, close, action }: Props) {
   const { data } = usePotCardContext()
   const [amount, setAmount] = useState("")
   const [currentPercentage, setCurrentPercentage] = useState(0)
@@ -40,10 +41,14 @@ export default function PotsBalanceForm({ isAdding, close }: Props) {
     setCurrentPercentage(percentage)
   }, [amount, data.total, data.target, isAdding])
 
-  const updatePotBalanceWithId = updatePotBalance.bind(null, data.id)
+  const addMoneyToPotWithId = addMoneyToPot.bind(null, data.id)
+  const removeMoneyFromPotWithID = removeMoneyFromPot.bind(null, data.id)
+
+  const getCurrentAction = (action: "Add" | "Remove") =>
+    action === "Add" ? addMoneyToPotWithId : removeMoneyFromPotWithID
 
   return (
-    <form action={updatePotBalanceWithId}>
+    <form action={getCurrentAction(action)}>
       <div className="flex items-center justify-between">
         <div className="text-sm">New Amount</div>
         <div className="text-xl font-bold text-black">
@@ -80,12 +85,17 @@ export default function PotsBalanceForm({ isAdding, close }: Props) {
         </label>
         <input
           value={amount}
+          name="userInput"
           onChange={event => handleChange(event.target.value)}
           className="mt-1 rounded-lg border border-grey-500 px-5 py-3"
           type="text"
           placeholder="$ 20"
         />
-        <input type="hidden" name="total" value={currentTotal.toString()} />
+        <input
+          type="hidden"
+          name="newPotTotal"
+          value={currentTotal.toString()}
+        />
         <AddButton
           onClick={close}
           className="mt-5"

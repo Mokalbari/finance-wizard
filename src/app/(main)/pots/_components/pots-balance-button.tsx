@@ -41,7 +41,7 @@ export default function PotsBalanceButton() {
         modalDesc="Add money to your pot to keep it separate from your main balance. As soon as you add this money, it will be deducted from your current balance."
         close={closeAddMoneyModal}
       >
-        <PotsBalanceForm isAdding close={closeAddMoneyModal} />
+        <PotsBalanceForm isAdding close={closeAddMoneyModal} action="Add" />
       </Modal>
       <Modal
         ref={withdrawModal}
@@ -49,7 +49,11 @@ export default function PotsBalanceButton() {
         modalDesc="Add money to your pot to keep it separate from your main balance. As soon as you add this money, it will be deducted from your current balance."
         close={closeWithdrawModal}
       >
-        <PotsBalanceForm isAdding={false} close={closeWithdrawModal} />
+        <PotsBalanceForm
+          isAdding={false}
+          close={closeWithdrawModal}
+          action="Remove"
+        />
       </Modal>
     </>
   )

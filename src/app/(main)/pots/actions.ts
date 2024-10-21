@@ -1,13 +1,15 @@
 "use server"
 
+import { fetchUsersFinance } from "@/src/lib/actions"
 import { PotsCardType } from "@/src/lib/definitions"
 import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { z } from "zod"
 
-// GET
+const USER_ID = "488e725f-1ba8-4ea1-a467-c8dc0880db2b"
 
+// GET
 export const fetchPotsCard = async () => {
   try {
     const { rows } = await sql<PotsCardType>`
@@ -31,12 +33,17 @@ const FormSchema = z.object({
   id: z.string(),
   name: z.string(),
   target: z.string(),
-  total: z.string(),
+  userInput: z.string(),
+  newPotTotal: z.string(),
   theme: z.string(),
   user_id: z.string(),
 })
 
-const CreatePot = FormSchema.omit({ id: true, user_id: true, total: true })
+const CreatePot = FormSchema.omit({
+  id: true,
+  user_id: true,
+  newPotTotal: true,
+})
 
 export const createNewPot = async (formData: FormData) => {
   const { name, target, theme } = CreatePot.parse({
@@ -45,7 +52,6 @@ export const createNewPot = async (formData: FormData) => {
     theme: formData.get("theme"),
   })
 
-  const USER_ID = "488e725f-1ba8-4ea1-a467-c8dc0880db2b"
   const STARTING_VALUE = 0
 
   await sql`INSERT INTO pots (name, target, total, theme, user_id)
@@ -60,7 +66,8 @@ export const createNewPot = async (formData: FormData) => {
 const UpdatePot = FormSchema.omit({
   id: true,
   user_id: true,
-  total: true,
+  userInput: true,
+  newPotTotal: true,
 })
 
 export const updatePot = async (id: string, formData: FormData) => {
@@ -90,17 +97,76 @@ const UpdatePotBalance = FormSchema.omit({
   user_id: true,
 })
 
-export const updatePotBalance = async (id: string, formData: FormData) => {
-  const { total } = UpdatePotBalance.parse({
-    total: formData.get("total"),
+export const addMoneyToPot = async (id: string, formData: FormData) => {
+  const [userFinance] = await fetchUsersFinance()
+  const { userInput, newPotTotal } = UpdatePotBalance.parse({
+    userInput: formData.get("userInput"),
+    newPotTotal: formData.get("newPotTotal"),
   })
 
-  await sql`
-  UPDATE pots
-  SET total = ${total}
-  WHERE id = ${id}
-  `
-  revalidatePath("/pots")
+  if (+userInput <= 0) return
+  if (userFinance <= 0) return
+
+  if (userFinance > +userInput) {
+    const newUserBalance = userFinance - +userInput
+    try {
+      await sql`BEGIN`
+
+      await sql`
+        UPDATE pots
+        SET total = ${newPotTotal}
+        WHERE id = ${id}`
+
+      await sql`
+        UPDATE users
+        SET current = ${newUserBalance}
+        WHERE id = ${USER_ID}`
+
+      await sql`COMMIT`
+
+      revalidatePath("/pots")
+      revalidatePath("/")
+    } catch (error) {
+      await sql`ROLLBACK`
+      console.error("Error while updating user table and pots table", error)
+      throw new Error("Error while updating user table and pots table")
+    }
+  }
+}
+
+export const removeMoneyFromPot = async (id: string, formData: FormData) => {
+  const [userFinance] = await fetchUsersFinance()
+  const { userInput, newPotTotal } = UpdatePotBalance.parse({
+    userInput: formData.get("userInput"),
+    newPotTotal: formData.get("newPotTotal"),
+  })
+
+  if (+userInput <= 0) return
+
+  const newUserBalance = userFinance + +userInput
+
+  try {
+    await sql`BEGIN`
+
+    await sql`
+    UPDATE pots
+    SET total = ${newPotTotal}
+    WHERE id = ${id}`
+
+    await sql`
+    UPDATE users
+    SET current = ${newUserBalance}
+    WHERE id = ${USER_ID}`
+
+    await sql`COMMIT`
+
+    revalidatePath("/pots")
+    revalidatePath("/")
+  } catch (error) {
+    await sql`ROLLBACK`
+    console.error("Error while updating user table and pots table", error)
+    throw new Error("Error while updating user table and pots table")
+  }
 }
 
 // DELETE
