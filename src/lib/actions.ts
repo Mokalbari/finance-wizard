@@ -3,7 +3,7 @@ import { cache } from "react"
 import type { UserFinanceData } from "./definitions"
 import { RecurringBillsOverview } from "./definitions"
 
-export const fetchRecurringBills = async () => {
+export const fetchRecurringBills = cache(async () => {
   try {
     const { rows } =
       await sql<RecurringBillsOverview>`SELECT CAST(amount as DOUBLE PRECISION), date from transactions where recurring = true`
@@ -12,7 +12,7 @@ export const fetchRecurringBills = async () => {
     console.error("Database error:", error)
     throw new Error("Failed to fetch recurring bills")
   }
-}
+})
 
 export const fetchUsersFinance = cache(async () => {
   try {
