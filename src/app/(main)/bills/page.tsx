@@ -26,7 +26,7 @@ export default function Page({
           <SummaryCard />
         </aside>
         <main className="lg:w-2/3">
-          <div className="mt-6 rounded-lg bg-white px-5 py-6 sm:p-8 lg:mt-0">
+          <div className="mb-32 mt-6 rounded-lg bg-white px-5 py-6 sm:p-8 lg:mb-12 lg:mt-0">
             <TableHead />
             <Table query={currentQuery} />
           </div>

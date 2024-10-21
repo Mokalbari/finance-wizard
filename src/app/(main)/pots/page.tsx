@@ -11,9 +11,12 @@ export default async function Page() {
     <main className="mx-4 mt-6">
       <AddPotModal />
       <section className="mt-8">
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(550px,1fr))] gap-6">
+        <ul className="grid gap-6 max-lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(520px,1fr))]">
           {potsCardData.map(cardInfo => (
-            <li key={cardInfo.id} className="">
+            <li
+              key={cardInfo.id}
+              className="last-of-type:mb-32 lg:last-of-type:mb-12"
+            >
               <PotCardContextProvider data={cardInfo}>
                 <PotsCard data={cardInfo} />
               </PotCardContextProvider>
