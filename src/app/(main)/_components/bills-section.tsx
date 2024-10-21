@@ -20,7 +20,7 @@ export default function BillsSection({ data }: Props) {
       <CardHeader
         linkText="See Details"
         cardTitle="Recurring Bills"
-        href="/budget"
+        href="/bills"
       />
       <ul className="mt-8 flex flex-col gap-2">
         <BillBadge
