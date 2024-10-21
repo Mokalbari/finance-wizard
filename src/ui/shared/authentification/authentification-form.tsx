@@ -9,7 +9,7 @@ type Props = {
 
 export default function AuthentificationForm({ isSigningUp, children }: Props) {
   return (
-    <form className="flex max-w-[35rem] flex-col rounded-lg bg-white px-5 py-6">
+    <form className="flex flex-col rounded-lg bg-white px-5 py-6">
       <PageTitle text={isSigningUp ? "Sign Up" : "Login"} className="" />
       <div className="mt-8 flex flex-col gap-4">{children}</div>
       <AddButton
