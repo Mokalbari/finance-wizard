@@ -1,22 +1,22 @@
 "use client"
 
 // Hooks
-import { useState } from "react"
 import useScreenSize from "@/src/hooks/useScreenSize"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
 
 // Utils
 import clsx from "clsx"
 import Link from "next/link"
 
 // Icons - SVG
-import Logo from "./logo"
-import HomeIcon from "./home-icon"
-import TransactionIcon from "./transaction-icon"
-import BudgetIcon from "./budget-icon"
-import PotIcon from "./pots-icon"
-import BillIcon from "./bill-icon"
 import Arrow from "../../icons/icon-minimize-menu.svg"
+import BillIcon from "./bill-icon"
+import BudgetIcon from "./budget-icon"
+import HomeIcon from "./home-icon"
+import Logo from "./logo"
+import PotIcon from "./pots-icon"
+import TransactionIcon from "./transaction-icon"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(true)
@@ -127,7 +127,9 @@ export default function Navbar() {
       </div>
       {isLaptop && (
         <button onClick={openMenu} className="mb-20 flex gap-6 px-6 py-4">
-          <Arrow />
+          <div className={clsx("transition-all", { "rotate-180": !isOpen })}>
+            <Arrow />
+          </div>
           <span className={clsx({ hidden: !isOpen })}>Minimize Menu</span>
         </button>
       )}
