@@ -11,10 +11,10 @@ import Link from "next/link"
 
 // Icons - SVG
 import Arrow from "../../icons/icon-minimize-menu.svg"
+import Logo from "../atoms/logo"
 import BillIcon from "./bill-icon"
 import BudgetIcon from "./budget-icon"
 import HomeIcon from "./home-icon"
-import Logo from "./logo"
 import PotIcon from "./pots-icon"
 import TransactionIcon from "./transaction-icon"
 

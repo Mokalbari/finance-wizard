@@ -1,6 +1,6 @@
 // type Props = {}
 
-import Logo from "../navbar/logo"
+import Logo from "../atoms/logo"
 
 export default function FinanceHeader() {
   return (

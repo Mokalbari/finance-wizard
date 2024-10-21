@@ -1,9 +1,9 @@
 import Image from "next/image"
 // type Props = {}
 
+import Logo from "@/src/ui/shared/atoms/logo"
 import AuthentificationForm from "@/src/ui/shared/authentification/authentification-form"
 import FinanceHeader from "@/src/ui/shared/authentification/finance-header"
-import Logo from "@/src/ui/shared/navbar/logo"
 import LoginFormField from "./_components/login-form-field"
 
 export default function Page() {
