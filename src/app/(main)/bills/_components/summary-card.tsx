@@ -1,5 +1,3 @@
-// type Props = {}
-
 import CardTitle from "@/components/ui/card-title"
 import { fetchRecurringBills } from "@/lib/actions"
 import { reduceSum, sortBills } from "@/lib/functions"

@@ -1,11 +1,10 @@
 import BillIcon from "@/assets/icons/icon-recurring-bills.svg"
-import clsx from "clsx"
-// type Props = {}
+import { cn } from "@/helpers/style"
 
 export default function TotalBillsCard() {
   return (
     <div
-      className={clsx(
+      className={cn(
         "flex items-center gap-5 rounded-lg bg-black px-5 py-6 text-white",
         "sm:flex-col",
       )}
