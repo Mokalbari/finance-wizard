@@ -11,6 +11,7 @@ export default function AuthLayout({
     <div className="flex min-h-screen items-center justify-center max-lg:flex-col lg:mx-5 lg:gap-4">
       <div className="relative max-lg:hidden">
         <Image
+          priority
           style={{ borderRadius: "0.75rem" }}
           src="/illustration-authentication.svg"
           width={560}

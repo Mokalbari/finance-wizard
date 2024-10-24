@@ -170,3 +170,25 @@ export type Budget = {
   theme: string
   user_id: string
 }
+
+export type FormState =
+  | {
+      errors?: {
+        name?: string[]
+        email?: string[]
+        password?: string[]
+      }
+      message?: string
+    }
+  | undefined
+
+export type FormMessages = {
+  name: string
+  email: string
+  password: string
+  errors: {
+    name?: string[]
+    email?: string[]
+    password?: string[]
+  }
+}

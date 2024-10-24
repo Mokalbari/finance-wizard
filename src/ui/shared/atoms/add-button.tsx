@@ -7,6 +7,7 @@ type Props = {
   type?: "button" | "submit"
   className?: string
   onClick?: () => void
+  disabled?: boolean
 }
 
 export default function AddButton({
@@ -16,9 +17,11 @@ export default function AddButton({
   type = "button",
   className,
   onClick,
+  disabled,
 }: Props) {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       type={type}
       className={clsx(`rounded-lg p-4 text-sm font-bold ${className}`, {
