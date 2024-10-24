@@ -2,8 +2,8 @@
 
 import AddButton from "@/components/ui/add-button"
 import { usePotCardContext } from "@/context/pots-context"
+import { cn } from "@/helpers/style"
 import { getPercentage } from "@/lib/functions"
-import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { addMoneyToPot, removeMoneyFromPot } from "../actions"
 
@@ -60,18 +60,16 @@ export default function PotsBalanceForm({ isAdding, close, action }: Props) {
         <div className="h-2 w-[10%] rounded-l-lg border-r-2 border-r-white bg-black" />
         <div
           style={{ width: `${currentPercentage}%` }}
-          className={clsx(`h-2 rounded-r-lg`, {
+          className={cn(`h-2 rounded-r-lg bg-red`, {
             "bg-green": isAdding,
-            "bg-red": !isAdding,
           })}
         />
       </div>
 
       <div className="mt-3 flex items-center justify-between text-xs">
         <div
-          className={clsx("font-bold", {
+          className={cn("bg-red font-bold", {
             "text-green": isAdding,
-            "text-red": !isAdding,
           })}
         >
           {currentPercentage.toFixed(2)}%

@@ -2,9 +2,9 @@
 
 import CaretLeft from "@/assets/icons/icon-caret-left.svg"
 import CaretRight from "@/assets/icons/icon-caret-right.svg"
+import { cn } from "@/helpers/style"
 import useScreenSize from "@/hooks/useScreenSize"
 import { generatePagination } from "@/lib/functions"
-import clsx from "clsx"
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
 
@@ -39,10 +39,9 @@ export default function Pagination({ totalPages }: Props) {
         {allPages.map(page => (
           <Link key={page} href={createPageURL(page)}>
             <button
-              className={clsx(
-                "h-10 w-10 rounded-lg border border-grey-900",
+              className={cn(
+                "h-10 w-10 rounded-lg border border-grey-900 bg-white text-black",
                 { "bg-black text-white": page === currentPage },
-                { "bg-white text-black": page !== currentPage },
               )}
             >
               {page}

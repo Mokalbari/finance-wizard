@@ -1,5 +1,5 @@
+import { cn } from "@/helpers/style"
 import type { SortBy } from "@/lib/definitions"
-import clsx from "clsx"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 type Props = {
@@ -27,7 +27,7 @@ export default function DropdownMenuItems({ data }: Props) {
       <ul className="rounded-lg bg-white px-5 shadow-lg">
         {data.map(item => (
           <li
-            className={clsx(
+            className={cn(
               "border-b border-b-grey-300/50 py-3 last-of-type:border-b-transparent",
               {
                 "font-bold": currentCategory === item,
