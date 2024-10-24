@@ -6,6 +6,8 @@ import Table from "./_components/table"
 import TableHead from "./_components/table-head"
 import TotalBillsCard from "./_components/total-bills-card"
 
+export const revalidate = 60
+
 export default function Page({
   searchParams,
 }: {

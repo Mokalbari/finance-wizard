@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import BillIcon from "@/src/ui/icons/icon-recurring-bills.svg"
+import RecuringBillsIcon from "@/src/ui/icons/icon-recurring-bills.svg"
 // type Props = {}
 
 export default function TotalBillsCard() {
@@ -11,7 +11,7 @@ export default function TotalBillsCard() {
       )}
     >
       <div className="w-1/5 sm:w-full">
-        <BillIcon />
+        <RecuringBillsIcon />
       </div>
       <div className="flex w-4/5 flex-col sm:mt-8 sm:w-full">
         <div className="text-sm">Total bills</div>

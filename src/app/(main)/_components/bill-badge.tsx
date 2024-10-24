@@ -1,20 +1,32 @@
-import { BillsSortingOptions, ColorPaletteHex } from "@/src/lib/definitions"
+import { BillsSortingOptions } from "@/src/lib/definitions"
+import { cn } from "@/src/lib/style"
+import { DetailedHTMLProps, LiHTMLAttributes } from "react"
 
-type Props = {
-  borderColor: ColorPaletteHex
+interface Props
+  extends DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
   sortingOption: BillsSortingOptions
   amount: string
 }
 
+// type Props = {
+//   sortingOption: BillsSortingOptions
+//   amount: string | string
+// }
+
 export default function BillBadge({
   sortingOption,
   amount,
-  borderColor,
+  className,
+  ...props
 }: Props) {
+  // }: Props & DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>) {
   return (
     <li
-      className={`flex justify-between rounded-lg bg-beige-100 px-4 py-5`}
-      style={{ borderLeft: `0.25rem ${borderColor} outset` }}
+      className={cn(
+        `flex justify-between rounded-lg bg-beige-100 px-4 py-5`,
+        className,
+      )}
+      {...props}
     >
       <span className="text-grey-500">{sortingOption}</span>
       <span className="font-bold">${amount}</span>

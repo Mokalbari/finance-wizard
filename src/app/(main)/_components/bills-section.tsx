@@ -24,17 +24,17 @@ export default function BillsSection({ data }: Props) {
       />
       <ul className="mt-8 flex flex-col gap-2">
         <BillBadge
-          borderColor="#277C78"
+          className="border-l-[0.25rem] border-l-green"
           sortingOption={paid.name}
           amount={paidAmount.toFixed(2)}
         />
         <BillBadge
-          borderColor="#F2CDAC"
+          className="border-l-[0.25rem] border-l-yellow"
           sortingOption={upcoming.name}
           amount={upcomingAmount.toFixed(2)}
         />
         <BillBadge
-          borderColor="#82C9D7"
+          className="border-l-[0.25rem] border-l-cyan"
           sortingOption={dueSoon.name}
           amount={dueAmount.toFixed(2)}
         />

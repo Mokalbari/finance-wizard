@@ -12,11 +12,12 @@ import Link from "next/link"
 // Icons - SVG
 import Arrow from "../../icons/icon-minimize-menu.svg"
 import Logo from "../atoms/logo"
-import BillIcon from "./bill-icon"
+import BillIcon from "@/src/ui/icons/icon-bill.svg"
 import BudgetIcon from "./budget-icon"
 import HomeIcon from "./home-icon"
 import PotIcon from "./pots-icon"
 import TransactionIcon from "./transaction-icon"
+import { cn } from "@/src/lib/style"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(true)
@@ -76,12 +77,13 @@ export default function Navbar() {
       id: 5,
       path: "/bills",
       text: "Recurring bills",
-      icon:
-        pathname === "/bills" ? (
-          <BillIcon className="fill-green" />
-        ) : (
-          <BillIcon className="fill-grey-300" />
-        ),
+      icon: (
+        <BillIcon
+          className={cn("size-6 fill-grey-300", {
+            "fill-green": pathname === "/bills",
+          })}
+        />
+      ),
     },
   ]
 
