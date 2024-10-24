@@ -1,34 +1,39 @@
-import clsx from "clsx"
+import { cn } from "@/helpers/style"
+import { ButtonHTMLAttributes } from "react"
 
 type Props = {
   isBlack: boolean
   showBefore: boolean
   text: string
-  type?: "button" | "submit"
   className?: string
   onClick?: () => void
   disabled?: boolean
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 export default function AddButton({
   text,
   showBefore,
   isBlack,
-  type = "button",
   className,
   onClick,
   disabled,
+  type = "button",
+  ...props
 }: Props) {
   return (
     <button
       disabled={disabled}
       onClick={onClick}
       type={type}
-      className={clsx(`rounded-lg p-4 text-sm font-bold ${className}`, {
-        "before:content-['+_']": showBefore === true,
-        "bg-black text-white": isBlack,
-        "bg-beige-100 text-grey-900": !isBlack,
-      })}
+      className={cn(
+        "rounded-lg bg-beige-100 p-4 text-sm font-bold text-grey-900",
+        className,
+        {
+          "before:content-['+_']": showBefore,
+          "bg-black text-white": isBlack,
+        },
+      )}
+      {...props}
     >
       {text}
     </button>

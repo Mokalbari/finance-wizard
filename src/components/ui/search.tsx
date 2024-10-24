@@ -1,7 +1,7 @@
 "use client"
 
 import IconSearch from "@/assets/icons/icon-search.svg"
-import clsx from "clsx"
+import { cn } from "@/helpers/style"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useDebouncedCallback } from "use-debounce"
 
@@ -33,9 +33,9 @@ export default function Search({ placeholder, show, className }: Props) {
           handleSearch(event.target.value)
         }}
         defaultValue={searchParams.get("query")?.toString()}
-        className={clsx(
+        className={cn(
           "flex-1 rounded-lg border-[1px] border-beige-500 px-5 py-3 text-sm placeholder:text-beige-500 active:border-grey-900",
-          `${className}`,
+          className,
           { "pl-10": show === "dollar" },
           { "pr-10": show === "loop" },
         )}
