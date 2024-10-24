@@ -57,7 +57,7 @@ export default function Navbar() {
       icon: (
         <IconBudgets
           className={cn("size-6 fill-grey-300", {
-            "fill-green": pathname === "/budgets",
+            "fill-green": pathname === "/budget",
           })}
         />
       ),
