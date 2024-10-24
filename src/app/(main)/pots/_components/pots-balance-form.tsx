@@ -1,8 +1,8 @@
 "use client"
 
-import { usePotCardContext } from "@/src/context/pots-context"
-import { getPercentage } from "@/src/lib/functions"
-import AddButton from "@/src/ui/shared/atoms/add-button"
+import { usePotCardContext } from "@/context/pots-context"
+import { getPercentage } from "@/lib/functions"
+import AddButton from "@/ui/shared/atoms/add-button"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { addMoneyToPot, removeMoneyFromPot } from "../actions"

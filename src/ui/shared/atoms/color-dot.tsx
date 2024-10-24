@@ -1,4 +1,4 @@
-import { ColorPaletteHex } from "@/src/lib/definitions"
+import { ColorPaletteHex } from "@/lib/definitions"
 
 type Props = { color: ColorPaletteHex }
 

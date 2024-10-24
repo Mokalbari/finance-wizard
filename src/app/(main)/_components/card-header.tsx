@@ -1,6 +1,6 @@
-import CardTitle from "@/src/ui/shared/atoms/card-title"
+import { Links } from "@/lib/definitions"
+import CardTitle from "@/ui/shared/atoms/card-title"
 import OpenLink from "./open-link"
-import { Links } from "@/src/lib/definitions"
 
 type Props = {
   cardTitle: string

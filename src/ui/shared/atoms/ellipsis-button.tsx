@@ -1,8 +1,8 @@
 "use client"
 
-import { useRef, useState, ReactNode } from "react"
-import { useClickAway } from "@/src/hooks/useClickAway"
-import Ellipsis from "@/src/ui/icons/icon-ellipsis.svg"
+import { useClickAway } from "@/hooks/useClickAway"
+import Ellipsis from "@/ui/icons/icon-ellipsis.svg"
+import { ReactNode, useRef, useState } from "react"
 
 type Props = {
   children: ReactNode

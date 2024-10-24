@@ -1,5 +1,5 @@
-import { formatNumberToString, getPercentage } from "@/src/lib/functions"
-import { ColorPaletteHex } from "@/src/lib/definitions"
+import { ColorPaletteHex } from "@/lib/definitions"
+import { formatNumberToString, getPercentage } from "@/lib/functions"
 
 type Props = {
   totalSpent: number

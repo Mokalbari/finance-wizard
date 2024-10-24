@@ -1,11 +1,11 @@
 "use client"
 
+import { usePotCardContext } from "@/context/pots-context"
+import { useModal } from "@/hooks/useModal"
 import { useRef } from "react"
+import DeleteForm from "../../../../ui/shared/modal/delete-form"
 import Modal from "../../../../ui/shared/modal/modal"
 import PotForm from "./pot-form"
-import { useModal } from "@/src/hooks/useModal"
-import DeleteForm from "../../../../ui/shared/modal/delete-form"
-import { usePotCardContext } from "@/src/context/pots-context"
 
 export default function PotsEllipsisList() {
   const { data } = usePotCardContext()

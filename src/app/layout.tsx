@@ -1,6 +1,6 @@
+import { publicSans } from "@/ui/fonts"
 import type { Metadata } from "next"
 import "../styles/globals.css"
-import { publicSans } from "@/src/ui/fonts"
 
 export const metadata: Metadata = {
   title: "Finance Wizard",

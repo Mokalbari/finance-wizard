@@ -1,11 +1,11 @@
 "use client"
 
+import { ColorPalette } from "@/lib/definitions"
+import { colorPalette } from "@/lib/placeholder-data"
+import AddButton from "@/ui/shared/atoms/add-button"
+import ColorDot from "@/ui/shared/atoms/color-dot"
+import Dropdown from "@/ui/shared/atoms/dropdown"
 import { useState } from "react"
-import { colorPalette } from "@/src/lib/placeholder-data"
-import { ColorPalette } from "@/src/lib/definitions"
-import ColorDot from "@/src/ui/shared/atoms/color-dot"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import Dropdown from "@/src/ui/shared/atoms/dropdown"
 import { createNewPot, updatePot } from "../actions"
 
 type Props = {

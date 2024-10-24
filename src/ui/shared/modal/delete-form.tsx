@@ -1,5 +1,5 @@
-import { deleteBudget } from "@/src/app/(main)/budget/actions"
-import { deletePot } from "@/src/app/(main)/pots/actions"
+import { deleteBudget } from "@/app/(main)/budget/actions"
+import { deletePot } from "@/app/(main)/pots/actions"
 
 type Props = {
   close: () => void

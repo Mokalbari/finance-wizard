@@ -1,9 +1,9 @@
 "use client"
 
-import { usePotCardContext } from "@/src/context/pots-context"
-import { useModal } from "@/src/hooks/useModal"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import Modal from "@/src/ui/shared/modal/modal"
+import { usePotCardContext } from "@/context/pots-context"
+import { useModal } from "@/hooks/useModal"
+import AddButton from "@/ui/shared/atoms/add-button"
+import Modal from "@/ui/shared/modal/modal"
 import { useRef } from "react"
 import PotsBalanceForm from "./pots-balance-form"
 

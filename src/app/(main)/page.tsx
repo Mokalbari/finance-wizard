@@ -12,7 +12,7 @@ import {
   fetchPotsOverview,
 } from "./actions"
 
-import { fetchRecurringBills, fetchUsersFinance } from "@/src/lib/actions"
+import { fetchRecurringBills, fetchUsersFinance } from "@/lib/actions"
 
 export default async function Home() {
   const [

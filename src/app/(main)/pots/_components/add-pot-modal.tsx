@@ -1,9 +1,9 @@
 "use client"
 
-import { useModal } from "@/src/hooks/useModal"
-import AddButton from "@/src/ui/shared/atoms/add-button"
-import PageTitle from "@/src/ui/shared/atoms/page-title"
-import Modal from "@/src/ui/shared/modal/modal"
+import { useModal } from "@/hooks/useModal"
+import AddButton from "@/ui/shared/atoms/add-button"
+import PageTitle from "@/ui/shared/atoms/page-title"
+import Modal from "@/ui/shared/modal/modal"
 import { useRef } from "react"
 import PotForm from "./pot-form"
 

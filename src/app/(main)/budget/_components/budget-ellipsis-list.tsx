@@ -1,11 +1,11 @@
 "use client"
 
+import BudgetForm from "@/app/(main)/budget/_components/budget-form"
+import { useBudgetCardContext } from "@/context/budget-context"
+import { useModal } from "@/hooks/useModal"
 import { useRef } from "react"
-import Modal from "../../../../ui/shared/modal/modal"
-import BudgetForm from "@/src/app/(main)/budget/_components/budget-form"
-import { useModal } from "@/src/hooks/useModal"
 import DeleteForm from "../../../../ui/shared/modal/delete-form"
-import { useBudgetCardContext } from "@/src/context/budget-context"
+import Modal from "../../../../ui/shared/modal/modal"
 
 export default function BudgetEllipsisList() {
   const { data } = useBudgetCardContext()

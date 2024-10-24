@@ -1,8 +1,8 @@
-import DropdownMenu from "@/src/ui/shared/table/dropdown-menu"
-import { sortByArray } from "@/src/lib/placeholder-data"
-import { createNewSetFromObjKey } from "@/src/lib/functions"
+import { createNewSetFromObjKey } from "@/lib/functions"
+import { sortByArray } from "@/lib/placeholder-data"
+import Search from "@/ui/shared/atoms/search"
+import DropdownMenu from "@/ui/shared/table/dropdown-menu"
 import { fetchCategories } from "../actions"
-import Search from "@/src/ui/shared/atoms/search"
 
 export default async function TableHead() {
   const categories = await fetchCategories()

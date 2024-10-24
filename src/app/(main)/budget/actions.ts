@@ -1,13 +1,10 @@
 "use server"
 
-import { z } from "zod"
-import {
-  BudgetCardLatestTransactions,
-  BudgetCardType,
-} from "@/src/lib/definitions"
+import { BudgetCardLatestTransactions, BudgetCardType } from "@/lib/definitions"
 import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+import { z } from "zod"
 
 // GET
 

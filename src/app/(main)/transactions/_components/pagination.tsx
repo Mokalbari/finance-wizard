@@ -1,12 +1,12 @@
 "use client"
 
-import Link from "next/link"
-import CaretLeft from "@/src/ui/icons/icon-caret-left.svg"
-import CaretRight from "@/src/ui/icons/icon-caret-right.svg"
-import { usePathname, useSearchParams } from "next/navigation"
-import { generatePagination } from "@/src/lib/functions"
+import useScreenSize from "@/hooks/useScreenSize"
+import { generatePagination } from "@/lib/functions"
+import CaretLeft from "@/ui/icons/icon-caret-left.svg"
+import CaretRight from "@/ui/icons/icon-caret-right.svg"
 import clsx from "clsx"
-import useScreenSize from "@/src/hooks/useScreenSize"
+import Link from "next/link"
+import { usePathname, useSearchParams } from "next/navigation"
 
 type Props = {
   totalPages: number

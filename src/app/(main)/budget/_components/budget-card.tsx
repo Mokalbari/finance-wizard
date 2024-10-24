@@ -1,4 +1,4 @@
-import { BudgetCardType } from "@/src/lib/definitions"
+import { BudgetCardType } from "@/lib/definitions"
 import { fetchLatestTransactionsOnBudgetCard } from "../actions"
 import BudgetCardHeader from "./budget-card-header"
 import ProgressBar from "./progress-bar"

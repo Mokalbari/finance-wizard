@@ -1,5 +1,5 @@
 "use server"
-import { FormState } from "@/src/lib/definitions"
+import { FormState } from "@/lib/definitions"
 import { z } from "zod"
 
 const SignupFormSchema = z.object({

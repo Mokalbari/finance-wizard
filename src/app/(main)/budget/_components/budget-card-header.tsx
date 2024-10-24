@@ -1,8 +1,8 @@
-import ColorDot from "@/src/ui/shared/atoms/color-dot"
-import CardTitle from "@/src/ui/shared/atoms/card-title"
+import CardTitle from "@/ui/shared/atoms/card-title"
+import ColorDot from "@/ui/shared/atoms/color-dot"
 
-import { ColorPaletteHex } from "@/src/lib/definitions"
-import EllipsisButton from "@/src/ui/shared/atoms/ellipsis-button"
+import { ColorPaletteHex } from "@/lib/definitions"
+import EllipsisButton from "@/ui/shared/atoms/ellipsis-button"
 import BudgetEllipsisList from "./budget-ellipsis-list"
 
 type Props = {

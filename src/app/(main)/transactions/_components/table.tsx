@@ -1,6 +1,6 @@
-import ProfileBadge from "@/src/ui/shared/atoms/profile-badge"
-import AmountBadge from "@/src/ui/shared/atoms/amount-badge"
-import { formatDate, getBadgeColor } from "@/src/lib/functions"
+import { formatDate, getBadgeColor } from "@/lib/functions"
+import AmountBadge from "@/ui/shared/atoms/amount-badge"
+import ProfileBadge from "@/ui/shared/atoms/profile-badge"
 import { fetchTransactions } from "../actions"
 
 type Props = {

@@ -1,5 +1,5 @@
-import { ColorPaletteHex } from "@/src/lib/definitions"
-import { getPercentage } from "@/src/lib/functions"
+import { ColorPaletteHex } from "@/lib/definitions"
+import { getPercentage } from "@/lib/functions"
 
 type Props = {
   theme: ColorPaletteHex

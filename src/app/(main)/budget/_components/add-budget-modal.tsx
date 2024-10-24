@@ -1,10 +1,10 @@
 "use client"
 
+import { useModal } from "@/hooks/useModal"
+import AddButton from "@/ui/shared/atoms/add-button"
+import Modal from "@/ui/shared/modal/modal"
 import { useRef } from "react"
-import Modal from "@/src/ui/shared/modal/modal"
-import AddButton from "@/src/ui/shared/atoms/add-button"
 import BudgetForm from "./budget-form"
-import { useModal } from "@/src/hooks/useModal"
 
 export default function AddBudgetModal() {
   const modalRef = useRef<HTMLDialogElement>(null)

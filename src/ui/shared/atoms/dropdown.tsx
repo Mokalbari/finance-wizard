@@ -1,6 +1,6 @@
 "use client"
+import CaretDown from "@/ui/icons/icon-caret-down.svg"
 import { useState } from "react"
-import CaretDown from "@/src/ui/icons/icon-caret-down.svg"
 
 type DropdownProps<T> = {
   label: string

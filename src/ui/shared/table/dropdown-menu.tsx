@@ -1,18 +1,18 @@
 "use client"
 
 // Hooks
+import { useClickAway } from "@/hooks/useClickAway"
+import { useDropdown } from "@/hooks/useDropdown"
+import useScreenSize from "@/hooks/useScreenSize"
 import { useRef } from "react"
-import useScreenSize from "@/src/hooks/useScreenSize"
-import { useClickAway } from "@/src/hooks/useClickAway"
-import { useDropdown } from "@/src/hooks/useDropdown"
 
 // Components
 import DesktopDropdown from "./desktop-dropdown"
-import MobileButton from "./mobile-button"
 import DropdownMenuItems from "./dropdown-menu-items"
+import MobileButton from "./mobile-button"
 
 // Types
-import type { SortBy } from "@/src/lib/definitions"
+import type { SortBy } from "@/lib/definitions"
 
 type Props = {
   title: "Sort by" | "Category"

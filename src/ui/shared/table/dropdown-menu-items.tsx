@@ -1,6 +1,6 @@
+import type { SortBy } from "@/lib/definitions"
 import clsx from "clsx"
-import { useSearchParams, usePathname, useRouter } from "next/navigation"
-import type { SortBy } from "@/src/lib/definitions"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 type Props = {
   data: SortBy[] | string[]

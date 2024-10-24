@@ -1,5 +1,5 @@
+import BillIcon from "@/ui/icons/icon-recurring-bills.svg"
 import clsx from "clsx"
-import BillIcon from "@/src/ui/icons/icon-recurring-bills.svg"
 // type Props = {}
 
 export default function TotalBillsCard() {

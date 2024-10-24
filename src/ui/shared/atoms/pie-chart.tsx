@@ -1,6 +1,6 @@
 "use client"
 
-import { BudgetOverview } from "@/src/lib/definitions"
+import { BudgetOverview } from "@/lib/definitions"
 import { ArcElement, Chart, Legend, Tooltip, TooltipItem } from "chart.js"
 import { Doughnut } from "react-chartjs-2"
 

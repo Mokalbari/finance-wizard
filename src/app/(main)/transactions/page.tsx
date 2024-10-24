@@ -1,7 +1,7 @@
-import PageTitle from "@/src/ui/shared/atoms/page-title"
+import PageTitle from "@/ui/shared/atoms/page-title"
 import Pagination from "./_components/pagination"
 
-import { SortBy } from "@/src/lib/definitions"
+import { SortBy } from "@/lib/definitions"
 import Table from "./_components/table"
 import TableHead from "./_components/table-head"
 import { fetchTotalPages } from "./actions"

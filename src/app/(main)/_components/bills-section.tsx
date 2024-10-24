@@ -1,5 +1,5 @@
-import type { RecurringBillsOverview } from "@/src/lib/definitions"
-import { reduceSum, sortBills } from "@/src/lib/functions"
+import type { RecurringBillsOverview } from "@/lib/definitions"
+import { reduceSum, sortBills } from "@/lib/functions"
 import BillBadge from "./bill-badge"
 import CardHeader from "./card-header"
 

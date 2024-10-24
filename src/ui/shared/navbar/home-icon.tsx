@@ -1,4 +1,4 @@
-import { SVGProps } from "@/src/lib/definitions"
+import { SVGProps } from "@/lib/definitions"
 
 export default function HomeIcon({ sizes = "24", className }: SVGProps) {
   return (

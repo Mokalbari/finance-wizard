@@ -1,5 +1,5 @@
-import { PotsCardType } from "@/src/lib/definitions"
-import { getPercentage } from "@/src/lib/functions"
+import { PotsCardType } from "@/lib/definitions"
+import { getPercentage } from "@/lib/functions"
 import PotsProgressBar from "./pots-progress-bar"
 
 import PotsBalanceButton from "./pots-balance-button"

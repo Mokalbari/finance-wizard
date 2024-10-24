@@ -1,8 +1,8 @@
-import { formatNumberToString, reduceSumFromArray } from "@/src/lib/functions"
+import { BudgetCardType } from "@/lib/definitions"
+import { formatNumberToString, reduceSumFromArray } from "@/lib/functions"
+import CardTitle from "@/ui/shared/atoms/card-title"
+import PieChart from "@/ui/shared/atoms/pie-chart"
 import clsx from "clsx"
-import { BudgetCardType } from "@/src/lib/definitions"
-import PieChart from "@/src/ui/shared/atoms/pie-chart"
-import CardTitle from "@/src/ui/shared/atoms/card-title"
 
 type Props = {
   data: BudgetCardType[]

@@ -1,4 +1,4 @@
-import { RecurringBills } from "@/src/lib/definitions"
+import { RecurringBills } from "@/lib/definitions"
 import { sql } from "@vercel/postgres"
 
 export const fetchRecurringBills = async (query: string) => {

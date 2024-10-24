@@ -1,6 +1,6 @@
 // type Props = {}
 
-import { LatestTransactions } from "@/src/lib/definitions"
+import { LatestTransactions } from "@/lib/definitions"
 import CardHeader from "./card-header"
 import TransactionBadge from "./transaction-badge"
 

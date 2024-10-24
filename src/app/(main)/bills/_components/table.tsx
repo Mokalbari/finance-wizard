@@ -1,9 +1,9 @@
+import { formatNumberToString, isDueSoon, isPaid } from "@/lib/functions"
+import DueIcon from "@/ui/icons/icon-bill-due.svg"
+import CheckIcon from "@/ui/icons/icon-bill-paid.svg"
+import clsx from "clsx"
 import Image from "next/image"
 import { fetchRecurringBills } from "../actions"
-import clsx from "clsx"
-import { formatNumberToString, isDueSoon, isPaid } from "@/src/lib/functions"
-import CheckIcon from "@/src/ui/icons/icon-bill-paid.svg"
-import DueIcon from "@/src/ui/icons/icon-bill-due.svg"
 
 type Props = {
   query: string

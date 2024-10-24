@@ -16,6 +16,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-chartjs2": "^1.2.1",
     "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4",
     "use-debounce": "^10.0.4",
     "zod": "^3.23.8"
   },

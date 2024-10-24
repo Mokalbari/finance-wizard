@@ -1,4 +1,4 @@
-import { BillsSortingOptions, ColorPaletteHex } from "@/src/lib/definitions"
+import { BillsSortingOptions, ColorPaletteHex } from "@/lib/definitions"
 
 type Props = {
   borderColor: ColorPaletteHex

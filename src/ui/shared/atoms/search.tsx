@@ -1,9 +1,9 @@
 "use client"
 
-import { useSearchParams, usePathname, useRouter } from "next/navigation"
-import { useDebouncedCallback } from "use-debounce"
+import IconSearch from "@/ui/icons/icon-search.svg"
 import clsx from "clsx"
-import IconSearch from "@/src/ui/icons/icon-search.svg"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useDebouncedCallback } from "use-debounce"
 
 type Props = {
   placeholder: string

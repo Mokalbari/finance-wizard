@@ -1,6 +1,6 @@
-import Pots from "@/src/ui/icons/icon-pot.svg"
+import { PotsOverview } from "@/lib/definitions"
+import Pots from "@/ui/icons/icon-pot.svg"
 import CardHeader from "./card-header"
-import { PotsOverview } from "@/src/lib/definitions"
 type Props = {
   data: PotsOverview[]
 }

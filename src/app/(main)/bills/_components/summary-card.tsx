@@ -1,8 +1,8 @@
 // type Props = {}
 
-import { fetchRecurringBills } from "@/src/lib/actions"
-import { reduceSum, sortBills } from "@/src/lib/functions"
-import CardTitle from "@/src/ui/shared/atoms/card-title"
+import { fetchRecurringBills } from "@/lib/actions"
+import { reduceSum, sortBills } from "@/lib/functions"
+import CardTitle from "@/ui/shared/atoms/card-title"
 
 export default async function SummaryCard() {
   const recurringBills = await fetchRecurringBills()

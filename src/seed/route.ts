@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt"
+import { budgets, pots, transactions } from "@/lib/placeholder-data"
 import { db } from "@vercel/postgres"
-import { transactions, pots, budgets } from "@/src/lib/placeholder-data"
+import bcrypt from "bcrypt"
 
 const client = await db.connect()
 

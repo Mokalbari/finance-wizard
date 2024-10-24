@@ -1,7 +1,7 @@
 "use client"
 
 // Hooks
-import useScreenSize from "@/src/hooks/useScreenSize"
+import useScreenSize from "@/hooks/useScreenSize"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 

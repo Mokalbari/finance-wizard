@@ -1,5 +1,5 @@
-import { Categories, LatestTransactions } from "@/src/lib/definitions"
-import {} from "@/src/lib/functions"
+import { Categories, LatestTransactions } from "@/lib/definitions"
+import {} from "@/lib/functions"
 import { sql } from "@vercel/postgres"
 
 const ITEMS_PER_PAGE = 10
