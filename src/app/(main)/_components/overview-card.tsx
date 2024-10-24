@@ -1,27 +1,18 @@
 type Props = { isFirst: boolean; title: string; cur: string }
 
-import clsx from "clsx"
+import { cn } from "@/helpers/style"
 
 export default function OverviewCard({ isFirst, title, cur }: Props) {
   return (
     <div
-      className={clsx(
-        "flex flex-col gap-3 rounded-lg p-5",
+      className={cn(
+        "flex flex-col gap-3 rounded-lg bg-white p-5 text-grey-900",
         {
           "bg-grey-900 text-white": isFirst,
         },
-        { "bg-white text-grey-900": !isFirst },
       )}
     >
-      <span
-        className={clsx(
-          "text-sm",
-          {
-            "text-grey-500": !isFirst,
-          },
-          { "text-white": isFirst },
-        )}
-      >
+      <span className={cn("text-sm text-grey-500", { "text-white": isFirst })}>
         {title}
       </span>
       <span className="text-xl font-bold">{cur}</span>

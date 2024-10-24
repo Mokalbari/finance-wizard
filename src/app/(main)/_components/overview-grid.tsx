@@ -1,3 +1,4 @@
+import { cn } from "@/helpers/style"
 import OverviewCard from "./overview-card"
 
 type Props = {
@@ -14,7 +15,7 @@ export default function OverviewGrid({ className, data }: Props) {
 
   return (
     <ul
-      className={`grid gap-4 sm:auto-cols-fr sm:grid-flow-col ${className || ""}`}
+      className={cn("grid gap-4 sm:auto-cols-fr sm:grid-flow-col", className)}
     >
       {currentInfo.map(item => (
         <li key={item.id}>
