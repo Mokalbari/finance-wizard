@@ -1,7 +1,7 @@
 "use client"
 
+import Ellipsis from "@/assets/icons/icon-ellipsis.svg"
 import { useClickAway } from "@/hooks/useClickAway"
-import Ellipsis from "@/ui/icons/icon-ellipsis.svg"
 import { ReactNode, useRef, useState } from "react"
 
 type Props = {

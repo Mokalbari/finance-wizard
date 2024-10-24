@@ -1,4 +1,4 @@
-import PageTitle from "../../ui/shared/atoms/page-title"
+import PageTitle from "@/components/ui/page-title"
 import BillsSection from "./_components/bills-section"
 import BudgetSection from "./_components/budget-section"
 import CardLayout from "./_components/card-layout"

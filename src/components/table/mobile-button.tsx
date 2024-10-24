@@ -1,5 +1,5 @@
-import FilterIcon from "@/ui/icons/icon-filter-mobile.svg"
-import SortIcon from "@/ui/icons/icon-sort-mobile.svg"
+import FilterIcon from "@/assets/icons/icon-filter-mobile.svg"
+import SortIcon from "@/assets/icons/icon-sort-mobile.svg"
 
 type Props = {
   title: "Sort by" | "Category"

@@ -1,4 +1,4 @@
-import CloseIcon from "@/ui/icons/icon-close-modal.svg"
+import CloseIcon from "@/assets/icons/icon-close-modal.svg"
 import { forwardRef, ReactNode } from "react"
 
 type Props = {

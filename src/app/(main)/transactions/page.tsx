@@ -1,4 +1,4 @@
-import PageTitle from "@/ui/shared/atoms/page-title"
+import PageTitle from "@/components/ui/page-title"
 import Pagination from "./_components/pagination"
 
 import { SortBy } from "@/lib/definitions"

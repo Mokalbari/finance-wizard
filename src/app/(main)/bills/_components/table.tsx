@@ -1,6 +1,6 @@
+import DueIcon from "@/assets/icons/icon-bill-due.svg"
+import CheckIcon from "@/assets/icons/icon-bill-paid.svg"
 import { formatNumberToString, isDueSoon, isPaid } from "@/lib/functions"
-import DueIcon from "@/ui/icons/icon-bill-due.svg"
-import CheckIcon from "@/ui/icons/icon-bill-paid.svg"
 import clsx from "clsx"
 import Image from "next/image"
 import { fetchRecurringBills } from "../actions"

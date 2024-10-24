@@ -1,4 +1,4 @@
-import Navbar from "../../ui/shared/navbar/navbar"
+import Navbar from "../../components/navbar/navbar"
 
 export default function DashboardLayout({
   children,

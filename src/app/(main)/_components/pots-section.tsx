@@ -1,5 +1,5 @@
+import IconPot from "@/assets/icons/icon-pot.svg"
 import { PotsOverview } from "@/lib/definitions"
-import Pots from "@/ui/icons/icon-pot.svg"
 import CardHeader from "./card-header"
 type Props = {
   data: PotsOverview[]
@@ -12,7 +12,7 @@ export default function PotsSection({ data }: Props) {
       <CardHeader cardTitle="Pots" linkText="See Details" href="/pots" />
       <div className="sm:flex sm:gap-5">
         <div className="mt-5 flex items-center gap-4 rounded-lg bg-beige-100 px-5 py-6 sm:basis-1/3">
-          <Pots />
+          <IconPot />
           <div className="flex flex-col">
             <span className="text-sm text-grey-500">Total Saved</span>
             <span className="text-xl font-bold">$ {totalSaved}</span>

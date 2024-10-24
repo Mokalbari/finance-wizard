@@ -1,5 +1,5 @@
-import AmountBadge from "@/ui/shared/atoms/amount-badge"
-import ProfileBadge from "@/ui/shared/atoms/profile-badge"
+import AmountBadge from "@/components/ui/amount-badge"
+import ProfileBadge from "@/components/ui/profile-badge"
 
 type Props = {
   imgSrc: string

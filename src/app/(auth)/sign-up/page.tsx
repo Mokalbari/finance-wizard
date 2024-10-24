@@ -1,6 +1,6 @@
 // type Props = {}
 
-import AuthentificationForm from "@/ui/shared/authentification/authentification-form"
+import AuthentificationForm from "@/components/authentification/authentification-form"
 import SignupFormField from "./_components/signup-form-field"
 
 export default function Page() {

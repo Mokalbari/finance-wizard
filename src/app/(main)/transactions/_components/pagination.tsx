@@ -1,9 +1,9 @@
 "use client"
 
+import CaretLeft from "@/assets/icons/icon-caret-left.svg"
+import CaretRight from "@/assets/icons/icon-caret-right.svg"
 import useScreenSize from "@/hooks/useScreenSize"
 import { generatePagination } from "@/lib/functions"
-import CaretLeft from "@/ui/icons/icon-caret-left.svg"
-import CaretRight from "@/ui/icons/icon-caret-right.svg"
 import clsx from "clsx"
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"

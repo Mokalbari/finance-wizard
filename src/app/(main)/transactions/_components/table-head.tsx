@@ -1,7 +1,7 @@
+import DropdownMenu from "@/components/table/dropdown-menu"
+import Search from "@/components/ui/search"
 import { createNewSetFromObjKey } from "@/lib/functions"
 import { sortByArray } from "@/lib/placeholder-data"
-import Search from "@/ui/shared/atoms/search"
-import DropdownMenu from "@/ui/shared/table/dropdown-menu"
 import { fetchCategories } from "../actions"
 
 export default async function TableHead() {

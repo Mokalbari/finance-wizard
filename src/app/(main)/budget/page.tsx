@@ -1,5 +1,5 @@
+import PageTitle from "@/components/ui/page-title"
 import BudgetCardProvider from "@/context/budget-context"
-import PageTitle from "@/ui/shared/atoms/page-title"
 import AddBudgetModal from "./_components/add-budget-modal"
 import BudgetCard from "./_components/budget-card"
 import BudgetPieChart from "./_components/budget-pie-chart"

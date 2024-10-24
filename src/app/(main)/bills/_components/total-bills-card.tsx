@@ -1,4 +1,4 @@
-import BillIcon from "@/ui/icons/icon-recurring-bills.svg"
+import BillIcon from "@/assets/icons/icon-recurring-bills.svg"
 import clsx from "clsx"
 // type Props = {}
 

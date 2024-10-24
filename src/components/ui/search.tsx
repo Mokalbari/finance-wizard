@@ -1,6 +1,6 @@
 "use client"
 
-import IconSearch from "@/ui/icons/icon-search.svg"
+import IconSearch from "@/assets/icons/icon-search.svg"
 import clsx from "clsx"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useDebouncedCallback } from "use-debounce"

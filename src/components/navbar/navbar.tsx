@@ -1,22 +1,20 @@
 "use client"
 
-// Hooks
 import useScreenSize from "@/hooks/useScreenSize"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
-// Utils
-import clsx from "clsx"
+import { cn } from "@/helpers/style"
 import Link from "next/link"
 
-// Icons - SVG
-import Arrow from "../../icons/icon-minimize-menu.svg"
-import Logo from "../atoms/logo"
-import BillIcon from "./bill-icon"
-import BudgetIcon from "./budget-icon"
-import HomeIcon from "./home-icon"
-import PotIcon from "./pots-icon"
-import TransactionIcon from "./transaction-icon"
+import Arrow from "@/assets/icons/icon-minimize-menu.svg"
+import IconBudgets from "@/assets/icons/icon-nav-budgets.svg"
+import IconOverview from "@/assets/icons/icon-nav-overview.svg"
+import IconPots from "@/assets/icons/icon-nav-pots.svg"
+import IconRecurringBills from "@/assets/icons/icon-nav-recurring-bills.svg"
+import IconTransactions from "@/assets/icons/icon-nav-transactions.svg"
+import Logo from "@/components/ui/logo"
+import clsx from "clsx"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(true)
@@ -32,56 +30,61 @@ export default function Navbar() {
       id: 1,
       path: "/",
       text: "Overview",
-      icon:
-        pathname === "/" ? (
-          <HomeIcon className="fill-green" />
-        ) : (
-          <HomeIcon className="fill-grey-300" />
-        ),
+      icon: (
+        <IconOverview
+          className={cn("size-6 fill-grey-300", {
+            "fill-green": pathname === "/",
+          })}
+        />
+      ),
     },
     {
       id: 2,
       path: "/transactions",
       text: "Transactions",
-      icon:
-        pathname === "/transactions" ? (
-          <TransactionIcon className="fill-green" />
-        ) : (
-          <TransactionIcon className="fill-grey-300" />
-        ),
+      icon: (
+        <IconTransactions
+          className={cn("size-6 fill-grey-300", {
+            "fill-green": pathname === "/transactions",
+          })}
+        />
+      ),
     },
     {
       id: 3,
       path: "/budget",
       text: "Budget",
-      icon:
-        pathname === "/budget" ? (
-          <BudgetIcon className="fill-green" />
-        ) : (
-          <BudgetIcon className="fill-grey-300" />
-        ),
+      icon: (
+        <IconBudgets
+          className={cn("size-6 fill-grey-300", {
+            "fill-green": pathname === "/budgets",
+          })}
+        />
+      ),
     },
     {
       id: 4,
       path: "/pots",
       text: "Pots",
-      icon:
-        pathname === "/pots" ? (
-          <PotIcon className="fill-green" />
-        ) : (
-          <PotIcon className="fill-grey-300" />
-        ),
+      icon: (
+        <IconPots
+          className={cn("size-6 fill-grey-300", {
+            "fill-green": pathname === "/pots",
+          })}
+        />
+      ),
     },
     {
       id: 5,
       path: "/bills",
       text: "Recurring bills",
-      icon:
-        pathname === "/bills" ? (
-          <BillIcon className="fill-green" />
-        ) : (
-          <BillIcon className="fill-grey-300" />
-        ),
+      icon: (
+        <IconRecurringBills
+          className={cn("size-6 fill-grey-300", {
+            "fill-green": pathname === "/bills",
+          })}
+        />
+      ),
     },
   ]
 

@@ -1,5 +1,5 @@
 "use client"
-import CaretDown from "@/ui/icons/icon-caret-down.svg"
+import CaretDown from "@/assets/icons/icon-caret-down.svg"
 import { useState } from "react"
 
 type DropdownProps<T> = {

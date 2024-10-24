@@ -1,10 +1,10 @@
 "use client"
 
+import AddButton from "@/components/ui/add-button"
+import ColorDot from "@/components/ui/color-dot"
+import Dropdown from "@/components/ui/dropdown"
 import { ColorPalette } from "@/lib/definitions"
 import { colorPalette } from "@/lib/placeholder-data"
-import AddButton from "@/ui/shared/atoms/add-button"
-import ColorDot from "@/ui/shared/atoms/color-dot"
-import Dropdown from "@/ui/shared/atoms/dropdown"
 import { useState } from "react"
 import { createNewPot, updatePot } from "../actions"
 

@@ -1,6 +1,6 @@
+import DropdownMenu from "@/components/table/dropdown-menu"
+import Search from "@/components/ui/search"
 import { sortByArray } from "@/lib/placeholder-data"
-import Search from "@/ui/shared/atoms/search"
-import DropdownMenu from "@/ui/shared/table/dropdown-menu"
 
 export default async function TableHead() {
   return (

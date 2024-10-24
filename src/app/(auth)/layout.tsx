@@ -1,5 +1,5 @@
-import Logo from "@/ui/shared/atoms/logo"
-import FinanceHeader from "@/ui/shared/authentification/finance-header"
+import FinanceHeader from "@/components/authentification/finance-header"
+import Logo from "@/components/ui/logo"
 import Image from "next/image"
 
 export default function AuthLayout({

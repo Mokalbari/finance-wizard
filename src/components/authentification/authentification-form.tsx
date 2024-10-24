@@ -1,8 +1,8 @@
 "use client"
 
 import { ReactNode } from "react"
-import AddButton from "../atoms/add-button"
-import PageTitle from "../atoms/page-title"
+import AddButton from "../ui/add-button"
+import PageTitle from "../ui/page-title"
 
 type Props = {
   isSigningUp: boolean

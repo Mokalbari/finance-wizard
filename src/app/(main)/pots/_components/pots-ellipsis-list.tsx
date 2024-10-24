@@ -3,8 +3,8 @@
 import { usePotCardContext } from "@/context/pots-context"
 import { useModal } from "@/hooks/useModal"
 import { useRef } from "react"
-import DeleteForm from "../../../../ui/shared/modal/delete-form"
-import Modal from "../../../../ui/shared/modal/modal"
+import DeleteForm from "../../../../components/modal/delete-form"
+import Modal from "../../../../components/modal/modal"
 import PotForm from "./pot-form"
 
 export default function PotsEllipsisList() {

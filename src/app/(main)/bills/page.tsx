@@ -1,6 +1,6 @@
 // type Props = {}
 
-import PageTitle from "@/ui/shared/atoms/page-title"
+import PageTitle from "@/components/ui/page-title"
 import SummaryCard from "./_components/summary-card"
 import Table from "./_components/table"
 import TableHead from "./_components/table-head"
