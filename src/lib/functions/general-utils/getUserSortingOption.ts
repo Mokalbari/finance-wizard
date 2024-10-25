@@ -1,4 +1,4 @@
-import type { Transaction } from "@/lib/db/db-types"
+import type { Transaction } from "@/lib/types/db-types"
 import type { SortBy } from "@/lib/types/definitions"
 
 export const getUserSortingOption = (

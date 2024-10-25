@@ -3,16 +3,18 @@ import CheckIcon from "@/assets/icons/icon-bill-paid.svg"
 import { isDueSoon } from "@/lib/functions/date/isDueSoon"
 import { isPaid } from "@/lib/functions/date/isPaid"
 import { formatNumberToString } from "@/lib/functions/general-utils/functions"
+import type { SortBy } from "@/lib/types/definitions"
 import clsx from "clsx"
 import Image from "next/image"
 import { fetchRecurringBills } from "../actions"
 
 type Props = {
   query: string
+  sort: SortBy
 }
 
-export default async function Table({ query }: Props) {
-  const recurringBills = await fetchRecurringBills(query)
+export default async function Table({ query, sort }: Props) {
+  const recurringBills = await fetchRecurringBills(query, sort)
 
   const getIcon = (targetDate: Date) => {
     if (isPaid(targetDate)) {

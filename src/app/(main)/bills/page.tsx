@@ -1,6 +1,7 @@
 // type Props = {}
 
 import PageTitle from "@/components/ui/page-title"
+import type { SortBy } from "@/lib/types/definitions"
 import SummaryCard from "./_components/summary-card"
 import Table from "./_components/table"
 import TableHead from "./_components/table-head"
@@ -11,8 +12,10 @@ export default function Page({
 }: {
   searchParams?: {
     query?: string
+    sort?: SortBy
   }
 }) {
+  const currentSortingOption = searchParams?.sort ?? "Latest"
   const currentQuery = searchParams?.query || ""
 
   return (
@@ -28,7 +31,7 @@ export default function Page({
         <main className="lg:w-2/3">
           <div className="mb-32 mt-6 rounded-lg bg-white px-5 py-6 sm:p-8 lg:mb-12 lg:mt-0">
             <TableHead />
-            <Table query={currentQuery} />
+            <Table query={currentQuery} sort={currentSortingOption} />
           </div>
         </main>
       </div>
