@@ -15,7 +15,7 @@ export default function Page({
     sort?: SortBy
   }
 }) {
-  const currentSortingOption = searchParams?.sort ?? "Latest"
+  const currentSortingOption = searchParams?.sort ?? "Oldest"
   const currentQuery = searchParams?.query || ""
 
   return (
