@@ -1,48 +1,45 @@
-import { Categories, LatestTransactions } from "@/lib/definitions"
-import {} from "@/lib/functions"
+import { Database } from "@/lib/db/types"
+import { Categories, SortBy } from "@/lib/definitions"
+import { getUserSortingOption } from "@/lib/functions"
 import { sql } from "@vercel/postgres"
+import { createKysely } from "@vercel/postgres-kysely"
 
 const ITEMS_PER_PAGE = 10
 
+const db = createKysely<Database>()
+
 export const fetchTransactions = async (
   category: string = "All transactions",
-  query: string,
+  userQuery: string,
+  sorting: SortBy,
   currentPage: number = 1,
 ) => {
+  const isCategoryAll = (category: string) => category === "All transactions"
   const offset = (currentPage - 1) * ITEMS_PER_PAGE
+  const { col, direction } = getUserSortingOption(sorting)
 
-  if (category !== "All transactions") {
-    const result = await sql<LatestTransactions>`
-        SELECT
-          id,
-          name,
-          avatar,
-          category,
-          date,
-          amount
-        FROM transactions
-        WHERE
-          category ILIKE ${`%${category}%`} AND
-          name ILIKE ${`%${query}%`}
-        LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
-      `
-    return result.rows
-  } else {
-    const result = await sql<LatestTransactions>`
-        SELECT
-          id,
-          name,
-          avatar,
-          category,
-          date,
-          amount
-        FROM transactions
-        WHERE
-          name ILIKE ${`%${query}%`}
-        LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
-      `
-    return result.rows
+  let query = db
+    .selectFrom("transactions")
+    .select(["id", "name", "avatar", "category", "date", "amount"])
+    .orderBy(col, direction)
+    .limit(ITEMS_PER_PAGE)
+    .offset(offset)
+
+  if (!isCategoryAll(category)) {
+    query = query.where("category", "=", category)
   }
+
+  if (userQuery) {
+    query = query.where("name", "=", userQuery)
+  }
+
+  const rawQuery = await query.execute()
+  const data = rawQuery.map(query => ({
+    ...query,
+    amount: parseFloat(query.amount),
+  }))
+
+  return data
 }
 
 export const fetchCategories = async () => {

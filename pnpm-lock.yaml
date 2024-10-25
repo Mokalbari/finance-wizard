@@ -11,9 +11,15 @@ importers:
       '@vercel/postgres':
         specifier: ^0.10.0
         version: 0.10.0
+      '@vercel/postgres-kysely':
+        specifier: ^0.10.0
+        version: 0.10.0(kysely@0.27.4)
       chart.js:
         specifier: ^4.4.5
         version: 4.4.5
+      kysely:
+        specifier: ^0.27.4
+        version: 0.27.4
       next:
         specifier: 14.2.7
         version: 14.2.7(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1004,6 +1010,12 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
+  '@vercel/postgres-kysely@0.10.0':
+    resolution: {integrity: sha512-X1kjLBvjLzE2gdWYSAxFWiRj9SxLYQWZFqIhzNVGG1VqJ8ROxoGiYhPPJrmIC+XACwDuK4SVB0EbFTEcaeO/pQ==}
+    engines: {node: '>=18.14'}
+    peerDependencies:
+      kysely: ^0.24.2 || ^0.25.0 || ^0.26.0 || ^0.27.0
+
   '@vercel/postgres@0.10.0':
     resolution: {integrity: sha512-fSD23DxGND40IzSkXjcFcxr53t3Tiym59Is0jSYIFpG4/0f0KO9SGtcp1sXiebvPaGe7N/tU05cH4yt2S6/IPg==}
     engines: {node: '>=18.14'}
@@ -1906,6 +1918,10 @@ packages:
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
+
+  kysely@0.27.4:
+    resolution: {integrity: sha512-dyNKv2KRvYOQPLCAOCjjQuCk4YFd33BvGdf/o5bC7FiW+BB6snA81Zt+2wT9QDFzKqxKa5rrOmvlK/anehCcgA==}
+    engines: {node: '>=14.0.0'}
 
   language-subtag-registry@0.3.23:
     resolution: {integrity: sha512-0K65Lea881pHotoGEa5gDlMxt3pctLi2RplBb7Ezh4rRdLEOtgi7n4EwK9lamnUCkKBqaeKRVebTq6BAxSkpXQ==}
@@ -3839,6 +3855,13 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
+  '@vercel/postgres-kysely@0.10.0(kysely@0.27.4)':
+    dependencies:
+      '@vercel/postgres': 0.10.0
+      kysely: 0.27.4
+    transitivePeerDependencies:
+      - utf-8-validate
+
   '@vercel/postgres@0.10.0':
     dependencies:
       '@neondatabase/serverless': 0.9.5
@@ -4953,6 +4976,8 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
+
+  kysely@0.27.4: {}
 
   language-subtag-registry@0.3.23: {}
 
