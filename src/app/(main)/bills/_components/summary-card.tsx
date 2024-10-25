@@ -4,7 +4,7 @@ import { reduceSum } from "@/lib/functions/object-manipulation/reduceSum"
 import { fetchRecurringBills } from "../actions"
 
 export default async function SummaryCard() {
-  const recurringBills = await fetchRecurringBills("")
+  const recurringBills = await fetchRecurringBills("", "Oldest")
   const { paid, upcoming, dueSoon } = sortBills(
     recurringBills,
     new Date("2024-07-28"),
