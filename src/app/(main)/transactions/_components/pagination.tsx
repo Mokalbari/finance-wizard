@@ -1,12 +1,11 @@
 "use client"
 
-import CaretLeft from "@/assets/icons/icon-caret-left.svg"
-import CaretRight from "@/assets/icons/icon-caret-right.svg"
 import { cn } from "@/helpers/style"
 import useScreenSize from "@/hooks/useScreenSize"
 import { generatePagination } from "@/lib/functions/general-utils/generatePagination"
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
+import NavButton from "./nav-button"
 
 type Props = {
   totalPages: number
@@ -28,12 +27,12 @@ export default function Pagination({ totalPages }: Props) {
 
   return (
     <div className="mt-6 flex justify-between text-sm">
-      <button className="flex items-center gap-4 rounded-lg border border-grey-900 bg-white px-5 py-3">
-        <span>
-          <CaretLeft />
-        </span>
-        <span className="max-sm:hidden">Prev</span>
-      </button>
+      <NavButton
+        createPageUrl={createPageURL}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        direction="left"
+      />
 
       <div className="flex gap-2">
         {allPages.map(page => (
@@ -49,12 +48,13 @@ export default function Pagination({ totalPages }: Props) {
           </Link>
         ))}
       </div>
-      <button className="flex items-center gap-4 rounded-lg border border-grey-900 bg-white px-5 py-3">
-        <span className="max-sm:hidden">Next</span>
-        <span>
-          <CaretRight />
-        </span>
-      </button>
+
+      <NavButton
+        createPageUrl={createPageURL}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        direction="right"
+      />
     </div>
   )
 }
