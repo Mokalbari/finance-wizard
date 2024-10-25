@@ -30,10 +30,10 @@ export const fetchTransactions = async (
   }
 
   if (userQuery) {
-    query = query.where("name", "=", userQuery)
+    query = query.where("name", "ilike", `%${userQuery}%`)
   }
-
   const rawQuery = await query.execute()
+
   const data = rawQuery.map(query => ({
     ...query,
     amount: parseFloat(query.amount),
