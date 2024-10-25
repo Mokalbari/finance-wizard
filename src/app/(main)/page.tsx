@@ -27,7 +27,7 @@ export default async function Home() {
     fetchPotsOverview(),
     fetchLatestTransactions(),
     fetchBudgetOverview(),
-    fetchRecurringBills(""),
+    fetchRecurringBills("", "Latest"),
   ])
 
   const sections = [
