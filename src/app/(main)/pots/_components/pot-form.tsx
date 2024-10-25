@@ -3,8 +3,8 @@
 import AddButton from "@/components/ui/add-button"
 import ColorDot from "@/components/ui/color-dot"
 import Dropdown from "@/components/ui/dropdown"
-import { ColorPalette } from "@/lib/definitions"
 import { colorPalette } from "@/lib/placeholder-data"
+import type { ColorPalette } from "@/lib/types/definitions"
 import { useState } from "react"
 import { createNewPot, updatePot } from "../actions"
 

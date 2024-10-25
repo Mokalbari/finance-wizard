@@ -1,9 +1,8 @@
-import { PotsCardType } from "@/lib/definitions"
-import { getPercentage } from "@/lib/functions"
-import PotsProgressBar from "./pots-progress-bar"
-
+import { getPercentage } from "@/lib/functions/general-utils/functions"
+import type { PotsCardType } from "@/lib/types/definitions"
 import PotsBalanceButton from "./pots-balance-button"
 import PotsCardHeader from "./pots-card-header"
+import PotsProgressBar from "./pots-progress-bar"
 
 type Props = {
   data: PotsCardType

@@ -1,7 +1,8 @@
-import type { RecurringBillsOverview } from "@/lib/definitions"
-import { reduceSum, sortBills } from "@/lib/functions"
+import type { RecurringBillsOverview } from "@/lib/types/definitions"
 import BillBadge from "./bill-badge"
 import CardHeader from "./card-header"
+import { sortBills } from "@/lib/functions/general-utils/sortBills"
+import { reduceSum } from "@/lib/functions/object-manipulation/reduceSum"
 
 type Props = {
   data: RecurringBillsOverview[]

@@ -1,5 +1,5 @@
 import { cn } from "@/helpers/style"
-import { ButtonHTMLAttributes } from "react"
+import type { ButtonHTMLAttributes } from "react"
 
 type Props = {
   isBlack: boolean

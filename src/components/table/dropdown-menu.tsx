@@ -12,7 +12,7 @@ import DropdownMenuItems from "./dropdown-menu-items"
 import MobileButton from "./mobile-button"
 
 // Types
-import type { SortBy } from "@/lib/definitions"
+import type { SortBy } from "@/lib/types/definitions"
 
 type Props = {
   title: "Sort by" | "Category"

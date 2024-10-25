@@ -1,5 +1,5 @@
 import CaretDown from "@/assets/icons/icon-caret-down.svg"
-import { Links } from "@/lib/definitions"
+import type { Links } from "@/lib/types/definitions"
 import Link from "next/link"
 
 type Props = { text: string; href: Links }

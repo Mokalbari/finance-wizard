@@ -1,4 +1,4 @@
-import { SortBy } from "@/lib/definitions"
+import type { SortBy } from "@/lib/types/definitions"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 type Props = {

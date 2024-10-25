@@ -1,9 +1,9 @@
 import { sql } from "@vercel/postgres"
-import {
+import type {
   BudgetOverview,
   LatestTransactions,
   PotsOverview,
-} from "../../lib/definitions"
+} from "../../lib/types/definitions"
 
 export const fetchPotsOverview = async () => {
   try {

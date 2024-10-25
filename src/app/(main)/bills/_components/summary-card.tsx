@@ -1,9 +1,10 @@
 import CardTitle from "@/components/ui/card-title"
-import { fetchRecurringBills } from "@/lib/actions"
-import { reduceSum, sortBills } from "@/lib/functions"
+import { sortBills } from "@/lib/functions/general-utils/sortBills"
+import { reduceSum } from "@/lib/functions/object-manipulation/reduceSum"
+import { fetchRecurringBills } from "../actions"
 
 export default async function SummaryCard() {
-  const recurringBills = await fetchRecurringBills()
+  const recurringBills = await fetchRecurringBills("")
   const { paid, upcoming, dueSoon } = sortBills(
     recurringBills,
     new Date("2024-07-28"),

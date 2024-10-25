@@ -1,5 +1,6 @@
 import CloseIcon from "@/assets/icons/icon-close-modal.svg"
-import { forwardRef, ReactNode } from "react"
+import type { ReactNode } from "react";
+import { forwardRef } from "react"
 
 type Props = {
   modalTitle: string

@@ -1,6 +1,7 @@
 import CaretRight from "@/assets/icons/icon-caret-right.svg"
-import type { BudgetCardLatestTransactions } from "@/lib/definitions"
-import { formatDate, formatNumberToString } from "@/lib/functions"
+import { formatDate } from "@/lib/functions/date/formatDate"
+import { formatNumberToString } from "@/lib/functions/general-utils/functions"
+import type { BudgetCardLatestTransactions } from "@/lib/types/definitions"
 import Image from "next/image"
 
 type Props = {

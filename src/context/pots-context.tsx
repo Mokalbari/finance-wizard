@@ -1,7 +1,8 @@
 "use client"
 
-import { createContext, useContext, ReactNode } from "react"
-import { PotsCardType } from "../lib/definitions"
+import type { ReactNode} from "react";
+import { createContext, useContext } from "react"
+import type { PotsCardType } from "../lib/types/definitions"
 
 interface PotCardContextType {
   data: PotsCardType

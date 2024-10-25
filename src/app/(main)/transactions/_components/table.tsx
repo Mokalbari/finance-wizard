@@ -1,7 +1,8 @@
 import AmountBadge from "@/components/ui/amount-badge"
 import ProfileBadge from "@/components/ui/profile-badge"
-import { SortBy } from "@/lib/definitions"
-import { formatDate, getBadgeColor } from "@/lib/functions"
+import { formatDate } from "@/lib/functions/date/formatDate"
+import { getBadgeColor } from "@/lib/functions/general-utils/functions"
+import type { SortBy } from "@/lib/types/definitions"
 import { fetchTransactions } from "../actions"
 
 type Props = {

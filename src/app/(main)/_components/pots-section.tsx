@@ -1,5 +1,5 @@
 import IconPot from "@/assets/icons/icon-pot.svg"
-import { PotsOverview } from "@/lib/definitions"
+import type { PotsOverview } from "@/lib/types/definitions"
 import CardHeader from "./card-header"
 type Props = {
   data: PotsOverview[]

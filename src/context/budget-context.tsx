@@ -1,7 +1,8 @@
 "use client"
 
-import { createContext, useContext, ReactNode } from "react"
-import { BudgetCardType } from "../lib/definitions"
+import type { ReactNode} from "react";
+import { createContext, useContext } from "react"
+import type { BudgetCardType } from "../lib/types/definitions"
 
 interface BudgetCardContextType {
   data: BudgetCardType

@@ -1,7 +1,7 @@
 "use server"
 
-import { fetchUsersFinance } from "@/lib/actions"
-import { PotsCardType } from "@/lib/definitions"
+import { fetchUsersFinance } from "@/lib/db/fetchUsersFinance"
+import type { PotsCardType } from "@/lib/types/definitions"
 import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"

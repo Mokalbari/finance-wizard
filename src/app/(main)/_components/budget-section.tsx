@@ -1,6 +1,6 @@
 import PieChart from "@/components/ui/pie-chart"
-import { BudgetOverview } from "@/lib/definitions"
-import { reduceSumFromArray } from "@/lib/functions"
+import { reduceSumFromArray } from "@/lib/functions/object-manipulation/reduceSumFromArray"
+import type { BudgetOverview } from "@/lib/types/definitions"
 import CardHeader from "./card-header"
 
 type Props = {

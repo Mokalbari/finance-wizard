@@ -1,7 +1,8 @@
 import CardTitle from "@/components/ui/card-title"
 import PieChart from "@/components/ui/pie-chart"
-import { BudgetCardType } from "@/lib/definitions"
-import { formatNumberToString, reduceSumFromArray } from "@/lib/functions"
+import { formatNumberToString } from "@/lib/functions/general-utils/functions"
+import { reduceSumFromArray } from "@/lib/functions/object-manipulation/reduceSumFromArray"
+import type { BudgetCardType } from "@/lib/types/definitions"
 import clsx from "clsx"
 
 type Props = {

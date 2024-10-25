@@ -1,6 +1,6 @@
-import { Database } from "@/lib/db/types"
-import { Categories, SortBy } from "@/lib/definitions"
-import { getUserSortingOption } from "@/lib/functions"
+import type { Database } from "@/lib/db/db-types"
+import { getUserSortingOption } from "@/lib/functions/general-utils/getUserSortingOption"
+import type { Categories, SortBy } from "@/lib/types/definitions"
 import { sql } from "@vercel/postgres"
 import { createKysely } from "@vercel/postgres-kysely"
 

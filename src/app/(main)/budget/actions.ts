@@ -1,6 +1,9 @@
 "use server"
 
-import { BudgetCardLatestTransactions, BudgetCardType } from "@/lib/definitions"
+import type {
+  BudgetCardLatestTransactions,
+  BudgetCardType,
+} from "@/lib/types/definitions"
 import { sql } from "@vercel/postgres"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"

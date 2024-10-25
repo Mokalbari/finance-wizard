@@ -1,8 +1,8 @@
+import { formatDate } from "@/lib/functions/date/formatDate"
 import {
-  formatDate,
-  formatNumberToString,
   getBadgeColor,
-} from "@/lib/functions"
+  formatNumberToString,
+} from "@/lib/functions/general-utils/functions"
 
 type Props = {
   amount: number

@@ -13,5 +13,9 @@ module.exports = {
   rules: {
     "no-console": ["error", { allow: ["warn", "error", "info"] }],
     eqeqeq: ["error", "always"],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { prefer: "type-imports" },
+    ],
   },
 }

@@ -1,5 +1,5 @@
 import CardTitle from "@/components/ui/card-title"
-import { Links } from "@/lib/definitions"
+import type { Links } from "@/lib/types/definitions"
 import OpenLink from "./open-link"
 
 type Props = {

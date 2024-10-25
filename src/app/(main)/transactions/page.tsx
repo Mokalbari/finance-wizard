@@ -1,7 +1,7 @@
 import PageTitle from "@/components/ui/page-title"
 import Pagination from "./_components/pagination"
 
-import { SortBy } from "@/lib/definitions"
+import type { SortBy } from "@/lib/types/definitions"
 import Table from "./_components/table"
 import TableHead from "./_components/table-head"
 import { fetchTotalPages } from "./actions"

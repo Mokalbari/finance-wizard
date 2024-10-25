@@ -4,7 +4,7 @@ import CaretLeft from "@/assets/icons/icon-caret-left.svg"
 import CaretRight from "@/assets/icons/icon-caret-right.svg"
 import { cn } from "@/helpers/style"
 import useScreenSize from "@/hooks/useScreenSize"
-import { generatePagination } from "@/lib/functions"
+import { generatePagination } from "@/lib/functions/general-utils/generatePagination"
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
 

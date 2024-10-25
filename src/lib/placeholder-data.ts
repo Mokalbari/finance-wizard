@@ -1,4 +1,4 @@
-import type { ColorPaletteObj, SortBy } from "./definitions"
+import type { ColorPaletteObj, SortBy } from "./types/definitions"
 
 export const transactions = [
   {

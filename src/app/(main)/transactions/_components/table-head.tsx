@@ -1,8 +1,8 @@
 import DropdownMenu from "@/components/table/dropdown-menu"
 import Search from "@/components/ui/search"
-import { createNewSetFromObjKey } from "@/lib/functions"
 import { sortByArray } from "@/lib/placeholder-data"
 import { fetchCategories } from "../actions"
+import { createNewSetFromObjKey } from "@/lib/functions/object-manipulation/createNewSetFromObjKey"
 
 export default async function TableHead() {
   const categories = await fetchCategories()

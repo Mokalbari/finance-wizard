@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode } from "react"
+import type { ReactNode } from "react"
 import AddButton from "../ui/add-button"
 import PageTitle from "../ui/page-title"
 

@@ -1,5 +1,5 @@
 import { cn } from "@/helpers/style"
-import type { SortBy } from "@/lib/definitions"
+import type { SortBy } from "@/lib/types/definitions"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 type Props = {

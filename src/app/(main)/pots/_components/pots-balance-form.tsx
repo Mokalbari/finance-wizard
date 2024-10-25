@@ -3,9 +3,10 @@
 import AddButton from "@/components/ui/add-button"
 import { usePotCardContext } from "@/context/pots-context"
 import { cn } from "@/helpers/style"
-import { getPercentage } from "@/lib/functions"
+
 import { useEffect, useState } from "react"
 import { addMoneyToPot, removeMoneyFromPot } from "../actions"
+import { getPercentage } from "@/lib/functions/general-utils/functions"
 
 type Props = {
   isAdding: boolean

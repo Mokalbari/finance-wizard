@@ -1,7 +1,8 @@
 "use client"
 
-import { BudgetOverview } from "@/lib/definitions"
-import { ArcElement, Chart, Legend, Tooltip, TooltipItem } from "chart.js"
+import type { BudgetOverview } from "@/lib/types/definitions"
+import type { TooltipItem } from "chart.js";
+import { ArcElement, Chart, Legend, Tooltip } from "chart.js"
 import { Doughnut } from "react-chartjs-2"
 
 Chart.register(ArcElement, Tooltip, Legend)

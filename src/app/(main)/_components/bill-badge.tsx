@@ -1,6 +1,6 @@
 import { cn } from "@/helpers/style"
-import { BillsSortingOptions } from "@/lib/definitions"
-import { LiHTMLAttributes } from "react"
+import type { BillsSortingOptions } from "@/lib/types/definitions"
+import type { LiHTMLAttributes } from "react"
 
 type Props = {
   sortingOption: BillsSortingOptions

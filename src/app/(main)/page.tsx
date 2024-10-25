@@ -12,7 +12,8 @@ import {
   fetchPotsOverview,
 } from "./actions"
 
-import { fetchRecurringBills, fetchUsersFinance } from "@/lib/actions"
+import { fetchUsersFinance } from "@/lib/db/fetchUsersFinance"
+import { fetchRecurringBills } from "./bills/actions"
 
 export default async function Home() {
   const [
@@ -26,7 +27,7 @@ export default async function Home() {
     fetchPotsOverview(),
     fetchLatestTransactions(),
     fetchBudgetOverview(),
-    fetchRecurringBills(),
+    fetchRecurringBills(""),
   ])
 
   const sections = [
