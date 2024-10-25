@@ -1,5 +1,6 @@
 import AmountBadge from "@/components/ui/amount-badge"
 import ProfileBadge from "@/components/ui/profile-badge"
+import { SortBy } from "@/lib/definitions"
 import { formatDate, getBadgeColor } from "@/lib/functions"
 import { fetchTransactions } from "../actions"
 
@@ -7,10 +8,21 @@ type Props = {
   category: string
   query: string
   currentPage: number
+  sort: SortBy
 }
 
-export default async function Table({ category, currentPage, query }: Props) {
-  const transactions = await fetchTransactions(category, query, currentPage)
+export default async function Table({
+  category,
+  currentPage,
+  query,
+  sort,
+}: Props) {
+  const transactions = await fetchTransactions(
+    category,
+    query,
+    sort,
+    currentPage,
+  )
 
   return (
     <table className="mt-6 w-full">
